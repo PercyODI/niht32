@@ -1,14 +1,21 @@
 <?php
+// I don't like how this works. Will need to find a better system!!
+
 if($users !== FALSE) {
     echo <<<HTML
-    
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-        </tr>
+    <div class="container">
+    <div class="row">
+    <br>
+    <table border="1" class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
 HTML;
 
     if(is_array($users) && count($users)) {
@@ -33,7 +40,10 @@ HTML;
 HTML;
     }
     echo <<<HTML
+        </tbody>
     </table>
+    </div>
+    </div>
 HTML;
 } else {
     echo <<<HTML

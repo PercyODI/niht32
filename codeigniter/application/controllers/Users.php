@@ -19,6 +19,12 @@ class Users extends CI_CONTROLLER {
         $data = array(
             "users" => $this->user_factory->getUser($userId)
         );
-        $this->load->view("show_users", $data);
+        if($data['users']) {
+            $this->load->view("templates/header", $data);
+            $this->load->view("users/show_users", $data);
+            $this->load->view("templates/footer", $data);
+        } else {
+            show_404();
+        }
     }
 }
