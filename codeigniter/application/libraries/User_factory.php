@@ -2,7 +2,7 @@
 
 if( ! defined("BASEPATH")) exit("No direct script access allowed");
 
-class UserFactory {
+class User_factory {
     private $_ci;
     
     function __construct() {
@@ -33,10 +33,11 @@ class UserFactory {
     }
     
     public function createObjectFromData($row) {
-        $user = new User_Model();
+        $user = new User_model();
         $user->setId($row->id);
         $user->setFname($row->fname);
         $user->setLname($row->lname);
         $user->setUsername($row->username);
+        return $user;
     }
 }

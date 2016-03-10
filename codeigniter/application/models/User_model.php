@@ -1,13 +1,13 @@
 <?php
 
-class User_Model extends CI_MODEL {
+class User_model extends CI_MODEL {
     private $_id;
     private $_fname;
     private $_lname;
     private $_username;
  
     function __construct() {
-        parent::__construct();
+        $this->load->database();
     }    
     
     public function getId() {
