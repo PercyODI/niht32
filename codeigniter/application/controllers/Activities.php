@@ -1,7 +1,7 @@
 <?php
 if(! defined("BASEPATH")) exit("No direct script access allowed");
 
-class Activities extends CI_CONTROLLER {
+class Activities extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model("activity_model", "activity");
@@ -16,7 +16,7 @@ class Activities extends CI_CONTROLLER {
         if($activityId > 0) {
             $data = $this->activity->get($activityId);
         } else {
-            $data = $this->activity->get_all();
+            $data = $this->activity->get_by_like("name", "se");
         }
         var_dump($data);
     }
