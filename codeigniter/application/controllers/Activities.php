@@ -4,7 +4,7 @@ if(! defined("BASEPATH")) exit("No direct script access allowed");
 class Activities extends CI_CONTROLLER {
     public function __construct() {
         parent::__construct();
-        $this->load->model("activity_model");
+        $this->load->model("activity_model", "activity");
     }   
     
     public function index() {
@@ -13,10 +13,10 @@ class Activities extends CI_CONTROLLER {
     
     public function show($activityId = 0) {
         $activityId = (int)$activityId;
-        if($activity > 0) {
-            $data = array("activity" => $this->activity_model->getActivityById($activityId));
+        if($activityId > 0) {
+            $data = $this->activity->get($activityId);
         } else {
-            $data = Activity_model::getAllActivities();
+            $data = $this->activity->get_all();
         }
         var_dump($data);
     }
