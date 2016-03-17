@@ -151,7 +151,6 @@ class MY_Controller extends CI_Controller {
 
         // Build our notices from the theme's view file.
         $data['notice'] = $this->load->view('theme/notice', array('notice' => $this->message()), TRUE);
-
         // We'll make the view content available to the template.
         $data['view_content'] = $this->load->view($view, $data, TRUE);
 
