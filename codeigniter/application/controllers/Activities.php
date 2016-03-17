@@ -16,8 +16,10 @@ class Activities extends MY_Controller {
         if($activityId > 0) {
             $data = $this->activity->get($activityId);
         } else {
-            $data = $this->activity->get_by_like("name", "se");
+            $data = $this->activity->get_all();
         }
-        var_dump($data);
+        $dataTest = array();
+        $dataTest['varExport'] = $data;
+        $this->render(var_export($dataTest, true));
     }
 }
