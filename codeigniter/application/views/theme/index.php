@@ -28,14 +28,14 @@
 	                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
 	            </div>
 	          <!--logo start-->
-	          <a href="i<?= base_url() ?>" class="logo"><b>NIH T-32</b></a>
+	          <a href="<?= base_url() ?>" class="logo"><b>NIH T-32</b></a>
 	          <!--logo end-->
 	          <div class="nav notify-row" id="top_menu">
 	              <!--  notification start -->
 	              <ul class="nav top-menu">
 	                  <!-- settings start -->
 	                  <li class="dropdown">
-	                      <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+	                      <a data-toggle="dropdown" class="dropdown-toggle" href="<?= base_url() ?>">
 	                          <i class="fa fa-tasks"></i>
 	                          <span class="badge bg-theme">4</span>
 	                      </a>
@@ -45,7 +45,7 @@
 	                              <p class="green">You have 4 pending tasks</p>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
+	                              <a href="<?= base_url() ?>">
 	                                  <div class="task-info">
 	                                      <div class="desc">DashGum Admin Panel</div>
 	                                      <div class="percent">40%</div>
@@ -58,7 +58,7 @@
 	                              </a>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
+	                              <a href="<?= base_url() ?>">
 	                                  <div class="task-info">
 	                                      <div class="desc">Database Update</div>
 	                                      <div class="percent">60%</div>
@@ -71,7 +71,7 @@
 	                              </a>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
+	                              <a href="<?= base_url() ?>">
 	                                  <div class="task-info">
 	                                      <div class="desc">Product Development</div>
 	                                      <div class="percent">80%</div>
@@ -84,7 +84,7 @@
 	                              </a>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
+	                              <a href="<?= base_url() ?>">
 	                                  <div class="task-info">
 	                                      <div class="desc">Payments Sent</div>
 	                                      <div class="percent">70%</div>
@@ -104,7 +104,7 @@
 	                  <!-- settings end -->
 	                  <!-- inbox dropdown start-->
 	                  <li id="header_inbox_bar" class="dropdown">
-	                      <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+	                      <a data-toggle="dropdown" class="dropdown-toggle" href="<?= base_url() ?>">
 	                          <i class="fa fa-envelope-o"></i>
 	                          <span class="badge bg-theme">5</span>
 	                      </a>
@@ -114,8 +114,8 @@
 	                              <p class="green">You have 5 new messages</p>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
-	                                  <span class="photo"><img alt="avatar" src="assets/img/ui-zac.jpg"></span>
+	                              <a href="<?= base_url() ?>">
+	                                  <span class="photo img-circle"><img alt="avatar" src="http://csfinance.org/wp-content/uploads/2015/03/Profile-Pic-Circle.jpg"></span>
 	                                  <span class="subject">
 	                                  <span class="from">Zac Snider</span>
 	                                  <span class="time">Just now</span>
@@ -126,8 +126,8 @@
 	                              </a>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
-	                                  <span class="photo"><img alt="avatar" src="assets/img/ui-divya.jpg"></span>
+	                              <a href="<?= base_url() ?>">
+	                                  <span class="photo img-circle"><img alt="avatar" src="http://static1.squarespace.com/static/51215365e4b06840010aca1a/t/544c5849e4b060cd11fec582/1414289524202/profile-pic-circle.png"></span>
 	                                  <span class="subject">
 	                                  <span class="from">Divya Manian</span>
 	                                  <span class="time">40 mins.</span>
@@ -138,8 +138,8 @@
 	                              </a>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
-	                                  <span class="photo"><img alt="avatar" src="assets/img/ui-danro.jpg"></span>
+	                              <a href="<?= base_url() ?>">
+	                                  <span class="photo img-circle"><img alt="avatar" src="http://flamingonest.com/images/donatbalipapp_profile_circle.png"></span>
 	                                  <span class="subject">
 	                                  <span class="from">Dan Rogers</span>
 	                                  <span class="time">2 hrs.</span>
@@ -150,8 +150,8 @@
 	                              </a>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">
-	                                  <span class="photo"><img alt="avatar" src="assets/img/ui-sherman.jpg"></span>
+	                              <a href="<?= base_url() ?>">
+	                                  <span class="img-circle photo"><img alt="avatar" src="http://weavinginfluence.com/wp-content/uploads/2015/10/image003.jpg"></span>
 	                                  <span class="subject">
 	                                  <span class="from">Dj Sherman</span>
 	                                  <span class="time">4 hrs.</span>
@@ -162,7 +162,7 @@
 	                              </a>
 	                          </li>
 	                          <li>
-	                              <a href="index.html#">See all messages</a>
+	                              <a href="<?= base_url() ?>">See all messages</a>
 	                          </li>
 	                      </ul>
 	                  </li>

@@ -17,9 +17,9 @@ class Activities extends MY_Controller {
             $data = $this->activity->get($activityId);
         } else {
             $data = $this->activity->get_all();
+            // echo var_dump($data);
         }
-        $dataTest = array();
-        $dataTest['varExport'] = $data;
-        $this->render(var_export($dataTest, true));
+        $this->set_var("table", $data);
+        $this->render();
     }
 }
