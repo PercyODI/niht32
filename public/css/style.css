@@ -991,6 +991,7 @@ PANELS CONFIGURATIONS
 .pn {
 	height: 250px;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+	overflow: auto;
 }
 
 .pn:hover {
