@@ -63,6 +63,16 @@
 	                        <span>Dashboard</span>
 	                    </a>
 	                </li>
+	                
+	                <li class="sub-menu">
+	                	<a href="javascript:;">
+		                	<i class="fa fa-user"></i>
+		                	<span>Students</span>
+		                </a>
+		                <ul class="sub">
+		                	<li><a href="<?= base_url('users/show') ?>">View All Students</a></li>
+		                </ul>
+	                </li>
 
 	                <li class="sub-menu">
 	                    <a href="javascript:;" >
@@ -95,7 +105,7 @@
 	                        <li><a  href="#">View My Data Carpentry</a></li>
 	                        <li><a  href="#">View My Software Carpentry</a></li>
 	                        <li><a  href="#">View Data Carpentry</a></li>
-	                        <li><a  href="#">View Software Carpentry</a></li>
+	                        <li><a  href="<?= base_url('software_carpentries/show') ?>">View Software Carpentry</a></li>
 	                    </ul>
 	                </li>
 	                <li class="sub-menu">
