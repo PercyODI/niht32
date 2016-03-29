@@ -104,7 +104,7 @@
 	                    <ul class="sub">
 	                        <li><a  href="#">View My Data Carpentry</a></li>
 	                        <li><a  href="#">View My Software Carpentry</a></li>
-	                        <li><a  href="#">View Data Carpentry</a></li>
+	                        <li><a  href="<?= base_url('data_carpentries/show') ?>">View Data Carpentry</a></li>
 	                        <li><a  href="<?= base_url('software_carpentries/show') ?>">View Software Carpentry</a></li>
 	                    </ul>
 	                </li>
