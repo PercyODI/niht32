@@ -1,3 +1,4 @@
+<h3><i class="fa fa-angle-right"></i>Activities Testing</h3>
 <?php
 
 foreach($table as $row) {

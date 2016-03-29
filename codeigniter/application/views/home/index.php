@@ -1,1 +1,1 @@
-<h1>Test of the Theme</h1>
+<h3><i class="fa fa-angle-right"></i>Test of the Theme</h3>

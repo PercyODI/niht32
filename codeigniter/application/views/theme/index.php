@@ -118,16 +118,6 @@
 	                        <li><a  href="#">Manage Degree Progress</a></li>
 	                    </ul>
 	                </li>
-	                <li class="sub-graduation-cap">
-	                    <a href="javascript:;" >
-	                        <i class=" fa fa-bar-chart-o"></i>
-	                        <span>Charts</span>
-	                    </a>
-	                    <ul class="sub">
-	                        <li><a  href="morris.html">Morris</a></li>
-	                        <li><a  href="chartjs.html">Chartjs</a></li>
-	                    </ul>
-	                </li>
 
 	            </ul>
 	            <!-- sidebar menu end-->
@@ -141,7 +131,6 @@
 	    <!--main content start-->
 	    <section id="main-content">
 	        <section class="wrapper site-min-height">
-	        	<br>
 	        	<?= $view_content ?>
 			</section><! --/wrapper -->
 	    </section><!-- /MAIN CONTENT -->
