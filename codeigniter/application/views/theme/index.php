@@ -67,20 +67,31 @@
 	                <li class="sub-menu">
 	                	<a href="javascript:;">
 		                	<i class="fa fa-user"></i>
-		                	<span>Students</span>
+		                	<span>Trainees</span>
 		                </a>
 		                <ul class="sub">
-		                	<li><a href="<?= base_url('users/show') ?>">View All Students</a></li>
+		                	<li><a href="<?= base_url('users/show') ?>">View All Trainees</a></li>
 		                </ul>
 	                </li>
 
+					<li class="sub-menu">
+	                	<a href="javascript:;">
+		                	<i class="fa fa-user"></i>
+		                	<span>Staff</span>
+		                </a>
+		                <ul class="sub">
+		                	<li><a href="<?= base_url('participating_researchers/show') ?>">View All Participating Researchers</a></li>
+		                	<li><a href="<?= base_url('training_faculties/show') ?>">View All Training Faculty</a></li>
+		                </ul>
+	                </li>
+	                
 	                <li class="sub-menu">
 	                    <a href="javascript:;" >
 	                        <i class="fa fa-ticket"></i>
 	                        <span>Activities</span>
 	                    </a>
 	                    <ul class="sub">
-	                        <li><a  href="<?= base_url('activities/show') ?>">View Upcomming Activities</a></li>
+	                        <li><a  href="<?= base_url('activities/show') ?>">View Upcoming Activities</a></li>
 	                        <li><a  href="#">View Attended Activities</a></li>
 	                        <li><a  href="#">Manage Activities</a></li>
 	                    </ul>
