@@ -139,6 +139,15 @@
 	                        <li><a  href="#">Manage Degree Progress</a></li>
 	                    </ul>
 	                </li>
+	                <li class="sub-menu">
+	                    <a href="javascript:;" class="<?php if(isset($theme['menu']['ethnicities'])) {echo $theme['menu']['ethnicities'] == true ? 'active' : ''; } ?>">
+	                        <i class="fa fa-users"></i>
+	                        <span>Ethncities</span>
+	                    </a>
+	                    <ul class="sub">
+	                        <li><a href="<?= base_url('ethnicities/show') ?>">Show All</a></li>
+	                    </ul>
+	                </li>
 
 	            </ul>
 	            <!-- sidebar menu end-->
