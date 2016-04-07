@@ -140,9 +140,9 @@
 	                    </ul>
 	                </li>
 	                <li class="sub-menu">
-	                    <a href="javascript:;" class="<?php if(isset($theme['menu']['ethnicities'])) {echo $theme['menu']['ethnicities'] == true ? 'active' : ''; } ?>">
+	                    <a href="javascript:;" class="<?= menu_is_active('ethnicities', $theme) ? 'active' : '' ?>">
 	                        <i class="fa fa-users"></i>
-	                        <span>Ethncities</span>
+	                        <span>Ethnicities</span>
 	                    </a>
 	                    <ul class="sub">
 	                        <li><a href="<?= base_url('ethnicities/show') ?>">Show All</a></li>

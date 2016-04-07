@@ -5,7 +5,7 @@ class Ethnicities extends MY_Controller{
         parent::__construct();
         $this->load->model("ethnicity_model", "ethnicity");
         // $theme_data
-        $this->set_var("theme", $theme['menu']['ethnicities']
+        
     }
     
     public function index() {
@@ -15,6 +15,10 @@ class Ethnicities extends MY_Controller{
     public function show($ethnicityId=0){
         
         $ethnicityId = (int)$ethnicityId;
+        
+        $theme_data = array(
+            'menu' = 'ethnicities'
+        );
         
         if ($ethnicityId>0) {
             $data = $this->ethnicity->get($ethnicityId);

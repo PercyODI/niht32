@@ -153,6 +153,19 @@ class MY_Controller extends CI_Controller {
         $data['notice'] = $this->load->view('theme/notice', array('notice' => $this->message()), TRUE);
         // We'll make the view content available to the template.
         $data['view_content'] = $this->load->view($view, $data, TRUE);
+        
+        // Make base theme array and then merge with default options --PH
+        $defaultThemeOptions = array(
+            'menu' => '',
+            'window_title' => 'NIHT 32 at Mizzou',
+            'title' => 'This is a Title',
+            'subtitle' => 'and here is a subtitle'
+        );
+        if(isset($data['theme'])) {
+            $data['theme'] = array_merge($defaultThemeOptions, $data['theme']);
+        } else {
+            $data['theme'] = $defaultThemeOptions;
+        }
 
         // Render our layout and we're done!
         $layout = empty($this->use_layout) ? 'index' : $this->use_layout;
