@@ -154,13 +154,12 @@ class MY_Controller extends CI_Controller {
         // We'll make the view content available to the template.
         $data['view_content'] = $this->load->view($view, $data, TRUE);
         
-        // Make base theme array and then merge with default options --PH
+        // Set default theme options, then merge with provided theme options.--PH
         $defaultThemeOptions = array(
-            'menu' => '',
-            'window_title' => 'NIHT 32 at Mizzou',
-            'title' => 'This is a Title',
-            'subtitle' => 'and here is a subtitle'
+            'title' => 'Here is a page',
+            'subtitle' => 'with a subtitle',
         );
+        
         if(isset($data['theme'])) {
             $data['theme'] = array_merge($defaultThemeOptions, $data['theme']);
         } else {
