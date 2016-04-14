@@ -168,7 +168,7 @@
                             <p>Fall 2016</p>
                         </div>
                         <div id="leagal_family_name">
-                            <h1>Legal Last</h1>
+                            <h1>Legal Lastname</h1>
                             <p1>Hutson</p1>
                         </div>
                         <div id="">

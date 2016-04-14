@@ -212,6 +212,6 @@ class Trainees extends MY_Controller {
         }
         
         $this->render_json($data);
-    }
+    }*/
     
 }

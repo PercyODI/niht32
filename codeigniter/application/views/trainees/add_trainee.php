@@ -85,7 +85,7 @@
                 <span class="step_no">8</span>
                 <span class="step_descr">
                                   Step 8<br />
-                                  <small>Academic History</small>
+                                  <small>Educational Background</small>
                               </span>
               </a>
             </li>
@@ -607,7 +607,7 @@
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" id="gre_date" name="gre-date" class="form-control date-mask" data-inputmask="'mask': '99/9999'">
+                    <input type="text" id="gre_date" name="gre_date" class="form-control date-mask" data-inputmask="'mask': '99/9999'">
                   </div>
                 </div>
                 <div class="form-group">
@@ -652,8 +652,234 @@
                     <input type="text" id="gre_analytical_writing_percentile" name="gre_analytical_writing_percentile" class="form-control">
                   </div>
                 </div>
-              </div>
+              </div> <!-- /GRE -->
+              <div class="ln_solid "></div>
+              <div class="row">
+                <h3 class="text-center">TOEFL</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_date" name="gre_date" class="form-control date-mask" data-inputmask="'mask': '99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Total Score</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="toefl_score" name="toefl_score"class="form-control">
+                  </div>
+                </div>
+              </div> <!-- /TOEFL -->
+              <div class="ln_solid "></div>
+              <div class="row">
+                <h3 class="text-center">IBT</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibt_reading">Reading</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ibt_reading" name="ibt_reading"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibt_listening">Listening</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ibt_listening" name="ibt_listening"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibt_speaking">Speaking</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ibt_speaking" name="ibt_speaking"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibt_writing">Writing</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ibt_writing" name="ibt_writing"class="form-control">
+                  </div>
+                </div>
+              </div><!-- /IBT -->
+              <div class="ln_solid "></div>
+              <div class="row">
+                <h3 class="text-center">PB</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pb_listening">Listening</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="pb_listening" name="pb_listening"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pb_writing">Writing</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="pb_writing" name="pb_writing"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pb_reading">Reading</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="pb_reading" name="pb_reading"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pb_essay">Essay</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="pb_essay" name="pb_essay"class="form-control">
+                  </div>
+                </div>
+              </div><!-- /PB -->
+              <div class="ln_solid "></div>
+              <div class="row">
+                <h3 class="text-center">IELTS</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ielts_date" name="ielts_date" class="form-control date-mask" data-inputmask="'mask': '99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ielts_score">Score</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ielts_score" name="ielts_score"class="form-control">
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ielts_listening">Listening</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ielts_listening" name="ielts_listening"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ielts_reading">Reading</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ielts_reading" name="ielts_reading"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ielts_writing">Writing</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ielts_writing" name="ielts_writing"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ielts_speaking">Speaking</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="ielts_speaking" name="ielts_speaking"class="form-control">
+                  </div>
+                </div>
+              </div> <!-- /IELTS -->
+              <div class="ln_solid "></div>
+              <div class="row">
+                <h3 class="text-center">MAT</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mat_date" name="mat_date" class="form-control date-mask" data-inputmask="'mask': '99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mat_score">Score</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mat_score" name="mat_score"class="form-control">
+                  </div>
+                </div>
+              </div> <!-- /MAT -->
             </div> <!--Step 7-->
+            
+            <!--Step 8-->
+            <div id="step-8">
+              <h2 class="StepTitle text-center">Educational Background</h2>
+              <div class="row" id="education_background_row">
+                <h3 class="text-center">Current or Most Recent College</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_name">Name</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_name" name="institution_0_name" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_city">City</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_city" name="institution_0_city" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_state">State</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_state" name="institution_0_state" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_country">Country</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_country" name="institution_0_country" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_start_date" name="institution_0_start_date" class="form-control date-mask" data-inputmask="'mask': '99/99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_end_date" name="institution_0_end_date" class="form-control date-mask" data-inputmask="'mask': '99/99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_degree_earned">Degree Earned</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_degree_earned" name="institution_0_degree_earned" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Degree Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_degree_date" name="institution_0_degree_date" class="form-control date-mask" data-inputmask="'mask': '99/99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_overall_gpa">Overall GPA</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_overall_gpa" name="institution_0_overall_gpa" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_major_gpa">Major GPA</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_major_gpa" name="institution_0_major_gpa" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_gpa_scale">GPA Scale</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="institution_0_gpa_scale" name="institution_0_gpa_scale" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div> <!--Step 8-->
             
             
             
@@ -665,6 +891,88 @@
   </div>
 </div>
 
+<!--
+<div 
+  <div class="row" id="education_background_row">
+    <h3 class="text-center">Prior College</h3>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_name">Name</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_name" name="institution_0_name" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_city">City</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_city" name="institution_0_city" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_state">State</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_state" name="institution_0_state" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_country">Country</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_country" name="institution_0_country" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_start_date" name="institution_0_start_date" class="form-control date-mask" data-inputmask="'mask': '99/99/9999'">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_end_date" name="institution_0_end_date" class="form-control date-mask" data-inputmask="'mask': '99/99/9999'">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_degree_earned">Degree Earned</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_degree_earned" name="institution_0_degree_earned" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12">Degree Date</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_degree_date" name="institution_0_degree_date" class="form-control date-mask" data-inputmask="'mask': '99/99/9999'">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_overall_gpa">Overall GPA</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_overall_gpa" name="institution_0_overall_gpa" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_major_gpa">Major GPA</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_major_gpa" name="institution_0_major_gpa" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="institution_0_gpa_scale">GPA Scale</span>
+      </label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="institution_0_gpa_scale" name="institution_0_gpa_scale" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
 <script type="text/javascript">
   $(document).ready(function() {
     // Smart Wizard
@@ -674,5 +982,8 @@
     
   
     $(".date-mask").inputmask();
+    
+    //Educational Background add college
+    
   });
 </script>
