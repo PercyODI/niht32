@@ -31,7 +31,7 @@
                 <span class="step_no">2</span>
                 <span class="step_descr">
                                   Step 2<br />
-                                  <small>Step 2 description</small>
+                                  <small>Mailing Address</small>
                               </span>
               </a>
             </li>
@@ -40,7 +40,7 @@
                 <span class="step_no">3</span>
                 <span class="step_descr">
                                   Step 3<br />
-                                  <small>Step 3 description</small>
+                                  <small>Permanent Address</small>
                               </span>
               </a>
             </li>
@@ -49,7 +49,7 @@
                 <span class="step_no">4</span>
                 <span class="step_descr">
                                   Step 4<br />
-                                  <small>Step 4 description</small>
+                                  <small>Birth and Citizenship</small>
                               </span>
               </a>
             </li>
@@ -99,7 +99,7 @@
               </a>
             </li>
           </ul>
-          <form class="form-horizontal form-label-left" action="POST">
+          <form class="form-horizontal form-label-left" action="POST" id="add_trainee_form">
             <!--Step 1-->
             <div id="step-1">
               <h2 class="StepTitle text-center">Legal Name</h2>
@@ -151,45 +151,254 @@
             
             <!--Step 2-->
             <div id="step-2">
-              <h2 class="StepTitle">Step 2 Content</h2>
-              <p>
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <h2 class="StepTitle text-center">Mailing Address</h2>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Number & Street or RFU No.</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mailing_address_line_1" name="mailing_address_line_1" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Apt. No. or Box No.</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mailing_address_line_2" name="mailing_address_line_2" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">City</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mailing_address_city" name="mailing_address_city" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">County</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mailing_address_county" name="mailing_address_county" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">State or Province</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mailing_address_state" name="mailing_address_state"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ZIP or Postal Code</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mailing_address_zip" name="mailing_address_zip" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Country</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="mailing_address_country" name="mailing_address_country" class="form-control">
+                  </div>
+                </div>
+              </div>
             </div><!--/Step 2-->
             
             <!--Step 3-->
             <div id="step-3">
-              <h2 class="StepTitle">Step 3 Content</h2>
-              <p>
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <h2 class="StepTitle text-center">Permanent Address</h2>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Number & Street or RFU No.</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_line_1" name="permanent_address_line_1" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Apt. No. or Box No.</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_line_2" name="permanent_address_line_2" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">City</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_city" name="permanent_address_city" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">County</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_county" name="permanent_address_county" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">State or Province</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_state" name="permanent_address_state"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">ZIP or Postal Code</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_zip" name="permanent_address_zip" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Country</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_country" name="permanent_address_country" class="form-control">
+                  </div>
+                </div>
+              </div>
             </div> <!--Step 3-->
             
             <!--Step 4-->
             <div id="step-4">
-              <h2 class="StepTitle">Step 4 Content</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              <h2 class="StepTitle text-center">Birth and Citizenship</h2>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Date of Birth</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="date_of_birth" name="date_of_birth" class="form-control date-mask" data-inputmask="'mask': '99/99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">State of Birth</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="state_of_birth" name="state_of_birth" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">City of Birth / Country of Birth</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="city_of_birth" name="city_of_birth" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">U.S. Citizen</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="us_citizen" class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="us_citizen" value="1" checked> &nbsp; Yes &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="us_citizen" value="0">&nbsp; No &nbsp;&nbsp;
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group us-citizen-hide">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Permanent Resident of the U.S.</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="us_permanent_resident" class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="us_permanent_resident" value="1"> &nbsp; Yes &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="us_permanent_resident" value="0" checked="">&nbsp; No &nbsp;&nbsp;
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group us-citizen-hide">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Visa / Immigration Status</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="visa_status" class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="visa_status" value="F-1">&nbsp; F-1 &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="visa_status" value="F-2">&nbsp; F-2 &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="visa_status" value="J-1">&nbsp; J-1 &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="visa_status" value="Refugee">&nbsp; Refugee &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="visa_status" value="Asylee">&nbsp; Asylee &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="visa_status" value="Other">&nbsp; Other &nbsp;
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group visa-status-other-hide">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Other (state visa type)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="visa_status_other" name="visa_status_other" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Missouri Resident</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="missouri_resident" class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="missouri_resident" value="1"> &nbsp; Yes &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="missouri_resident" value="0" checked="">&nbsp; No &nbsp;&nbsp;
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Veteran of the U.S. Armed Forces</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="us_af_veteran" class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="us_af_veteran" value="1"> &nbsp; Yes &nbsp;
+                      </label>
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="us_af_veteran" value="0" checked="">&nbsp; No &nbsp;&nbsp;
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <script>
+                $(document).ready(function() {
+                  $(".us-citizen-hide").hide();
+                  $(".visa-status-other-hide").hide();
+                  
+                  $("#us_citizen input").change(function() {
+                    if($(this).val() == '0') {
+                      $(".us-citizen-hide").slideDown('slow');
+                    } else {
+                      $(".us-citizen-hide").slideUp('slow');
+                    }
+                  })
+                  
+                  $("#visa_status input").change(function() {
+                    if($(this).val() == 'Other') {
+                      $('.visa-status-other-hide').slideDown('slow');
+                    } else {
+                      $(".visa-status-other-hide").slideUp("slow");
+                    }
+                  });
+                  
+                  $(".date-mask").inputmask();
+                });
+                </script>
+              </div>
             </div> <!--/Step 4-->
+            
+            
+            
           </form>
         </div>
         <!-- End SmartWizard Content -->
@@ -201,7 +410,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     // Smart Wizard
-    $('#wizard').smartWizard();
+    $('#wizard').smartWizard({keyNavigation: false, enableAllSteps: true});
     // $('#wizard').smartWizard({onShowStep: onShowStepCallback});
   });
 </script>

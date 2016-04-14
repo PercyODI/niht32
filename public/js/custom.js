@@ -76,6 +76,7 @@ if ($(".progress .progress-bar")[0]) {
 }
 
 // Switchery
+
 if ($(".js-switch")[0]) {
     var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
     elems.forEach(function (html) {

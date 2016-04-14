@@ -22,6 +22,8 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('css/maps/jquery-jvectormap-2.0.3.css') ?>" />
     <link href="<?= base_url('css/icheck/flat/green.css') ?>" rel="stylesheet" />
     <link href="<?= base_url('css/floatexamples.css') ?>" rel="stylesheet" type="text/css" />
+    <!-- switchery -->
+    <link rel="stylesheet" href="<?= base_url('css/switchery/switchery.min.css') ?>" />
 
     <script src="<?= base_url('js/jquery.min.js') ?>"></script>
     <script src="<?= base_url('js/nprogress.js') ?>"></script>
@@ -196,7 +198,7 @@
     <script type="text/javascript" src="<?= base_url('js/moment/moment.min.js') ?>"></script>
     <script type="text/javascript" src="<?= base_url('js/datepicker/daterangepicker.js') ?>"></script>
 
-    <script src="<?= base_url('js/custom.js') ?>"></script>
+    
 
     <!-- flot js -->
     <!--[if lte IE 8]><script type="text/javascript" src="<?= base_url('js/excanvas.min.js') ?>"></script><![endif]-->
@@ -234,8 +236,11 @@
     <script src="<?= base_url('js/input_mask/jquery.inputmask.js') ?>"></script>
     <!-- form wizard -->
     <script type="text/javascript" src="<?= base_url('js/wizard/jquery.smartWizard.js') ?>"></script>
+    <!-- switchery -->
+    <script src="<?= base_url('js/switchery/switchery.min.js') ?>"></script>
     
-    
+    <!--Gentellela Custom JS-->
+    <script src="<?= base_url('js/custom.js') ?>"></script>
     
     <?php
     foreach($external_scripts as $script) {
