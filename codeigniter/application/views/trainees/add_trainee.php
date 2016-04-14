@@ -58,7 +58,7 @@
                 <span class="step_no">5</span>
                 <span class="step_descr">
                                   Step 5<br />
-                                  <small>Step 5 description</small>
+                                  <small>Gender and Ethnicity</small>
                               </span>
               </a>
             </li>
@@ -67,7 +67,7 @@
                 <span class="step_no">6</span>
                 <span class="step_descr">
                                   Step 6<br />
-                                  <small>Step 6 description</small>
+                                  <small>Admissions Information</small>
                               </span>
               </a>
             </li>
@@ -76,7 +76,7 @@
                 <span class="step_no">7</span>
                 <span class="step_descr">
                                   Step 7<br />
-                                  <small>Step 7 description</small>
+                                  <small>Self-Reported Test Scored</small>
                               </span>
               </a>
             </li>
@@ -85,16 +85,7 @@
                 <span class="step_no">8</span>
                 <span class="step_descr">
                                   Step 8<br />
-                                  <small>Step 8 description</small>
-                              </span>
-              </a>
-            </li>
-            <li>
-              <a href="#step-9">
-                <span class="step_no">9</span>
-                <span class="step_descr">
-                                  Step 9<br />
-                                  <small>Step 9 description</small>
+                                  <small>Academic History</small>
                               </span>
               </a>
             </li>
@@ -123,12 +114,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="control-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Other Names</label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="tags_1" type="text" class="tags form-control col-md-7 col-xs-12" value="" />
-                      <div id="suggestions-container" style="position: relative; float: left; margin: 1px;"></div>
-                    </div>
+                  <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Other Names</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="other_names" name="other_names" class="form-control col-md-7 col-xs-12" type="text">
                   </div>
                 </div>
                 <!--<div class="ln_solid row"></div>-->
@@ -390,12 +378,282 @@
                       $(".visa-status-other-hide").slideUp("slow");
                     }
                   });
-                  
-                  $(".date-mask").inputmask();
                 });
                 </script>
               </div>
             </div> <!--/Step 4-->
+            
+            <!--Step 5-->
+            <div id="step-5">
+              <h2 class="StepTitle text-center">Gender and Ethnicity</h2>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="gender" value="Male"> Male
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="gender" value="Female" checked> Female
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Ethnicity</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="ethnicity" value="Hispanic"> Hispanic or Latino
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="ethnicity" value="Non-Hispanic" checked> Non-Hispanic or Non-Latino
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Race</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="flat"  name="race" value="Asian (Other)"> Asian (Other)
+                        </label>
+                      </div>
+                    </div>
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="flat"  name="race" value="White"> White / Caucasian
+                        </label>
+                      </div>
+                    </div>
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="flat"  name="race" value="Hawaiian"> Hawaiian / Pacific Islander
+                        </label>
+                      </div>
+                    </div>
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="flat"  name="race" value="American Indian"> American Indian or Native Alaskan
+                        </label>
+                      </div>
+                    </div>
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="flat"  name="race" value="Black"> Black or African-American
+                        </label>
+                      </div>
+                    </div>
+                    <div id="ethnicity" class="btn-group" data-toggle="buttons">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" class="flat"  name="race" value="Asian"> Asian (included Chineese, Filipino, Japanese, Korean, Thai, and Asian Indian)
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!--Step 5-->
+            
+            <!--Step 6-->
+            <div id="step-6">
+              <h2 class="StepTitle text-center">Admissions Information</h2>
+              <div class="row">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Graduate Program</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="graduate_program" name="graduate_program" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Attendance Status</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="attendance_status" class="btn-group" data-toggle="buttons">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="attendance_status" value="Hispanic"> Full-time
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="attendance_status" value="Non-Hispanic" checked> Part-time
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Interested in an assistantship or fellowship</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div id="assistantship_interest" class="btn-group" data-toggle="buttons">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="assistantship_interest" value="1"> Yes
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" class="flat"  name="assistantship_interest" value="0" checked> No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Expected Term of Entrance</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="permanent_address_county" name="permanent_address_county" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div> <!--/Step 6-->
+            
+            <!--Step 7-->
+            <div id="step-7">
+              <h2 class="StepTitle text-center">Self-Reported Test Scores</h2>
+              <div class="row">
+                <h3 class="text-center">GMAT</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_date" name="gmat_date" class="form-control date-mask" data-inputmask="'mask': '99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Total Score</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_score" name="gmat_score" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Verbal Score (V)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_verbal_score" name="gmat_verbal_score" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Verbal Percentile (V%)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_verbal_percentile" name="gmat_verbal_percentile" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantitative Score (Q)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_quantitative_score" name="gmat_quantitative_score"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantitative Percentile (Q%)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_quantitative_percentile" name="gmat_quantitative_percentile" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Analytical Writing Score AW</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_analytical_writing_score" name="gmat_analytical_writing_score" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Analytical Writing Percentile (AW%)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_analytical_writing_percentile" name="gmat_analytical_writing_percentile" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Integrated Reasoning Score (IR)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_integrated_reasoning_score" name="gmat_integrated_reasoning_score" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Integrated Resoning Percentile (IR%)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gmat_integrated_reasoning_percentile" name="gmat_integrated_reasoning_percentile" class="form-control">
+                  </div>
+                </div>
+              </div> <!-- /GMAT -->
+              <div class="ln_solid "></div>
+              <div class="row">
+                <h3 class="text-center">GRE</h3>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_date" name="gre-date" class="form-control date-mask" data-inputmask="'mask': '99/9999'">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Verbal Score (V)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_verbal_score" name="gre_verbal_score"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Verbal Percentile (V%)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_verbal_percentile" name="gre_verbal_percentile" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantitative Score (Q)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_quantitative_score" name="gre_quantitative_score" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Quantitative Percentile (Q%)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_quantitative_percentile" name="gre_quantitative_percentile"class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Analytical Writing Score (AW)</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_analytical_writing_score" name="gre_analytical_writing_score" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Analytical Writing Percentile</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" id="gre_analytical_writing_percentile" name="gre_analytical_writing_percentile" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div> <!--Step 7-->
             
             
             
@@ -412,5 +670,9 @@
     // Smart Wizard
     $('#wizard').smartWizard({keyNavigation: false, enableAllSteps: true});
     // $('#wizard').smartWizard({onShowStep: onShowStepCallback});
+    
+    
+  
+    $(".date-mask").inputmask();
   });
 </script>
