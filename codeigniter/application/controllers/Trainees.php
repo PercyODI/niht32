@@ -40,6 +40,29 @@ class Trainees extends MY_Controller {
         $this->render();
     }
     
+    public function view_trainees($search = 'null', $offset = 0, $limit = 15) {
+        $this->theme_options = array_merge($this->theme_options, array(
+            'title' => '',
+            'subtitle' => '')
+        );
+        
+        $offset = (int)$offset;
+        $this->load->model('trainee_model', 'trainee');
+        
+        if($search === '' || $search === 'null') {
+            $data = $this->trainee->limit($limit, $offset)->get_all();
+        } else {
+            $data = $this->trainee->limit($limit, $offset)->search($search)->get_all();
+        }
+        
+        $this->set_var('theme', $this->theme_options);
+        $this->set_var('trainees', $data);
+        $this->set_var('offset', $offset);
+        $this->set_var('limit', $limit);
+        $this->set_var('search', $search);
+        $this->render();
+    }
+    
     /*
     public function add_trainee_post() {
         $this->load->library('form_validation');

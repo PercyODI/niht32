@@ -28,4 +28,21 @@ class Trainee_model extends MY_Model {
     public function __construct() {
         parent::__construct();
     }
+    
+    public function get_all_with_offset($offset) {
+        $offset = (int)$offset;
+        
+        $this->_database->offset($offset);
+        $this->_database->limit(15);
+        
+        $this->get_all();
+    }
+    
+    public function search($search) {
+        
+        $this->_database->like('legal_family_name', $search);
+        $this->_database->or_like('legal_first_name', $search);
+        
+        return $this;
+    }
 }

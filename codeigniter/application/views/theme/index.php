@@ -82,6 +82,9 @@
                                         <li>
                                           <a href="<?= base_url('trainees/add_trainee') ?>">Add a Trainee</a>
                                         </li>
+                                        <li>
+                                          <a href="<?= base_url('trainees/view_trainees') ?>">Find a Trainee</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li> 
