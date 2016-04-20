@@ -9,6 +9,7 @@ class Trainees extends MY_Controller {
         parent::__construct();
         // $this->load->model("trainee_model", "trainee");
         $this->load->helper("url_helper");
+        $this->load->model('trainee_model', 'trainee');
         
         $this->theme_options['menu'] = 'trainees';
     }
@@ -31,8 +32,6 @@ class Trainees extends MY_Controller {
     }
     
     public function trainee_profile($traineeId = 1) {
-        $this->load->model('trainee_model', 'trainee');
-        
         $data = $this->trainee->get($traineeId);
         
         $this->set_var('theme', $this->theme_options);
@@ -47,7 +46,6 @@ class Trainees extends MY_Controller {
         );
         
         $offset = (int)$offset;
-        $this->load->model('trainee_model', 'trainee');
         
         if($search === '' || $search === 'null') {
             $data = $this->trainee->limit($limit, $offset)->get_all();
@@ -63,10 +61,29 @@ class Trainees extends MY_Controller {
         $this->render();
     }
     
+    public function view_trainee($traineeId = 0) {
+        $traineeId = (int)$traineeId;
+        if($traineeId < 1) {
+            redirect('/trainees/view_trainees');
+        }
+        
+        
+        
+        $data = $this->trainee->get_everything_from_id($traineeId);
+        
+        $this->theme_options = array_merge($this->theme_options, array(
+            'title' => 'Showing Profile for ' . $data->legal_first_name . ' ' . $data->legal_family_name,
+            'subtitle' => ''
+            )
+        );
+        $this->set_var('theme', $this->theme_options);
+        $this->set_var('trainee', $data);
+        $this->render();
+    }
+    
     /*
     public function add_trainee_post() {
         $this->load->library('form_validation');
-        $this->load->model("trainee_model", "trainee");
         $this->load->model('test_scores_model', 'test_scores');
         // Need to parse $_POST data, insert or update the appropriate tables through models
         

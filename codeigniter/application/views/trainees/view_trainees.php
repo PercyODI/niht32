@@ -40,7 +40,7 @@
           </thead>
           <tbody>
           <?php foreach($trainees as $trainee): ?>
-            <tr data-trainee-id="<?= $trainee->id ?>">
+            <tr style="cursor:pointer;" data-trainee-id="<?= $trainee->id ?>">
               <!--<th scope="row">1</th>-->
               <td><?= $trainee->legal_first_name ?></td>
               <td><?= $trainee->legal_family_name ?></td>

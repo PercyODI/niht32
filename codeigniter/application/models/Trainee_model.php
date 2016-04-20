@@ -45,4 +45,46 @@ class Trainee_model extends MY_Model {
         
         return $this;
     }
+    
+    public function get_everything_from_id($traineeId) {
+        $data = $this->get($traineeId);
+        $data->institutions = $this->_database
+                                ->from('institution_nodes')
+                                ->where('trainee_id', $data->id)
+                                ->get()
+                                ->{$this->_return_type(1)}();
+        $data->testScore = $this->_database
+                                ->from('test_scores')
+                                ->where('id', $data->test_score_id)
+                                ->get()
+                                ->{$this->_return_type()}();
+        $data->mailing_address = $this->_database
+                                ->from('addresses')
+                                ->where('id', $data->mailing_address_id)
+                                ->get()
+                                ->{$this->_return_type()}();
+        $data->permanent_address = $this->_database
+                                ->from('addresses')
+                                ->where('id', $data->permanent_address_id)
+                                ->get()
+                                ->{$this->_return_type()}();
+        $data->background_nodes = $this->_database
+                                ->from('background_nodes')
+                                ->where('trainee_id', $data->id)
+                                ->get()
+                                ->{$this->_return_type(1)}();
+         $data->ethnicities = $this->_database
+                                ->from('ethnicities')
+                                ->join('trainee_ethnicities', 'ethnicities.id = trainee_ethnicities.ethnicity_id')
+                                ->where('trainee_ethnicities.trainee_id', $data->id)
+                                ->get()
+                                ->{$this->_return_type(1)}();  
+         $data->resident_status = $this->_database
+                                ->from('resident_statuses')
+                                ->where('id', $data->resident_status_id)
+                                ->get()
+                                ->{$this->_return_type()}();                       
+                                
+        return $data;
+    }
 }
