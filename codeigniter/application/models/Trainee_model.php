@@ -73,17 +73,22 @@ class Trainee_model extends MY_Model {
                                 ->where('trainee_id', $data->id)
                                 ->get()
                                 ->{$this->_return_type(1)}();
-         $data->ethnicities = $this->_database
+        $data->ethnicities = $this->_database
                                 ->from('ethnicities')
                                 ->join('trainee_ethnicities', 'ethnicities.id = trainee_ethnicities.ethnicity_id')
                                 ->where('trainee_ethnicities.trainee_id', $data->id)
                                 ->get()
                                 ->{$this->_return_type(1)}();  
-         $data->resident_status = $this->_database
+        $data->resident_status = $this->_database
                                 ->from('resident_statuses')
                                 ->where('id', $data->resident_status_id)
                                 ->get()
-                                ->{$this->_return_type()}();                       
+                                ->{$this->_return_type()}(); 
+        $data->other_names = $this->_database
+                                ->from('other_names')
+                                ->where('trainee_id', $data->id)
+                                ->get()
+                                ->{$this->_return_type(1)}();
                                 
         return $data;
     }
