@@ -37,6 +37,62 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    
+
+    <script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
+
+    <!-- daterangepicker -->
+    <script type="text/javascript" src="<?= base_url('js/moment/moment.min.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/datepicker/daterangepicker.js') ?>"></script>
+    <!-- gauge js -->
+    <!-- chart js -->
+    <script src="<?= base_url('js/chartjs/chart.min.js') ?>"></script>
+    <!-- bootstrap progress js -->
+    <script src="<?= base_url('js/progressbar/bootstrap-progressbar.min.js') ?>"></script>
+    <!-- icheck -->
+    <script src="<?= base_url('js/icheck/icheck.min.js') ?>"></script>
+
+    
+
+    <!-- flot js -->
+    <!--[if lte IE 8]><script type="text/javascript" src="<?= base_url('js/excanvas.min.js') ?>"></script><![endif]-->
+    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.pie.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.orderBars.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.time.min.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/date.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.spline.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.stack.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/curvedLines.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.resize.js') ?>"></script>
+
+    <!-- worldmap -->
+    <script type="text/javascript" src="<?= base_url('js/maps/jquery-jvectormap-2.0.3.min.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/maps/gdp-data.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/maps/jquery-jvectormap-world-mill-en.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('js/maps/jquery-jvectormap-us-aea-en.js') ?>"></script>
+    <!-- pace -->
+    <script src="<?= base_url('js/pace/pace.min.js') ?>"></script>
+   
+    <!-- skycons -->
+    <script src="<?= base_url('js/skycons/skycons.min.js') ?>"></script>
+
+    <!-- datepicker -->
+    
+    <script>
+        NProgress.done();
+    </script>
+    <!-- /datepicker -->
+    
+    <!-- tags -->
+    <script src="<?= base_url('js/tags/jquery.tagsinput.min.js') ?>"></script>
+    <!-- input mask -->
+    <script src="<?= base_url('js/input_mask/jquery.inputmask.js') ?>"></script>
+    <!-- form wizard -->
+    <script type="text/javascript" src="<?= base_url('js/wizard/jquery.smartWizard.js') ?>"></script>
+    <!-- switchery -->
+    <script src="<?= base_url('js/switchery/switchery.min.js') ?>"></script>
 
 </head>
 
@@ -84,6 +140,22 @@
                                         </li>
                                         <li>
                                           <a href="<?= base_url('trainees/view_trainees') ?>">Find a Trainee</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                  <a><i class="fa fa-graduation-cap"></i> Travel <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li>
+                                          <a href="<?= base_url('travels/view_travels') ?>">Trainee Trips</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                  <a><i class="fa fa-graduation-cap"></i> Data Visualization <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li>
+                                          <a href="<?= base_url('analytics/graphs') ?>">Data Visualization</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -187,60 +259,6 @@
         <div class="clearfix"></div>
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
-
-    <script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
-
-    <!-- gauge js -->
-    <!-- chart js -->
-    <script src="<?= base_url('js/chartjs/chart.min.js') ?>"></script>
-    <!-- bootstrap progress js -->
-    <script src="<?= base_url('js/progressbar/bootstrap-progressbar.min.js') ?>"></script>
-    <!-- icheck -->
-    <script src="<?= base_url('js/icheck/icheck.min.js') ?>"></script>
-    <!-- daterangepicker -->
-    <script type="text/javascript" src="<?= base_url('js/moment/moment.min.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/datepicker/daterangepicker.js') ?>"></script>
-
-    
-
-    <!-- flot js -->
-    <!--[if lte IE 8]><script type="text/javascript" src="<?= base_url('js/excanvas.min.js') ?>"></script><![endif]-->
-    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.pie.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.orderBars.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.time.min.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/date.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.spline.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.stack.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/curvedLines.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/flot/jquery.flot.resize.js') ?>"></script>
-
-    <!-- worldmap -->
-    <script type="text/javascript" src="<?= base_url('js/maps/jquery-jvectormap-2.0.3.min.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/maps/gdp-data.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/maps/jquery-jvectormap-world-mill-en.js') ?>"></script>
-    <script type="text/javascript" src="<?= base_url('js/maps/jquery-jvectormap-us-aea-en.js') ?>"></script>
-    <!-- pace -->
-    <script src="<?= base_url('js/pace/pace.min.js') ?>"></script>
-   
-    <!-- skycons -->
-    <script src="<?= base_url('js/skycons/skycons.min.js') ?>"></script>
-
-    <!-- datepicker -->
-    
-    <script>
-        NProgress.done();
-    </script>
-    <!-- /datepicker -->
-    
-    <!-- tags -->
-    <script src="<?= base_url('js/tags/jquery.tagsinput.min.js') ?>"></script>
-    <!-- input mask -->
-    <script src="<?= base_url('js/input_mask/jquery.inputmask.js') ?>"></script>
-    <!-- form wizard -->
-    <script type="text/javascript" src="<?= base_url('js/wizard/jquery.smartWizard.js') ?>"></script>
-    <!-- switchery -->
-    <script src="<?= base_url('js/switchery/switchery.min.js') ?>"></script>
     
     <!--Gentellela Custom JS-->
     <script src="<?= base_url('js/custom.js') ?>"></script>

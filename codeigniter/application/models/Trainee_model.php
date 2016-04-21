@@ -2,7 +2,7 @@
 
 class Trainee_model extends MY_Model {
     
-    public $has_many = array('company_admins');
+    public $has_many = array('travels');
     
     public $validate = array(
         array( 'field' => 'username', 
