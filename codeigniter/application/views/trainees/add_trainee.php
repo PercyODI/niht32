@@ -76,7 +76,7 @@
                 <span class="step_no">7</span>
                 <span class="step_descr">
                                   Step 7<br />
-                                  <small>Self-Reported Test Scored</small>
+                                  <small>Self-Reported Test Scores</small>
                               </span>
               </a>
             </li>

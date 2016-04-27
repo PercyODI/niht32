@@ -47,7 +47,7 @@
     <script type="text/javascript" src="<?= base_url('js/datepicker/daterangepicker.js') ?>"></script>
     <!-- gauge js -->
     <!-- chart js -->
-    <script src="<?= base_url('js/chartjs/chart.min.js') ?>"></script>
+    <script src="<?= base_url('js/chartjs/Chart.js') ?>"></script>
     <!-- bootstrap progress js -->
     <script src="<?= base_url('js/progressbar/bootstrap-progressbar.min.js') ?>"></script>
     <!-- icheck -->

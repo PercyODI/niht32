@@ -339,3 +339,73 @@
             </div>
           </div>
         </div>
+        
+        <div class="modal fade bs-example-modal-sm" id="sharedModal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+        </div>
+        <div class="modal-body">
+          <h4></h>
+        </div>
+        <div class="row">
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Legal First Name<span class="required">*</span></label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="legal_first_name_input" name="legal_first_name" class="form-control col-md-7 col-xs-12">
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Legal Middle Name<span class="required">*</span></label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Legal Last Name<span class="required">*</span></label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Trip Name<span class="required">*</span></label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="name_input" name="name_input" class="form-control col-md-7 col-xs-12">
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Trip Description<span class="required">*</span></label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input type="text" id="description_input" name="description_input" class="form-control col-md-7 col-xs-12">
+              </div>
+          </div>
+        </div>
+        <div class="row">
+        <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Trip Cost<span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" id="cost_input" name="cost_input" class="form-control col-md-7 col-xs-12">
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- /modals -->
