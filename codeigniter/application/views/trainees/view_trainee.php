@@ -167,7 +167,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#birthandcitizenship">Edit</button>
                 </div>
               </p>
             </div>
@@ -647,6 +647,14 @@
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Missouri Resident<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input type="text" id="missouri_resident" name="missouri_resident" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Veteran of the U.S. Armed Forces<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="veteran_of_the_us_armed_forces" name="veteran_of_the_us_armed_forces" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 </div>
