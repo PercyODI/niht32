@@ -152,7 +152,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                  <a><i class="fa fa-graduation-cap"></i> Data Visualization <span class="fa fa-chevron-down"></span></a>
+                                  <a><i class="fa fa-graduation-cap"></i> Reporting Tools <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
                                           <a href="<?= base_url('analytics/graphs') ?>">Data Visualization</a>

@@ -110,7 +110,7 @@
             <?php endif ?>
             <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
                 </div>
               </p>
             </div>
@@ -131,7 +131,7 @@
             <?php endif ?>
             <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#permanentaddress">Edit</button>
                 </div>
               </p>
             </div>
@@ -194,7 +194,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
                 </div>
               </p>
             </div>
@@ -226,7 +226,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
                 </div>
               </p>
             </div>
@@ -290,7 +290,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
                 </div>
               </p>
             </div>
@@ -300,7 +300,7 @@
               
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
                 </div>
               </div>
               </p>
@@ -352,14 +352,14 @@
                     {
                         label: "Total Travel Expenses Over Time",
                         fill: false,
-                        backgroundColor: "rgba(255,205,86,0.4)",
-                        borderColor: "rgba(255,205,86,1)",
-                        pointBorderColor: "rgba(255,205,86,1)",
+                        backgroundColor: "rgba(0,0,0,0.4)",
+                        borderColor: "rgba(0,0,0,1)",
+                        pointBorderColor: "rgba(0,0,0,1)",
                         pointBackgroundColor: "#fff",
                         pointBorderWidth: 1,
                         pointHoverRadius: 5,
-                        pointHoverBackgroundColor: "rgba(255,205,86,1)",
-                        pointHoverBorderColor: "rgba(255,205,86,1)",
+                        pointHoverBackgroundColor: "rgba(0,0,0,1)",
+                        pointHoverBorderColor: "rgba(0,0,0,1)",
                         pointHoverBorderWidth: 2,
             
                         // The actual data
@@ -381,6 +381,9 @@
   							        line: {
   							          tension: 0
   							        }
+  							      },
+  							      legend: {
+  							        display: false
   							      }
   							    }
   								});
@@ -481,6 +484,172 @@
   </div>
 </div>
 
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<!--Mailing Address Modal-->
+<div class="modal fade bs-example-modal-sm" id="mailingaddress" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+</div>
+<div class="modal-body">
+  <h4></h>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Mailing Address Line 1<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Mailing Address Line 2<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> City, State, Zipcode<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="city_state_zipcode" name="city_state_zipcode" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+    </div>
+  </div>
+</div>
+<!--Permanent Address-->
+<div class="modal fade bs-example-modal-sm" id="permanentaddress" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+</div>
+<div class="modal-body">
+  <h4></h>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Permanent Address Line 1<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Permanent Address Line 2<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> City, State, Zipcode<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="city_state_zipcode" name="city_state_zipcode" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<!--Birth and Citizenship-->
+<div class="modal fade bs-example-modal-sm" id="birthandcitizenship" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+</div>
+<div class="modal-body">
+  <h4></h>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Date of Birth<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="date_of_birth" name="date_of_birth" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> State of Birth<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="state_of_birth" name="state_of_birth" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> City of Birth<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="city_of_birth" name="city_of_birth" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> US Citizen<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="us_citizen" name="us_citizen" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Permanent Resident of the US<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="permanent_resident_of_the_us" name="permanent_resident_of_the_us" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Visa Status<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="visa_status" name="visa_status" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Missouri Resident<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="missouri_resident" name="missouri_resident" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   <button type="button" class="btn btn-primary">Save changes</button>

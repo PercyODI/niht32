@@ -35,4 +35,62 @@
       </div>
     </div>
   </div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Average GRE Scores of Applicants</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+          
+        <canvas id="average_gre_score_chart" width="256" height="256">
+        <script>
+        /* global $ */
+          $(document).ready(function(){
+          	$.getJSON("<?= base_url('analytics/applicantGREScoreAverages') ?>", function(jsonData) {
+          		if(jsonData != null && jsonData.success == true) {
+	          		var ctx = $("#average_gre_score_chart");
+			  				//draw
+			  				
+			  				var data = {
+								    labels: jsonData.labels,
+								    datasets: [
+								        {
+								            label: "My First dataset",
+								            backgroundColor: "#5A738E",
+								            borderColor: "#2A3F54",
+								            borderWidth: 1,
+								            hoverBackgroundColor: "#5A738E",
+								            hoverBorderColor: "#2A3F54",
+								            data: jsonData.data,
+								        }
+								    ]
+								};
+			        	var myBarChart = new Chart(ctx, {
+								    type: 'bar',
+								    data: data,
+								    options: {
+								    	legend: {
+								    		display: false
+								    	},
+								    	scales: {
+								    		yAxes: [{
+								    			ticks: {
+								    				beginAtZero: true,
+								    				max: 100
+								    			}
+								    		}]
+								    	}
+								    }
+								});
+          		} else {
+          			$("#travelExpenseCanvas").parent().append("No Travel Data to Show");
+          			$("#travelExpenseCanvas").remove();
+          		}
+          	});
+       		});
+        </script>
+      </div>
+    </div>
+  </div>
 </div>

@@ -17,4 +17,18 @@ class Analytics_model extends MY_Model {
             
         return $result;
     }
+    
+    public function getAverageApplicantGREScores() {
+        $result = $this->_database
+            ->select('
+                AVG(gre_verbal_percentile) as average_gre_verbal_percentile, 
+                AVG(gre_quantitative_percentile) as average_gre_quantitative_percentile, 
+                AVG(gre_analytical_writing_percentile) as average_gre_analytical_writing_percentile
+            ')
+            ->from('test_scores')
+            ->get()
+            ->{$this->_return_type()}();
+            
+        return $result;
+    }
 }

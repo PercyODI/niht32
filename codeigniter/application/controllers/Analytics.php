@@ -70,4 +70,16 @@ class Analytics extends MY_Controller {
         
         $this->render_json($result);
     }
+    
+    public function applicantGREScoreAverages() {
+        $databaseResult = $this->analytics->getAverageApplicantGREScores();
+        $result['labels'] = ['GRE Verbal', 'GRE Quantitative', 'GRE Analytical'];
+        $result['data'] = [
+            $databaseResult->average_gre_verbal_percentile,
+            $databaseResult->average_gre_quantitative_percentile,
+            $databaseResult->average_gre_analytical_writing_percentile
+        ];
+        $result['success'] = true;
+        $this->render_json($result);
+    }
 }
