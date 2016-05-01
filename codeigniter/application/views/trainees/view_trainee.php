@@ -777,6 +777,305 @@
 </div>
 
 <!--Test Scores-->
+<div class="modal fade bs-example-modal-sm" id="testscores" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+</div>
+<div class="modal-body">
+  <h4></h>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatdate"> GMAT Date<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatdate" name="gmatdate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatscore"> GMAT Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatscore" name="gmatscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatverbalscore"> GMAT Verbal Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatverbalscore" name="gmatverbalscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatverbalpercentile"> GMAT Verbal Percentile<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatverbalpercentile" name="gmatverbalpercentile" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatquantscore"> GMAT Quantitative Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatquantscore" name="gmatquantscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatquantpercentile"> GMAT Quantitative Percentile<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatquantpercentile" name="gmatquantpercentile" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatAWscore"> GMAT Analytical Writing Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatAWscore" name="gmatAWscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatAWpercentile"> GMAT Analytical Writing Percentile<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatAWpercentile" name="gmatAWpercentile" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatIRscore"> GMAT Integrated Reasoning Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatIRscore" name="gmatIRscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatIRpercentile"> GMAT Integrated Reasoning Percentile<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gmatIRpercentile" name="gmatIRpercentile" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gredate"> GRE Date<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gredate" name="gredate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greverbalscore"> GRE Verbal Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="greverbalscore" name="greverbalscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greverbalpercentile"> GRE Verbal Percentile<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="greverbalpercentile" name="greverbalpercentile" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grequantscore"> GRE Quantitative Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="grequantscore" name="grequantscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grequantpercentile"> GRE Quantitative Percentile<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="grequantpercentile" name="grequantpercentile" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greAWscore"> GRE Analytical Writing Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="greAWscore" name="greAWscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greAWpercentile"> GRE Analytical Writing Percentile<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="greAWpercentile" name="greAWpercentile" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="toefldate"> TOEFL Date<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="toefldate" name="toefldate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="toeflscore"> TOEFL Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="toeflscore" name="toeflscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtreading"> IBT Reading<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ibtreading" name="ibtreading" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtwriting"> IBT Writing<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ibtwriting" name="ibtwriting" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtspeaking"> IBT Speaking<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ibtspeaking" name="ibtspeaking" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtlistening"> IBT Listening<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ibtlistening" name="ibtlistening" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbreading"> PB Reading<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="pbreading" name="pbreading" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbwriting"> PB Writing<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="pbwriting" name="pbwriting" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pblistening"> PB Listening<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="pblistening" name="pblistening" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbessay"> PB Essay<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="pbessay" name="pbessay" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsdate"> IELTS Date<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ieltsdate" name="ieltsdate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsscore"> IELTS Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ieltsscore" name="ieltsscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsreading"> IELTS Reading<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ieltsreading" name="ieltsreading" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltswriting"> IELTS Writing<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ieltswriting" name="ieltswriting" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsspeaking"> IELTS Speaking<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ieltsspeaking" name="ieltsspeaking" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltslistening"> IELTS Listening<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="ieltslistening" name="ieltslistening" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matdate"> MAT Date<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="matdate" name="matdate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matscore"> MAT Score<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="matscore" name="matscore" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+    </div>
+  </div>
+</div>
 
 <!--Educational Background-->
 <div class="modal fade bs-example-modal-sm" id="educationalbackground" tabindex="-1" role="dialog" aria-hidden="true">
