@@ -194,7 +194,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#genderandethnicity">Edit</button>
                 </div>
               </p>
             </div>
@@ -226,81 +226,99 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#admissionsinformation">Edit</button>
                 </div>
               </p>
             </div>
             <div class="tab-pane" id="test_scores">
               <p class="lead">Test Scores</p>
               <p>
-                <b>GMAT: </b>
-              </p>
-              <b>Date: </b><?= $trainee->testScore->gmat_date ?>
-              <b>Score: </b><?= $trainee->testScore->gmat_score ?>
-              <b>Verbal Score: </b><?= $trainee->testScore->gmat_verbal_score ?>
-              <b>Verbal Percentile: </b><?= $trainee->testScore->gmat_verbal_percentile ?>
-              <b>Quantitative Score: </b><?= $trainee->testScore->gmat_quantitative_score ?>
+                <b><u>GMAT: </u></b></br>
+                <b>Date: </b><?= $trainee->testScore->gmat_date ?></br>
+                <b>Score: </b><?= $trainee->testScore->gmat_score ?></br>
+                <b>Verbal Score: </b><?= $trainee->testScore->gmat_verbal_score ?></br>
+                <b>Verbal Percentile: </b><?= $trainee->testScore->gmat_verbal_percentile ?></br>
+                <b>Quantitative Score: </b><?= $trainee->testScore->gmat_quantitative_score ?></br>
+                <b>Quantitative Percentile: </b><?= $trainee->testScore->gmat_quantitative_percentile ?></br>
+                <b>Analytical Writing Score: </b><?= $trainee->testScore->gmat_analytical_writing_score ?></br>
+                <b>Analytical Writing Percentile: </b><?= $trainee->testScore->gmat_analytical_writing_percentile ?></br>
+                <b>Integrated_reasoning Score: </b><?= $trainee->testScore->gmat_integrated_reasoningl_score ?></br>
+                <b>Integrated Reasoning Percentile: </b><?= $trainee->testScore->gmat_integrated_reasoning_percentile ?></br>
               <p>
-               if($trainee->testScore->gmat_quantitative_percentile != NULL){
-                 <?= $trainee->testScore->gmat_quantitative_percentile ?>
-               }
-              </p>
-              <p>
-               if($trainee->testScore->gmat_analytical_writing_score != NULL){
-                 <?= $trainee->testScore->gmat_analytical_writing_score ?>
-               }
-              </p>
-              <p>
-               if($trainee->testScore->gmat_analytical_writing_percentile != NULL){
-                 <?= $trainee->testScore->gmat_analytical_writing_percentile ?>
-               }
-              </p>
-              <p>
-               if($trainee->testScore->gmat_integrated_reasoningl_score != NULL){
-                 <?= $trainee->testScore->gmat_integrated_reasoningl_score ?>
-               }
+                <b><u>GRE: </u></b></br>
+                <b>Date: </b><?= $trainee->testScore->gre_date ?></br>
+                <b>Verbal Score: </b><?= $trainee->testScore->gre_verbal_score ?></br>
+                <b>Verbal Percentile: </b><?= $trainee->testScore->gre_verbal_percentile ?></br>
+                <b>Quantitative Score: </b><?= $trainee->testScore->gre_quantitative_score ?></br>
+                <b>Quantitative Percentile: </b><?= $trainee->testScore->gre_quantitative_percentile ?></br>
+                <b>Analytical Writing Score: </b><?= $trainee->testScore->gre_analytical_writing_score ?></br>
+                <b>Analytical Writing Percentile: </b><?= $trainee->testScore->gre_analytical_writing_percentile ?></br>
               </p>
               <p>
-               if($trainee->testScore->gmat_integrated_reasoning_percentile != NULL){
-                 <?= $trainee->testScore->gmat_integrated_reasoning_percentile ?>
-               }
+                <b><u>TOEFL: </u></b></br>
+                <b>Date: </b><?= $trainee->testScore->toefl_date ?></br>
+                <b>Score: </b><?= $trainee->testScore->toefl_score ?></br>
               </p>
               <p>
-                <b>GRE: </b><?= $trainee->assistantship_interest == 1 ? 'Yes' : 'No' ?>
+                <b><u>IBT:</u></b></br>
+                <b>Reading: </b><?= $trainee->testScore->ibt_reading ?></br>
+                <b>Writing: </b><?= $trainee->testScore->ibt_writing ?></br>
+                <b>Speaking: </b><?= $trainee->testScore->ibt_speaking ?></br>
+                <b>Listening: </b><?= $trainee->testScore->ibt_listening ?></br>
               </p>
               <p>
-                 if($trainee->testScore->gmat_date != NULL){
-                   <?= $trainee->testScore->gmat_date ?>
-                 }
-                </p>
-              <p>
-                <b>TOEFL: </b><?= $trainee->expected_entrance_term != null ? $trainee->expected_entrance_term : 'No Expected Entrance Term Listed' ?>
+                <b><u>PB: </u></b></br>
+                <b>Reading: </b><?= $trainee->testScore->pb_reading ?></br>
+                <b>Writing: </b><?= $trainee->testScore->pb_writing ?></br>
+                <b>Listening: </b><?= $trainee->testScore->pb_listening ?></br>
+                <b>Essay: </b><?= $trainee->testScore->pb_essay ?></br>
               </p>
               <p>
-                <b>IBT: </b><?= $trainee->expected_entrance_term != null ? $trainee->expected_entrance_term : 'No Expected Entrance Term Listed' ?>
+                <b><u>IELTS: </u></b></br>
+                <b>Date: </b><?= $trainee->testScore->ielts_date ?></br>
+                <b>Score: </b><?= $trainee->testScore->ielts_score ?></br>
+                <b>Reading: </b><?= $trainee->testScore->ielts_reading ?></br>
+                <b>Writing: </b><?= $trainee->testScore->ielts_writing ?></br>
+                <b>Speaking: </b><?= $trainee->testScore->ielts_speaking ?></br>
+                <b>Listening: </b><?= $trainee->testScore->ielts_listening ?></br>
               </p>
               <p>
-                <b>PB: </b><?= $trainee->expected_entrance_term != null ? $trainee->expected_entrance_term : 'No Expected Entrance Term Listed' ?>
-              </p>
-              <p>
-                <b>IELTS: </b><?= $trainee->expected_entrance_term != null ? $trainee->expected_entrance_term : 'No Expected Entrance Term Listed' ?>
-              </p>
-              <p>
-                <b>MAT: </b><?= $trainee->expected_entrance_term != null ? $trainee->expected_entrance_term : 'No Expected Entrance Term Listed' ?>
+                <b><u>MAT: </u></b></br>
+                <b>Date: </b><?= $trainee->testScore->mat_date ?></br>
+                <b>Score: </b><?= $trainee->testScore->mat_score ?></br>
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#testscores">Edit</button>
                 </div>
               </p>
             </div>
-            
             <div class="tab-pane" id="educational_background">
               <p class="lead">Educational Background</p>
-              
+              <p>
+                <?php 
+                  if($trainee->institutions != null && is_array($trainee->institutions)) {
+                    foreach($trainee->institutions as $institution) {
+                      echo '<b>Name: </b>' . $institution->name . '</br>';
+                      echo '<b>City: </b>' . $institution->city . '</br>';
+                      echo '<b>State: </b>' . $institution->state . '</br>';
+                      echo '<b>Country: </b>' . $institution->country . '</br>';
+                      echo '<b>Start Date: </b>' . $institution->start_date . '</br>';
+                      echo '<b>End Date: </b>' . $institution->end_date . '</br>';
+                      echo '<b>Degree Earned: </b>' . $institution->degree_earned . '</br>';
+                      echo '<b>Degree Date: </b>' . $institution->degree_date . '</br>';
+                      echo '<b>Overall GPA: </b>' . $institution->overall_gpa . '</br>';
+                      echo '<b>Major GPA: </b>' . $institution->major_gpa . '</br>';
+                      echo '<b>GPA Scale: </b>' . $institution->gpa_scale . '</br></br>';
+                    }
+                  } else {
+                    echo 'No Institutions Listed';
+                  }
+                ?>
+              </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#educationalbackground">Edit</button>
                 </div>
               </div>
               </p>
@@ -537,6 +555,7 @@
     </div>
   </div>
 </div>
+
 <!--Permanent Address-->
 <div class="modal fade bs-example-modal-sm" id="permanentaddress" tabindex="-1" role="dialog" aria-hidden="true">
 <div class="modal-dialog modal-lg">
@@ -666,4 +685,206 @@
     </div>
   </div>
 </div>
+
+<!--Gender and Ethnicity-->
+<div class="modal fade bs-example-modal-sm" id="genderandethnicity" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+</div>
+<div class="modal-body">
+  <h4></h>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender"> Gender<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gender" name="gender" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ethnicity"> Ethnicity<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="ethnicity" name="ethnicity" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<!--Admissions Information-->
+<div class="modal fade bs-example-modal-sm" id="admissionsinformation" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+</div>
+<div class="modal-body">
+  <h4></h>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="graduate_program"> Graduate Program<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="graduate_program" name="graduate_program" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="attendence_status"> Attendance Status<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="attendence_status" name="attendence_status" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="assistantship_interest"> Assistantship/Fellowship Interest<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="assistantship_interest" name="assistantship_interest" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="expected_entrance_term"> Expected Entrance Term<span class="required">*</span></label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="expected_entrance_term" name="expected_entrance_term" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<!--Test Scores-->
+
+<!--Educational Background-->
+<div class="modal fade bs-example-modal-sm" id="educationalbackground" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <h4 class="modal-title" id="myModalLabel2">Edit Trainee Profile</h4>
+</div>
+<div class="modal-body">
+  <h4></h>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Name</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city"> City</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="city" name="city" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state"> State</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="state" name="state" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Country</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="country" name="country" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startdate"> Start Date</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="startdate" name="startdate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enddate"> End Date</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="enddate" name="enddate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degreeearned"> Degree Earned</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="degreeearned" name="degreeearned" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degreedate"> Degree Date</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="degreedate" name="degreedate" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="overallgpa"> Overall GPA</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="overallgpa" name="overallgpa" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="majorgpa"> Major GPA</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="majorgpa" name="majorgpa" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gpascale"> GPA Scale</label>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <input type="text" id="gpascale" name="gpascale" class="form-control col-md-7 col-xs-12">
+      </div>
+    </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+    </div>
+  </div>
+</div>
+
 <!-- /modals -->
