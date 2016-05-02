@@ -1185,5 +1185,27 @@
     </div>
   </div>
 </div>
-
 <!-- /modals -->
+<script>
+ /* global $ */
+ 
+ /* This is where you will pull the data to populate each modal 
+ it will be json request for the data and you will have to do this request for each modal
+ unless we can populate the fields someother way.
+ we will also have to create a function in the Trainees.php page to handle the json request similar to the Travels.php
+ */
+ /* $(document).ready(function() {
+   // $("tr[data-travel-id]").click(function(e) {
+      //e.preventDefault();
+      $.getJSON("<?= base_url('trainee/get_trainee_json') ?>" + "/" + $(this).attr("data-travel-id"), function(data) {
+        if(data.success == true) {
+          $("#name_input").val(data.travel_data.name);
+          $("#description_input").val(data.travel_data.description);
+          $("#cost_input").val(data.travel_data.cost);
+          $("#Legalname").modal();
+        }
+      });
+      
+    });
+  */
+</script>
