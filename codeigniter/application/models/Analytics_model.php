@@ -31,4 +31,12 @@ class Analytics_model extends MY_Model {
             
         return $result;
     }
+    
+    public function getDegreeLevels() {
+        // select required_degree_nodes.name as degree_name, COUNT(degree_requirement_nodes.id) as number_of_trainees
+        // from required_degree_nodes 
+        // left outer join degree_requirement_nodes ON (required_degree_nodes.id = degree_requirement_nodes.required_degree_node_id)
+        // group by required_degree_nodes.id;
+        return $result;
+    }
 }

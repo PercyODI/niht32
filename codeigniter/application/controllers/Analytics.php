@@ -82,4 +82,14 @@ class Analytics extends MY_Controller {
         $result['success'] = true;
         $this->render_json($result);
     }
+    
+    public function degreeLevelChart() {
+        $databaseResult = $this->analytics->getDegreeLevels();
+        foreach($databaseResult as $row) {
+            $result['labels'][] = $row->degree_name;
+            $result['data'][] = $row->number_of_trainees;
+        }
+        $result['success'] = true;
+        $this->render_json($result)
+    }
 }
