@@ -115,8 +115,8 @@
                             <img src="<?= base_url('images/img.jpg') ?>" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>Empty user</h2>
+                            <span>Welcome</span>
+                            <!--<h2>Empty user</h2>-->
                         </div>
                     </div>
                     <!-- /menu prile quick info -->

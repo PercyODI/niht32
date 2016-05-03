@@ -5,7 +5,7 @@
 <!--Number of students in each stage of degree requirement-->
 
 <div class="row">
-  <div class="col-md-4 col-sm-4 col-xs-12">
+  <div class="col-md-6 col-sm-6 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
         <h2>Pie Graph for Trainee Ethnicity</h2>
@@ -13,7 +13,7 @@
       </div>
       <div class="x_content">
           
-        <canvas id="traineeEthnicityCanvas" width="256" height="256">
+        <canvas id="traineeEthnicityCanvas" width="100" height="50">
         <script>
         /* global $ */
           $(document).ready(function(){
@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 col-sm-4 col-xs-12">
+  <div class="col-md-6 col-sm-6 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
         <h2>Average GRE Scores of Applicants</h2>
@@ -43,20 +43,20 @@
       </div>
       <div class="x_content">
           
-        <canvas id="degree_level_chart" width="256" height="256">
+        <canvas id="gre_score_canvas" width="100" height="50">
         <script>
         /* global $ */
           $(document).ready(function(){
           	$.getJSON("<?= base_url('analytics/applicantGREScoreAverages') ?>", function(jsonData) {
           		if(jsonData != null && jsonData.success == true) {
-	          		var ctx = $("#degree_level_chart");
+	          		var ctx = $("#gre_score_canvas");
 			  				//draw
 			  				
 			  				var data = {
 								    labels: jsonData.labels,
 								    datasets: [
 								        {
-								            label: "My First dataset",
+								            label: "GRE Scores",
 								            backgroundColor: "#5A738E",
 								            borderColor: "#2A3F54",
 								            borderWidth: 1,
@@ -84,8 +84,8 @@
 								    }
 								});
           		} else {
-          			$("#travelExpenseCanvas").parent().append("No Travel Data to Show");
-          			$("#travelExpenseCanvas").remove();
+          			$("#gre_score_canvas").parent().append("No GRE Data to show");
+          			$("#gre_score_canvas").remove();
           		}
           	});
        		});
@@ -93,7 +93,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4 col-sm-4 col-xs-12">
+  <div class="col-md-6 col-sm-6 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
         <h2>Number of Participants in Each Degree Level</h2>
@@ -101,7 +101,7 @@
       </div>
       <div class="x_content">
           
-        <canvas id="degree_level_chart" width="256" height="256">
+        <canvas id="degree_level_chart" width="100" height="50">
         <script>
         /* global $ */
           $(document).ready(function(){
@@ -114,7 +114,7 @@
 								    labels: jsonData.labels,
 								    datasets: [
 								        {
-								            label: "My First dataset",
+								            label: "Degree Levels",
 								            backgroundColor: "#5A738E",
 								            borderColor: "#2A3F54",
 								            borderWidth: 1,
@@ -135,7 +135,6 @@
 								    		yAxes: [{
 								    			ticks: {
 								    				beginAtZero: true,
-								    				max: 100
 								    			}
 								    		}]
 								    	}
@@ -143,7 +142,37 @@
 								});
           		} else {
           			$("#degree_level_chart").parent().append("No Travel Data to Show");
-          			$("#travelExpenseCanvas").remove();
+          			$("#degree_level_chart").remove();
+          		}
+          	});
+       		});
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Trainee Backgrounds</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+          
+        <canvas id="trainee_background_chart" width="100" height="50">
+        <script>
+        /* global $ */
+          $(document).ready(function(){
+          	$.getJSON("<?= base_url('analytics/traineeBackgroundChart') ?>", function(data) {
+          		if(data.success == true) {
+	          		var ctx = $("#trainee_background_chart");
+			  				//draw
+			        	var myPieChart = new Chart(ctx,{
+								    type: 'pie',
+								    data: data,
+								});
+          		} else {
+          			$("#trainee_background_chart").parent().append("No Etnicity Data to Show");
+          			$("#trainee_background_chart").remove();
           		}
           	});
        		});

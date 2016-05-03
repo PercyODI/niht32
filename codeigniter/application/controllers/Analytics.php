@@ -90,6 +90,26 @@ class Analytics extends MY_Controller {
             $result['data'][] = $row->number_of_trainees;
         }
         $result['success'] = true;
-        $this->render_json($result)
+        $this->render_json($result);
+    }
+    
+    public function traineeBackgroundChart() {
+        $result = array();
+        $countArray = $this->analytics->getTraineeBackground();
+        if(count($countArray) == 0) {
+            $result['success'] = false;
+        } else {
+            $result['success'] = true;
+        }
+        $result['datasets'][0] = array();
+        foreach($countArray as $background) {
+            $result['labels'][] = $background->name;
+            $result['datasets'][0]['data'][] = (int)$background->count;
+            $randomColor = "rgb(" . rand(0, 255). "," . rand(0, 255) . "," . rand(0, 255) . ")";
+            $result['datasets'][0]['backgroundColor'][] = $randomColor;
+            $result['datasets'][0]['hoverBackgroundColor'][] = $randomColor;
+            
+        }
+        $this->render_json($result);
     }
 }

@@ -33,10 +33,34 @@ class Analytics_model extends MY_Model {
     }
     
     public function getDegreeLevels() {
+        $result = $this->_database
+            ->select('
+                required_degree_nodes.name as degree_name, 
+                COUNT(degree_requirement_nodes.id) as number_of_trainees')
+            ->from('required_degree_nodes ')
+            ->join('degree_requirement_nodes', 
+                'required_degree_nodes.id = degree_requirement_nodes.required_degree_node_id',
+                'left outer')
+            ->group_by('required_degree_nodes.id')
+            ->get()
+            ->{$this->_return_type(1)}();
         // select required_degree_nodes.name as degree_name, COUNT(degree_requirement_nodes.id) as number_of_trainees
         // from required_degree_nodes 
         // left outer join degree_requirement_nodes ON (required_degree_nodes.id = degree_requirement_nodes.required_degree_node_id)
         // group by required_degree_nodes.id;
+        return $result;
+    }
+    
+    public function getTraineeBackground() {
+        $result = $this->_database
+            ->select("node_text as name, COUNT(trainee_id) as count")
+            ->from("background_nodes")
+            ->group_by("node_text")
+            ->order_by("count", 'DESC')
+            ->get()
+            ->{$this->_return_type(1)}();
+            
+        
         return $result;
     }
 }
