@@ -2,7 +2,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>Form Wizards <small>Sessions</small></h2>
+        <h2>Add a trainee to the NIHT32 Program</h2>
         <ul class="nav navbar-right panel_toolbox">
           <li>
             <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -14,7 +14,7 @@
   
   
         <!-- Smart Wizard -->
-        <p>This is a basic form wizard example that inherits the colors from the selected scheme.</p>
+        <p>Enter the information of the trainee</p>
         <div id="wizard" class="form_wizard wizard_horizontal">
           <ul class="wizard_steps">
             <li>

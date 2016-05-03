@@ -56,7 +56,7 @@
 								    labels: jsonData.labels,
 								    datasets: [
 								        {
-								            label: "GRE Scores",
+								            label: "Average Percentile",
 								            backgroundColor: "#5A738E",
 								            borderColor: "#2A3F54",
 								            borderWidth: 1,
@@ -114,7 +114,7 @@
 								    labels: jsonData.labels,
 								    datasets: [
 								        {
-								            label: "Degree Levels",
+								            label: "Number of Trainees",
 								            backgroundColor: "#5A738E",
 								            borderColor: "#2A3F54",
 								            borderWidth: 1,
