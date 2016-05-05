@@ -153,6 +153,18 @@ class MY_Controller extends CI_Controller {
         $data['notice'] = $this->load->view('theme/notice', array('notice' => $this->message()), TRUE);
         // We'll make the view content available to the template.
         $data['view_content'] = $this->load->view($view, $data, TRUE);
+        
+        // Set default theme options, then merge with provided theme options.--PH
+        $defaultThemeOptions = array(
+            'title' => 'Here is a page',
+            'subtitle' => 'with a subtitle',
+        );
+        
+        if(isset($data['theme'])) {
+            $data['theme'] = array_merge($defaultThemeOptions, $data['theme']);
+        } else {
+            $data['theme'] = $defaultThemeOptions;
+        }
 
         // Render our layout and we're done!
         $layout = empty($this->use_layout) ? 'index' : $this->use_layout;
