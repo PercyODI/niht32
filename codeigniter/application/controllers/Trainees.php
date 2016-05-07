@@ -81,6 +81,21 @@ class Trainees extends MY_Controller {
         $this->render();
     }
     
+    public function get_trainee_json($traineeId = 0){
+        $traineeId = (int)$traineeId;
+        if($traineeId > 0) {
+            $data = new stdClass();
+            if($data->trainee_data = $this->trainee->get($traineeId)) {
+                $data->success = true;
+            }
+        }
+        if(!isset($data->success) || $data->success != true) {
+            $data->success = false;
+        }
+        
+        $this->render_json($data);
+    }
+    
     /*
     public function add_trainee_post() {
         $this->load->library('form_validation');

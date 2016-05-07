@@ -74,23 +74,23 @@
         </div>
         <div class="row">
           <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_first-name">First Name<span class="required">*</span></label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="legal_first_name_input" name="legal_first_name" class="form-control col-md-7 col-xs-12">
-              </div>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_first-name">First Name</label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="text" class="form-control" readonly="readonly" id="legal_first_name_input" name="legal_first_name">
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_family-name">Last Name<span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_family-name">Last Name</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
-              </div>
+              <input type="text" class="form-control" readonly="readonly" id="legal_family_name_input" name="legal_family_name">
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name_input">Trip Name<span class="required">*</span></label>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name_input">Trip Name</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <input type="text" id="name_input" name="name_input" class="form-control col-md-7 col-xs-12">
               </div>
@@ -98,7 +98,7 @@
         </div>
         <div class="row">
           <div class="form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description_input">Trip Description<span class="required">*</span></label>
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description_input">Trip Description</label>
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <input type="text" id="description_input" name="description_input" class="form-control col-md-7 col-xs-12">
               </div>
@@ -106,7 +106,7 @@
         </div>
         <div class="row">
         <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cost_input">Trip Cost<span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cost_input">Trip Cost</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" id="cost_input" name="cost_input" class="form-control col-md-7 col-xs-12">
             </div>
@@ -114,7 +114,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="save_button" name="save_button">Save changes</button>
       </div>
 
     </div>
@@ -129,6 +129,8 @@
       e.preventDefault();
       $.getJSON("<?= base_url('travels/get_travel_json') ?>" + "/" + $(this).attr("data-travel-id"), function(data) {
         if(data.success == true) {
+          $("#legal_first_name_input").val(data.travel_data.legal_first_name);
+          $("#legal_family_name_input").val(data.travel_data.legal_family_name);
           $("#name_input").val(data.travel_data.name);
           $("#description_input").val(data.travel_data.description);
           $("#cost_input").val(data.travel_data.cost);
@@ -136,6 +138,11 @@
         }
       });
       
+    });
+    
+    $("#save_button").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("travels/save_travel") ?>'  + '/' + $(this).attr('#name_input','#description_input' ,'#cost_input',"data-travel-id"); 
     });
     
     $("#travel-search-btn").click(function(e) {

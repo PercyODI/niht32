@@ -89,7 +89,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Legalname">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Legalname" id="edit_name">Edit</button>
                 </div>
               </p>
             </div>
@@ -433,15 +433,23 @@
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Legal First Name<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_first_name_input"> Legal First Name<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="legal_first_name_input" name="legal_first_name" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Legal Middle Name<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_middle_name_input"> Legal Middle Name<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="legal_middle_name_input" name="legal_middle_name" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_family_name_input"> Legal Family Name<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
     </div>
@@ -449,25 +457,17 @@
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Legal Family Name<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="other_names_input"> Other Names<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="other_names_input" name="other_names" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Other Names<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email_input"> Email Address<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Email Address<span class="required">*</span></label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="description_input" name="description_input" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="email_input" name="email" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 </div>
@@ -1156,26 +1156,27 @@
   </div>
 </div>
 <!-- /modals -->
+
 <script>
- /* global $ */
- 
- /* This is where you will pull the data to populate each modal 
- it will be json request for the data and you will have to do this request for each modal
- unless we can populate the fields someother way.
- we will also have to create a function in the Trainees.php page to handle the json request similar to the Travels.php
- */
- /* $(document).ready(function() {
-   // $("tr[data-travel-id]").click(function(e) {
-      //e.preventDefault();
-      $.getJSON("<?= base_url('trainee/get_trainee_json') ?>" + "/" + $(this).attr("data-travel-id"), function(data) {
+/* global $ */
+/* global trainee_id */
+
+  $(document).ready(function() {
+    $("#edit_name").click(function(e) { 
+      e.preventDefault();
+      trainee_id = '<?= $trainee->id ?>'; 
+      $.getJSON("<?= base_url('trainees/get_trainee_json') ?>" + "/" + $(this).attr(trainee_id), function(data) {console.log(trainee_id);
         if(data.success == true) {
-          $("#name_input").val(data.travel_data.name);
-          $("#description_input").val(data.travel_data.description);
-          $("#cost_input").val(data.travel_data.cost);
+          console.log(data.trainee_data.legal_first_name);
+          $("#legal_first-name_input").val(data.trainee_data.legal_first_name);
+          $("#legal_middle_name_input").val(data.trainee_data.legal_middle_name);
+          $("#legal_family_name_input").val(data.trainee_data.legal_family_name);
+         // $("#other_names_input").val(data.trainee_data.);
+          $("#email_input").val(data.trainee_data.email_address);
           $("#Legalname").modal();
         }
       });
       
     });
-  */
+  });
 </script>
