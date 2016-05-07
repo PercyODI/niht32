@@ -54,21 +54,20 @@ class Travels extends MY_Controller {
         $this->render_json($data);
     }
     
-    public function save_travel($name, $description, $cost, $travelId = 0){
-        $travelId = (int)$travelId;
-        
+    public function save_travel($name, $desc, $cost, $travelId){
+       $travelId = (int)$travelId;
+       
         if($travelId > 0) {
             $data = array(
                'name' => $name,
-               'description' => $description,
+               'description' => $desc,
                'cost' => $cost
             );
             
-            $this->db->where('id', $travelId);
-            $this->db->update('travels', $data);
-            
-            //$this->load->view('view_travels');
-            $this->render();
+            $this->save_travel_entry($data, $travelId);
+            console.log("here");
+            $this->load->view('view_travels');
+            //$this->render();
         }
     }
 }

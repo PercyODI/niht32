@@ -36,4 +36,11 @@ class Travel_model extends MY_Model {
         
         return $this;
     }
+    
+    public function save_travel_entry($data, $travelId = 0){
+        $travelId = (int)$travelId;
+        
+        $this->db->where('id', $travelId);
+        $this->db->update('travels', $data);
+    }
 }

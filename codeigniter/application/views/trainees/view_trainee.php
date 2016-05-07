@@ -232,61 +232,67 @@
             </div>
             <div class="tab-pane" id="test_scores">
               <p class="lead">Test Scores</p>
-              <p>
-                <b><u>GMAT: </u></b></br>
-                <b>Date: </b><?= $trainee->testScore->gmat_date ?></br>
-                <b>Score: </b><?= $trainee->testScore->gmat_score ?></br>
-                <b>Verbal Score: </b><?= $trainee->testScore->gmat_verbal_score ?></br>
-                <b>Verbal Percentile: </b><?= $trainee->testScore->gmat_verbal_percentile ?></br>
-                <b>Quantitative Score: </b><?= $trainee->testScore->gmat_quantitative_score ?></br>
-                <b>Quantitative Percentile: </b><?= $trainee->testScore->gmat_quantitative_percentile ?></br>
-                <b>Analytical Writing Score: </b><?= $trainee->testScore->gmat_analytical_writing_score ?></br>
-                <b>Analytical Writing Percentile: </b><?= $trainee->testScore->gmat_analytical_writing_percentile ?></br>
-                <b>Integrated_reasoning Score: </b><?= $trainee->testScore->gmat_integrated_reasoningl_score ?></br>
-                <b>Integrated Reasoning Percentile: </b><?= $trainee->testScore->gmat_integrated_reasoning_percentile ?></br>
-              <p>
-                <b><u>GRE: </u></b></br>
-                <b>Date: </b><?= $trainee->testScore->gre_date ?></br>
-                <b>Verbal Score: </b><?= $trainee->testScore->gre_verbal_score ?></br>
-                <b>Verbal Percentile: </b><?= $trainee->testScore->gre_verbal_percentile ?></br>
-                <b>Quantitative Score: </b><?= $trainee->testScore->gre_quantitative_score ?></br>
-                <b>Quantitative Percentile: </b><?= $trainee->testScore->gre_quantitative_percentile ?></br>
-                <b>Analytical Writing Score: </b><?= $trainee->testScore->gre_analytical_writing_score ?></br>
-                <b>Analytical Writing Percentile: </b><?= $trainee->testScore->gre_analytical_writing_percentile ?></br>
-              </p>
-              <p>
-                <b><u>TOEFL: </u></b></br>
-                <b>Date: </b><?= $trainee->testScore->toefl_date ?></br>
-                <b>Score: </b><?= $trainee->testScore->toefl_score ?></br>
-              </p>
-              <p>
-                <b><u>IBT:</u></b></br>
-                <b>Reading: </b><?= $trainee->testScore->ibt_reading ?></br>
-                <b>Writing: </b><?= $trainee->testScore->ibt_writing ?></br>
-                <b>Speaking: </b><?= $trainee->testScore->ibt_speaking ?></br>
-                <b>Listening: </b><?= $trainee->testScore->ibt_listening ?></br>
-              </p>
-              <p>
-                <b><u>PB: </u></b></br>
-                <b>Reading: </b><?= $trainee->testScore->pb_reading ?></br>
-                <b>Writing: </b><?= $trainee->testScore->pb_writing ?></br>
-                <b>Listening: </b><?= $trainee->testScore->pb_listening ?></br>
-                <b>Essay: </b><?= $trainee->testScore->pb_essay ?></br>
-              </p>
-              <p>
-                <b><u>IELTS: </u></b></br>
-                <b>Date: </b><?= $trainee->testScore->ielts_date ?></br>
-                <b>Score: </b><?= $trainee->testScore->ielts_score ?></br>
-                <b>Reading: </b><?= $trainee->testScore->ielts_reading ?></br>
-                <b>Writing: </b><?= $trainee->testScore->ielts_writing ?></br>
-                <b>Speaking: </b><?= $trainee->testScore->ielts_speaking ?></br>
-                <b>Listening: </b><?= $trainee->testScore->ielts_listening ?></br>
-              </p>
-              <p>
-                <b><u>MAT: </u></b></br>
-                <b>Date: </b><?= $trainee->testScore->mat_date ?></br>
-                <b>Score: </b><?= $trainee->testScore->mat_score ?></br>
-              </p>
+              <?php if($trainee->testScore != NULL){
+                echo '<p>
+                  <b><u>GMAT: </u></b></br>
+                  <b>Date: </b>' . $trainee->testScore->gmat_date . '</br>
+                  <b>Score: </b>' . $trainee->testScore->gmat_score . '</br>
+                  <b>Verbal Score: </b>' .   $trainee->testScore->gmat_verbal_score . '</br>
+                  <b>Verbal Percentile: </b>' . $trainee->testScore->gmat_verbal_percentile . '</br>
+                  <b>Quantitative Score: </b>' . $trainee->testScore->gmat_quantitative_score .  '</br>
+                  <b>Quantitative Percentile: </b>' .  $trainee->testScore->gmat_quantitative_percentile . ' </br>
+                  <b>Analytical Writing Score: </b>' . $trainee->testScore->gmat_analytical_writing_score . '</br>
+                  <b>Analytical Writing Percentile: </b>' . $trainee->testScore->gmat_analytical_writing_percentile . '</br>
+                  <b>Integrated_reasoning Score: </b>' .  $trainee->testScore->gmat_integrated_reasoningl_score . '</br>
+                  <b>Integrated Reasoning Percentile: </b>' .  $trainee->testScore->gmat_integrated_reasoning_percentile  . '</br>
+                </p>
+                <p>
+                  <b><u>GRE: </u></b></br>
+                  <b>Date: </b>' . $trainee->testScore->gre_date .  '</br>
+                  <b>Verbal Score: </b>' . $trainee->testScore->gre_verbal_score . '</br>
+                  <b>Verbal Percentile: </b>' . $trainee->testScore->gre_verbal_percentile . '</br>
+                  <b>Quantitative Score: </b>' . $trainee->testScore->gre_quantitative_score . '</br>
+                  <b>Quantitative Percentile: </b>' . $trainee->testScore->gre_quantitative_percentile . '</br>
+                  <b>Analytical Writing Score: </b>' . $trainee->testScore->gre_analytical_writing_score . '</br>
+                  <b>Analytical Writing Percentile: </b>'.  $trainee->testScore->gre_analytical_writing_percentile . '</br>
+                </p>
+                <p>
+                  <b><u>TOEFL: </u></b></br>
+                  <b>Date: </b>' . $trainee->testScore->toefl_date . '</br>
+                  <b>Score: </b>' . $trainee->testScore->toefl_score . '</br>
+                </p>
+                <p>
+                  <b><u>IBT:</u></b></br>
+                  <b>Reading: </b>' . $trainee->testScore->ibt_reading . '</br>
+                  <b>Writing: </b>' . $trainee->testScore->ibt_writing . '</br>
+                  <b>Speaking: </b>' . $trainee->testScore->ibt_speaking . '</br>
+                  <b>Listening: </b>' . $trainee->testScore->ibt_listening . '</br>
+                </p>
+                <p>
+                  <b><u>PB: </u></b></br>
+                  <b>Reading: </b>' . $trainee->testScore->pb_reading . '</br>
+                  <b>Writing: </b>' . $trainee->testScore->pb_writing . '</br>
+                  <b>Listening: </b>' . $trainee->testScore->pb_listening . '</br>
+                  <b>Essay: </b>' . $trainee->testScore->pb_essay . '</br>
+                </p>
+                <p>
+                  <b><u>IELTS: </u></b></br>
+                  <b>Date: </b>' . $trainee->testScore->ielts_date . '</br>
+                  <b>Score: </b>' . $trainee->testScore->ielts_score . '</br>
+                  <b>Reading: </b>' . $trainee->testScore->ielts_reading . '</br>
+                  <b>Writing: </b>' . $trainee->testScore->ielts_writing . '</br>
+                  <b>Speaking: </b>' . $trainee->testScore->ielts_speaking . '</br>
+                  <b>Listening: </b>' . $trainee->testScore->ielts_listening . '</br>
+                </p>
+                <p>
+                  <b><u>MAT: </u></b></br>
+                  <b>Date: </b>' . $trainee->testScore->mat_date . '</br>
+                  <b>Score: </b>' . $trainee->testScore->mat_score . '</br>
+                </p>';
+              }
+              else{
+                echo 'No Test Scores Listed';
+              }?>
               <p>
                 <div class="x_content">
                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#testscores">Edit</button>
@@ -1159,24 +1165,22 @@
 
 <script>
 /* global $ */
-/* global trainee_id */
 
   $(document).ready(function() {
-    $("#edit_name").click(function(e) { 
+    
+    $("#edit_name").click(function(e) {
       e.preventDefault();
-      trainee_id = '<?= $trainee->id ?>'; 
-      $.getJSON("<?= base_url('trainees/get_trainee_json') ?>" + "/" + $(this).attr(trainee_id), function(data) {console.log(trainee_id);
+      var trainee_id = '<?= $trainee->id ?>'; 
+      $.getJSON("<?= base_url('trainees/get_trainee_name_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {console.log("ere?");
         if(data.success == true) {
-          console.log(data.trainee_data.legal_first_name);
-          $("#legal_first-name_input").val(data.trainee_data.legal_first_name);
+          $("#legal_first_name_input").val(data.trainee_data.legal_first_name);
           $("#legal_middle_name_input").val(data.trainee_data.legal_middle_name);
           $("#legal_family_name_input").val(data.trainee_data.legal_family_name);
-         // $("#other_names_input").val(data.trainee_data.);
+          // $("#other_names_input").val(data.trainee_data.);
           $("#email_input").val(data.trainee_data.email_address);
-          $("#Legalname").modal();
+          $("#LegalName").modal();
         }
       });
-      
     });
   });
 </script>

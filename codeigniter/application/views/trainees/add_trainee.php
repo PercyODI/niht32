@@ -90,7 +90,7 @@
               </a>
             </li>
           </ul>
-          <form class="form-horizontal form-label-left" action="POST" id="add_trainee_form">
+          <form class="form-horizontal form-label-left" action="POST" id="add_trainee_form" >
             <!--Step 1-->
             <div id="step-1">
               <h2 class="StepTitle text-center">Legal Name</h2>
@@ -974,12 +974,12 @@
 -->
 
 <script type="text/javascript">
+/*global $ */
+
   $(document).ready(function() {
     // Smart Wizard
     $('#wizard').smartWizard({keyNavigation: false, enableAllSteps: true});
     // $('#wizard').smartWizard({onShowStep: onShowStepCallback});
-    
-    
   
     $(".date-mask").inputmask();
     

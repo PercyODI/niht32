@@ -81,8 +81,8 @@ class Trainees extends MY_Controller {
         $this->render();
     }
     
-    public function get_trainee_json($traineeId = 0){
-        $traineeId = (int)$traineeId;
+    public function get_trainee_name_json($traineeId = 0){console.log(trainee_id);
+        $traineeId = (int)$traineeId; console.log("here");
         if($traineeId > 0) {
             $data = new stdClass();
             if($data->trainee_data = $this->trainee->get($traineeId)) {
