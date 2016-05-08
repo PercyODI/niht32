@@ -116,7 +116,8 @@
           $("#name_input").val(data.travel_data.name);
           $("#description_input").val(data.travel_data.description);
           $("#cost_input").val(data.travel_data.cost);
-          $("#sharedModal").modal();
+          console.dir(data);
+          $("#sharedModal").data('travel_id', data.travel_data.id).modal();
         }
       });
       
@@ -124,15 +125,11 @@
     
     $("#save_button").click(function(e) {
       e.preventDefault();
-      var name = $("#name_input").val();
-      var desc = $("#description_input").val();
-      var cost = $("#cost_input").val();
-      var id = $("#data-travel-id");
-      
-      var data = [name, desc, cost, "data-travel-id"];
-            console.log(data);
-      
-      window.location.href = '<?= base_url("travels/save_travel") ?>'  + '/' + $(this).attr(name, desc, cost, "data-travel-id"); 
+      window.location.href = '<?= base_url("travels/save_travel") ?>'  + '/' + 
+        encodeURIComponent($('#name_input').val()) + '/' + 
+        encodeURIComponent($('#description_input').val()) + '/' + 
+        encodeURIComponent($('#cost_input').val()) + '/' + 
+        encodeURIComponent($('#sharedModal').data('travel_id'));
     });
 
     

@@ -56,18 +56,20 @@ class Travels extends MY_Controller {
     
     public function save_travel($name, $desc, $cost, $travelId){
        $travelId = (int)$travelId;
+       $name = (string)$name;
+       $desc = (string)$desc;
+       $cost = (float)$cost;
        
         if($travelId > 0) {
             $data = array(
-               'name' => $name,
-               'description' => $desc,
+               'name' => urldecode($name),
+               'description' => urldecode($desc),
                'cost' => $cost
             );
+        
+            $this->travel->save_travel_entry($data, $travelId);
             
-            $this->save_travel_entry($data, $travelId);
-            console.log("here");
-            $this->load->view('view_travels');
-            //$this->render();
+            redirect('travels/view_travels/');
         }
     }
 }

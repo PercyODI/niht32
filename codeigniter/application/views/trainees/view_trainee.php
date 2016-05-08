@@ -110,7 +110,7 @@
             <?php endif ?>
             <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#mailingaddress" id="edit_mailing_address">Edit</button>
                 </div>
               </p>
             </div>
@@ -131,7 +131,7 @@
             <?php endif ?>
             <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#permanentaddress">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#permanentaddress" id="edit_permanent_address">Edit</button>
                 </div>
               </p>
             </div>
@@ -167,7 +167,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#birthandcitizenship">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#birthandcitizenship" id="edit_birth_citizenship">Edit</button>
                 </div>
               </p>
             </div>
@@ -194,7 +194,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#genderandethnicity">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#genderandethnicity" id="edit_gender_ethnicity">Edit</button>
                 </div>
               </p>
             </div>
@@ -226,7 +226,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#admissionsinformation">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#admissionsinformation" id="edit_admission_info">Edit</button>
                 </div>
               </p>
             </div>
@@ -295,7 +295,7 @@
               }?>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#testscores">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#testscores" id="edit_test_scores">Edit</button>
                 </div>
               </p>
             </div>
@@ -324,7 +324,7 @@
               </p>
               <p>
                 <div class="x_content">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#educationalbackground">Edit</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#educationalbackground" id="edit_educational_background">Edit</button>
                 </div>
               </div>
               </p>
@@ -441,7 +441,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_first_name_input"> Legal First Name<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="legal_first_name_input" name="legal_first_name" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="legal_first_name_input" name="legal_first_name" class="form-control col-md-7 col-xs-12" value="<?= $trainee->legal_first_name ?>">
       </div>
     </div>
 </div>
@@ -449,7 +449,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_middle_name_input"> Legal Middle Name<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="legal_middle_name_input" name="legal_middle_name" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="legal_middle_name_input" name="legal_middle_name" class="form-control col-md-7 col-xs-12" value="<?= $trainee->legal_middle_name ?>">
     </div>
   </div>
 </div>
@@ -457,15 +457,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_family_name_input"> Legal Family Name<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12">
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="other_names_input"> Other Names<span class="required">*</span></label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="other_names_input" name="other_names" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12" value="<?= $trainee->legal_family_name ?>">
     </div>
   </div>
 </div>
@@ -473,14 +465,14 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email_input"> Email Address<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="email_input" name="email" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="email_input" name="email_address" class="form-control col-md-7 col-xs-12" value="<?= $trainee->email_address ?>">
     </div>
   </div>
 </div>
 
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id="save_name">Save changes</button>
 </div>
 
     </div>
@@ -501,31 +493,47 @@
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Mailing Address Line 1<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address_input"> Mailing Address Line 1<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="mailing_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Mailing Address Line 2<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address2_input"> Mailing Address Line 2<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="mailing_address2_input" name="mailing_address" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> City, State, Zipcode<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city_input"> City<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="city_state_zipcode" name="city_state_zipcode" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="city_input" name="city" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state_input"> State<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="state_input" name="state" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="zipcode_input"> Zipcode<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id="save_mail_address">Save changes</button>
 </div>
 
     </div>
@@ -546,31 +554,47 @@
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Permanent Address Line 1<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address_input"> Permanent Address Line 1<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="mailing_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Permanent Address Line 2<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address2_input"> Permanent Address Line 2<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="mailing_address" name="mailing_address" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="mailing_address2_input" name="mailing_address2" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> City, State, Zipcode<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city_input"> City<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="city_state_zipcode" name="city_state_zipcode" class="form-control col-md-7 col-xs-12">
+      <input type="text" id="city_input" name="city" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state_input"> State<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="state_input" name="state" class="form-control col-md-7 col-xs-12">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="zipcode_input"> Zipcode<span class="required">*</span></label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <input type="text" id="zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12">
     </div>
   </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id="save_perm_address">Save changes</button>
 </div>
 
     </div>
@@ -655,7 +679,7 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id='save_birth_citizenship'>Save changes</button>
 </div>
 
     </div>
@@ -692,7 +716,7 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id="save_gender_ethnicity">Save changes</button>
 </div>
 
     </div>
@@ -713,39 +737,39 @@
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="graduate_program"> Graduate Program<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="graduateprogram_input"> Graduate Program<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="graduate_program" name="graduate_program" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="graduateprogram_input" name="graduate_program" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="attendence_status"> Attendance Status<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="attendencestatus_input"> Attendance Status(Full-Time/Part-Time)<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="attendence_status" name="attendence_status" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="attendencestatus_input" name="attendence_status" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="assistantship_interest"> Assistantship/Fellowship Interest<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="assistantshipinterest_input"> Assistantship/Fellowship Interest (Yes/No)<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="assistantship_interest" name="assistantship_interest" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="assistantshipinterest_input" name="assistantship_interest" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="expected_entrance_term"> Expected Entrance Term<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="expectedentranceterm_input"> Expected Entrance Term<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="expected_entrance_term" name="expected_entrance_term" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="expectedentranceterm_input" name="expected_entrance_term" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id="save_admission_info">Save changes</button>
 </div>
 
     </div>
@@ -768,7 +792,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatdate"> GMAT Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatdate" name="gmatdate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatdate_input" name="gmatdate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -776,7 +800,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatscore"> GMAT Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatscore" name="gmatscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatscore_input" name="gmatscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -784,7 +808,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatverbalscore"> GMAT Verbal Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatverbalscore" name="gmatverbalscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatverbalscore_input" name="gmatverbalscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -792,7 +816,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatverbalpercentile"> GMAT Verbal Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatverbalpercentile" name="gmatverbalpercentile" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatverbalpercentile_input" name="gmatverbalpercentile" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -800,7 +824,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatquantscore"> GMAT Quantitative Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatquantscore" name="gmatquantscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatquantscore_input" name="gmatquantscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -808,7 +832,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatquantpercentile"> GMAT Quantitative Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatquantpercentile" name="gmatquantpercentile" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatquantpercentile_input" name="gmatquantpercentile" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -816,7 +840,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatAWscore"> GMAT Analytical Writing Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatAWscore" name="gmatAWscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatAWscore_input" name="gmatAWscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -824,7 +848,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatAWpercentile"> GMAT Analytical Writing Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatAWpercentile" name="gmatAWpercentile" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatAWpercentile_input" name="gmatAWpercentile" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -832,7 +856,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatIRscore"> GMAT Integrated Reasoning Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatIRscore" name="gmatIRscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatIRscore_input" name="gmatIRscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -840,7 +864,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatIRpercentile"> GMAT Integrated Reasoning Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatIRpercentile" name="gmatIRpercentile" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gmatIRpercentile_input" name="gmatIRpercentile" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -848,7 +872,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gredate"> GRE Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gredate" name="gredate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gredate_input" name="gredate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -856,7 +880,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greverbalscore"> GRE Verbal Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greverbalscore" name="greverbalscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="greverbalscore_input" name="greverbalscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -864,7 +888,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greverbalpercentile"> GRE Verbal Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greverbalpercentile" name="greverbalpercentile" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="greverbalpercentile_input" name="greverbalpercentile" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -872,7 +896,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grequantscore"> GRE Quantitative Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="grequantscore" name="grequantscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="grequantscore_input" name="grequantscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -880,7 +904,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grequantpercentile"> GRE Quantitative Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="grequantpercentile" name="grequantpercentile" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="grequantpercentile_input" name="grequantpercentile" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -888,7 +912,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greAWscore"> GRE Analytical Writing Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greAWscore" name="greAWscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="greAWscore_input" name="greAWscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -896,7 +920,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greAWpercentile"> GRE Analytical Writing Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greAWpercentile" name="greAWpercentile" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="greAWpercentile_input" name="greAWpercentile" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -904,7 +928,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="toefldate"> TOEFL Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="toefldate" name="toefldate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="toefldate_input" name="toefldate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -912,7 +936,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="toeflscore"> TOEFL Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="toeflscore" name="toeflscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="toeflscore_input" name="toeflscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -920,7 +944,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtreading"> IBT Reading<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtreading" name="ibtreading" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ibtreading_input" name="ibtreading" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -928,7 +952,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtwriting"> IBT Writing<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtwriting" name="ibtwriting" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ibtwriting_input" name="ibtwriting" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -936,7 +960,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtspeaking"> IBT Speaking<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtspeaking" name="ibtspeaking" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ibtspeaking_input" name="ibtspeaking" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -944,7 +968,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtlistening"> IBT Listening<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtlistening" name="ibtlistening" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ibtlistening_input" name="ibtlistening" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -952,7 +976,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbreading"> PB Reading<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pbreading" name="pbreading" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="pbreading_input" name="pbreading" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -960,7 +984,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbwriting"> PB Writing<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pbwriting" name="pbwriting" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="pbwriting_input" name="pbwriting" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -968,7 +992,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pblistening"> PB Listening<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pblistening" name="pblistening" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="pblistening_input" name="pblistening" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -976,7 +1000,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbessay"> PB Essay<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pbessay" name="pbessay" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="pbessay_input" name="pbessay" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -984,7 +1008,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsdate"> IELTS Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsdate" name="ieltsdate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ieltsdate_input" name="ieltsdate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -992,7 +1016,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsscore"> IELTS Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsscore" name="ieltsscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ieltsscore_input" name="ieltsscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1000,7 +1024,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsreading"> IELTS Reading<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsreading" name="ieltsreading" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ieltsreading_input" name="ieltsreading" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1008,7 +1032,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltswriting"> IELTS Writing<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltswriting" name="ieltswriting" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ieltswriting_input" name="ieltswriting" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1016,7 +1040,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsspeaking"> IELTS Speaking<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsspeaking" name="ieltsspeaking" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ieltsspeaking_input" name="ieltsspeaking" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1024,7 +1048,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltslistening"> IELTS Listening<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltslistening" name="ieltslistening" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="ieltslistening_input" name="ieltslistening" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1032,7 +1056,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matdate"> MAT Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="matdate" name="matdate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="matdate_input" name="matdate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1040,13 +1064,13 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matscore"> MAT Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="matscore" name="matscore" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="matscore_input" name="matscore" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id="save_test_scores">Save changes</button>
 </div>
 
     </div>
@@ -1069,7 +1093,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Name</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="name" name="name" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="name_input" name="name" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1077,7 +1101,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city"> City</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="city" name="city" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="city_input" name="city" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1085,7 +1109,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state"> State</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="state" name="state" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="state_input" name="state" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1093,7 +1117,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Country</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="country" name="country" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="country_input" name="country" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1101,7 +1125,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startdate"> Start Date</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="startdate" name="startdate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="startdate_input" name="startdate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1109,7 +1133,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enddate"> End Date</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="enddate" name="enddate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="enddate_input" name="enddate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1117,7 +1141,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degreeearned"> Degree Earned</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="degreeearned" name="degreeearned" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="degreeearned_input" name="degreeearned" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1125,7 +1149,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degreedate"> Degree Date</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="degreedate" name="degreedate" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="degreedate_input" name="degreedate" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1133,7 +1157,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="overallgpa"> Overall GPA</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="overallgpa" name="overallgpa" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="overallgpa_input" name="overallgpa" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1141,7 +1165,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="majorgpa"> Major GPA</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="majorgpa" name="majorgpa" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="majorgpa_input" name="majorgpa" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
@@ -1149,13 +1173,13 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gpascale"> GPA Scale</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gpascale" name="gpascale" class="form-control col-md-7 col-xs-12">
+        <input type="text" id="gpascale_input" name="gpascale" class="form-control col-md-7 col-xs-12">
       </div>
     </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+  <button type="button" class="btn btn-primary" id='save_educational_background'>Save changes</button>
 </div>
 
     </div>
@@ -1167,20 +1191,241 @@
 /* global $ */
 
   $(document).ready(function() {
+    var trainee_id = '<?= $trainee->id ?>';
     
     $("#edit_name").click(function(e) {
       e.preventDefault();
-      var trainee_id = '<?= $trainee->id ?>'; 
-      $.getJSON("<?= base_url('trainees/get_trainee_name_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {console.log("ere?");
+       
+      $.getJSON("<?= base_url('trainees/get_trainee_name_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
         if(data.success == true) {
           $("#legal_first_name_input").val(data.trainee_data.legal_first_name);
           $("#legal_middle_name_input").val(data.trainee_data.legal_middle_name);
           $("#legal_family_name_input").val(data.trainee_data.legal_family_name);
-          // $("#other_names_input").val(data.trainee_data.);
           $("#email_input").val(data.trainee_data.email_address);
           $("#LegalName").modal();
         }
       });
     });
+    
+    $("#save_name").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_name") ?>'  + '/' 
+      + encodeURIComponent($('#legal_first_name_input').val()) + '/' 
+      + encodeURIComponent($('#legal_middle_name_input').val()) + '/' 
+      + encodeURIComponent($('#legal_family_name_input').val()) + '/' 
+      + encodeURIComponent($('#email_input').val()) + '/1';
+    });
+    
+    $("#edit_permanent_address").click(function(e) {
+      e.preventDefault();
+      
+      $.getJSON("<?= base_url('trainees/get_trainee_perm_address_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
+        if(data.success == true) {
+          $("#mailing_address_input").val(data.trainee_address.address_line_1);
+          $("#mailing_address2_input").val(data.trainee_address.address_line_2);
+          $("#city_input").val(data.trainee_address.address_city);
+          $("#state_input").val(data.trainee_address.address_state);
+          $("#zipcode_input").val(data.trainee_address.address_zip);
+          $("#permanentaddress").modal();
+        }
+      });
+    });
+    
+    $("#save_perm_address").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_perm_address") ?>'  + '/' 
+      + encodeURIComponent($('#mailing_address_input').val()) + '/' 
+      + encodeURIComponent($('#mailing_address2_input').val()) + '/' 
+      + encodeURIComponent($('#city_input').val()) + '/' 
+      + encodeURIComponent($('#state_input').val()) + '/'
+      + encodeURIComponent($('#zipcode_input').val()) 
+      + '/1';
+    });
+    
+    $("#edit_mailing_address").click(function(e) {
+      e.preventDefault();
+       
+      $.getJSON("<?= base_url('trainees/get_trainee_mail_address_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
+        if(data.success == true) {
+          $("#mailing_address_input").val(data.trainee_address.address_line_1);
+          $("#mailing_address2_input").val(data.trainee_address.address_line_2);
+          $("#city_input").val(data.trainee_address.address_city);
+          $("#state_input").val(data.trainee_address.address_state);
+          $("#zipcode_input").val(data.trainee_address.address_zip);
+          $("#mailingaddress").modal();
+        }
+      });
+    });
+    
+    $("#save_mail_address").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_mail_address") ?>'  + '/' + encodeURIComponent($('#mailing_address_input').val()) 
+      + '/' + encodeURIComponent($('#mailing_address2_input').val()) + '/' 
+      + encodeURIComponent($('#city_input').val()) + '/' 
+      + encodeURIComponent($('#state_input').val()) + '/'
+      + encodeURIComponent($('#zipcode_input').val()) 
+      + '/1';
+    });
+    
+    $("#edit_birth_citizenship").click(function(e) {
+      e.preventDefault();
+       
+      $.getJSON("<?= base_url('trainees/get_trainee_birth_citizenship_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
+        if(data.success == true) {
+          
+          $("#").modal();
+        }
+      });
+    });
+    
+    $("#edit_gender_ethnicity").click(function(e) {
+      e.preventDefault();
+       
+      $.getJSON("<?= base_url('trainees/get_trainee_gender_ethnicity_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
+        if(data.success == true) {
+          
+          $("#").modal();
+        }
+      });
+    });
+    
+    $("#edit_admission_info").click(function(e) {
+      e.preventDefault();
+       
+      $.getJSON("<?= base_url('trainees/get_trainee_name_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
+        if(data.success == true) {
+          $("#graduateprogram_input").val(data.trainee_data.graduate_program);
+          $("#attendencestatus_input").val(data.trainee_data.attendance_status);
+          $("#assistantshipinterest_input").val(data.trainee_data.assistantship_interest);
+          $("#expectedentranceterm_input").val(data.trainee_data.expected_entrance_term);
+          $("#admissionsinformation").modal();
+        }
+      });
+    });
+    
+    $("#edit_test_scores").click(function(e) {
+      e.preventDefault();
+       
+      $.getJSON("<?= base_url('trainees/get_trainee_test_scores_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
+        if(data.success == true) {
+          $("#gmatdate_input").val(data.trainee_test_scores.gmat_date);
+          $("#gmatscore_input").val(data.trainee_test_scores.gmat_score);
+          $("#gmatverbalscore_input").val(data.trainee_test_scores.gmat_verbal_score);
+          $("#gmatverbalpercentile_input").val(data.trainee_test_scores.gmat_verbal_percentile);
+          $("#gmatquantscore_input").val(data.trainee_test_scores.gmat_quantitative_score);
+          $("#gmatquantpercentile_input").val(data.trainee_test_scores.gmat_quantitative_percentile);
+          $("#gmatAWscore_input").val(data.trainee_test_scores.gmat_analytical_writing_score);
+          $("#gmatAWpercentile_input").val(data.trainee_test_scores.gmat_analytical_writing_percentile);
+          $("#gmatIRscore_input").val(data.trainee_test_scores.gmat_integrated_reasoning_score);
+          $("#gmatIRpercentile_input").val(data.trainee_test_scores.gmat_integrated_reasoning_percentile);
+          $("#gredate_input").val(data.trainee_test_scores.gre_date);
+          $("#greverbalscore_input").val(data.trainee_test_scores.gre_verbal_score);
+          $("#greverbalpercentile_input").val(data.trainee_test_scores.gre_verbal_percentile);
+          $("#grequantscore_input").val(data.trainee_test_scores.gre_quantitative_score);
+          $("#grequantpercentile_input").val(data.trainee_test_scores.gre_quantitative_percentile);
+          $("#greAWscore_input").val(data.trainee_test_scores.gre_analytical_writing_score);
+          $("#greAWpercentile_input").val(data.trainee_test_scores.gre_analytical_writing_percentile);
+          $("#toefldate_input").val(data.trainee_test_scores.toefl_date);
+          $("#toeflscore_input").val(data.trainee_test_scores.toefl_score);
+          $("#ibtreading_input").val(data.trainee_test_scores.ibt_reading);
+          $("#ibtwriting_input").val(data.trainee_test_scores.ibt_writing);
+          $("#ibtlistening_input").val(data.trainee_test_scores.ibt_listening);
+          $("#ibtspeaking_input").val(data.trainee_test_scores.ibt_speaking);
+          $("#pbreading_input").val(data.trainee_test_scores.pb_reading);
+          $("#pbwriting_input").val(data.trainee_test_scores.pb_writing);
+          $("#pblistening_input").val(data.trainee_test_scores.pb_listening);
+          $("#pbessay_input").val(data.trainee_test_scores.pb_essay);
+          $("#ieltsdate_input").val(data.trainee_test_scores.ielts_date);
+          $("#ieltsscore_input").val(data.trainee_test_scores.ielts_score);
+          $("#ieltsreading_input").val(data.trainee_test_scores.ielts_reading);
+          $("#ieltswriting_input").val(data.trainee_test_scores.ielts_writing);
+          $("#ieltslistening_input").val(data.trainee_test_scores.ielts_listening);
+          $("#ieltsspeaking_input").val(data.trainee_test_scores.ielts_speaking);
+          $("#matdate_input").val(data.trainee_test_scores.mat_date);
+          $("#matscore_input").val(data.trainee_test_scores.mat_score);
+          $("#testscores").modal();
+        }
+      });
+    });
+    
+    $("#save_test_scores").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_test_scores") ?>'  + '/' 
+      + encodeURIComponent($('#gmatdate_input').val()) + '/' 
+      + encodeURIComponent($('#gmatscore_input').val()) + '/' 
+      + encodeURIComponent($('#gmatverbalscore_input').val()) + '/' 
+      + encodeURIComponent($('#gmatverbalpercentile_input').val()) + '/'
+      + encodeURIComponent($('#gmatquantscore_input').val()) + '/'
+      + encodeURIComponent($('#gmatquantpercentile_input').val()) + '/' 
+      + encodeURIComponent($('#gmatAWscore_input').val()) + '/' 
+      + encodeURIComponent($('#gmatAWpercentile_input').val()) + '/' 
+      + encodeURIComponent($('#gmatIRscore_input').val()) + '/'
+      + encodeURIComponent($('#gmatIRpercentile_input').val()) + '/'
+      + encodeURIComponent($('#gredate_input').val()) + '/' 
+      + encodeURIComponent($('#greverbalscore_input').val()) + '/' 
+      + encodeURIComponent($('#greverbalpercentile_input').val()) + '/' 
+      + encodeURIComponent($('#grequantscore_input').val()) + '/'
+      + encodeURIComponent($('#grequantpercentile_input').val()) + '/'
+      + encodeURIComponent($('#greAWscore_input').val()) + '/' 
+      + encodeURIComponent($('#greAWpercentile_input').val()) + '/' 
+      + encodeURIComponent($('#toefldate_input').val()) + '/' 
+      + encodeURIComponent($('#toeflscore_input').val()) + '/'
+      + encodeURIComponent($('#ibtreading_input').val()) + '/'
+      + encodeURIComponent($('#ibtwriting_input').val()) + '/'
+      + encodeURIComponent($('#ibtlistening_input').val()) + '/'
+      + encodeURIComponent($('#ibtspeaking_input').val()) + '/' 
+      + encodeURIComponent($('#pbreading_input').val()) + '/' 
+      + encodeURIComponent($('#pbwriting_input').val()) + '/' 
+      + encodeURIComponent($('#pblistening_input').val()) + '/'
+      + encodeURIComponent($('#pbessay_input').val()) + '/'
+      + encodeURIComponent($('#ieltsdate_input').val()) + '/' 
+      + encodeURIComponent($('#ieltsscore_input').val()) + '/' 
+      + encodeURIComponent($('#ieltsreading_input').val()) + '/' 
+      + encodeURIComponent($('#ieltswriting_input').val()) + '/'
+      + encodeURIComponent($('#ieltslistening_input').val()) + '/'
+      + encodeURIComponent($('#ieltsspeaking_input').val()) + '/' 
+      + encodeURIComponent($('#matdate_input').val()) + '/' 
+      + encodeURIComponent($('#matscore_input').val())
+      + '/1';
+    });
+    
+    $("#edit_educational_background").click(function(e) {
+      e.preventDefault();
+       
+      $.getJSON("<?= base_url('trainees/get_trainee_educational_background_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
+        if(data.success == true) {
+          $("#name_input").val(data.trainee_data.name);
+          $("#city_input").val(data.trainee_data.city);
+          $("#state_input").val(data.trainee_data.state);
+          $("#country_input").val(data.trainee_data.country);
+          $("#startdate_input").val(data.trainee_data.start_date);
+          $("#enddate_input").val(data.trainee_data.end_date);
+          $("#degreeearned_input").val(data.trainee_data.degree_earned);
+          $("#degreedate_input").val(data.trainee_data.degree_date);
+          $("#overallgpa_input").val(data.trainee_data.overall_gpa);
+          $("#majorgpa_input").val(data.trainee_data.major_gpa);
+          $("#gpascale_input").val(data.trainee_data.gpa_scale);
+          $("#educationalbackground").modal();
+        }
+      });
+    });
+    
+    $("#save_educational_background").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_educational_background") ?>'  + '/'
+      + encodeURIComponent($('#name_input').val()) + '/'  
+      + encodeURIComponent($('#city_input').val()) + '/' 
+      + encodeURIComponent($('#state_input').val()) + '/'
+      + encodeURIComponent($('#country_input').val()) + '/'
+      + encodeURIComponent($('#startdate_input').val()) + '/' 
+      + encodeURIComponent($('#enddate_input').val()) + '/' 
+      + encodeURIComponent($('#degreeearned_input').val()) + '/' 
+      + encodeURIComponent($('#degreedate_input').val()) + '/'
+      + encodeURIComponent($('#overallgpa_input').val()) + '/'
+      + encodeURIComponent($('#majorgpa_input').val()) + '/'
+      + encodeURIComponent($('#gpascale_input').val())
+      + '/1';
+    });
+    
   });
 </script>

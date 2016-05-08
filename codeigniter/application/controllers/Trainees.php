@@ -81,8 +81,8 @@ class Trainees extends MY_Controller {
         $this->render();
     }
     
-    public function get_trainee_name_json($traineeId = 0){console.log(trainee_id);
-        $traineeId = (int)$traineeId; console.log("here");
+    public function get_trainee_name_json($traineeId = 0){
+        $traineeId = (int)$traineeId; 
         if($traineeId > 0) {
             $data = new stdClass();
             if($data->trainee_data = $this->trainee->get($traineeId)) {
@@ -94,6 +94,213 @@ class Trainees extends MY_Controller {
         }
         
         $this->render_json($data);
+    }
+    
+    public function save_name($fname, $mname, $lname, $email, $traineeId){
+       $traineeId = (int)$traineeId;
+       $fname = (string)$fname;
+       $lname = (string)$lname;
+       $mname = (string)$mname;
+       $email = (string)$email;
+       
+        if($traineeId > 0) {
+            $data = array(
+               'legal_first_name' => urldecode($fname),
+               'legal_middle_name' => urldecode($mname),
+               'legal_family_name' => urldecode($lname),
+               'email_address' => urldecode($email)
+            );
+        
+            $this->trainee->save_updated_name($data, $traineeId);
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
+    }
+    
+    public function get_trainee_mail_address_json($traineeId = 0){
+        $traineeId = (int)$traineeId; 
+        if($traineeId > 0) {
+            $data = new stdClass();
+            if($data->trainee_data = $this->trainee->get($traineeId)) {
+                if($data->trainee_address = $this->address->get($data->trainee_data->mailing_address_id))
+                $data->success = true;
+            }
+        }
+        if(!isset($data->success) || $data->success != true) {
+            $data->success = false;
+        }
+        
+        $this->render_json($data);
+    }
+    
+    public function save_mail_address($add1, $add2, $city, $state, $zipcode, $traineeId){
+       $traineeId = (int)$traineeId;
+       
+        if($traineeId > 0) {
+            $data = array(
+               'address_line_1' => urldecode($add1),
+               'address_line_2' => urldecode($add2),
+               'address_city' => urldecode($city),
+               'address_state' => urldecode($state),
+               'address_zip' => urldecode($zipcode)
+            );
+            
+            if($data->trainee_data = $this->trainee->get($traineeId)) {
+                $this->trainee->save_updated_address($data, $data->trainee_data->mailing_address_id);
+            }
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
+    }
+    
+    public function get_trainee_perm_address_json($traineeId = 0){
+        $traineeId = (int)$traineeId; 
+        if($traineeId > 0) {
+            $data = new stdClass();
+            if($data->trainee_data = $this->trainee->get($traineeId)) {
+                if($data->trainee_address = $this->address->get($data->trainee_data->permanent_address_id))
+                $data->success = true;
+            }
+        }
+        if(!isset($data->success) || $data->success != true) {
+            $data->success = false;
+        }
+        
+        $this->render_json($data);
+    }
+    
+    public function save_perm_address($add1, $add2, $city, $state, $zipcode, $traineeId){
+       $traineeId = (int)$traineeId;
+       
+        if($traineeId > 0) {
+            $data = array(
+               'address_line_1' => urldecode($add1),
+               'address_line_2' => urldecode($add2),
+               'address_city' => urldecode($city),
+               'address_state' => urldecode($state),
+               'address_zip' => urldecode($zipcode)
+            );
+            
+            if($data->trainee_data = $this->trainee->get($traineeId)) {
+                $this->trainee->save_updated_address($data, $data->trainee_data->permanent_address_id);
+            }
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
+    }
+    
+    public function get_trainee_educational_background_json($traineeId = 0){
+        $traineeId = (int)$traineeId; 
+        if($traineeId > 0) {
+            $data = new stdClass();
+            if($data->trainee_data = $this->institution_node->get($traineeId)) {
+                $data->success = true;
+            }
+        }
+        if(!isset($data->success) || $data->success != true) {
+            $data->success = false;
+        }
+        
+        $this->render_json($data);
+    }
+    
+    public function save_educational_background($name, $city, $state, $country, $startdate, $enddate, $degreeearned, $degreedate, 
+    $overallgpa, $major_gpa, $gpa_scale, $traineeId){
+        
+       $traineeId = (int)$traineeId;
+       
+        if($traineeId > 0) {
+            $data = array(
+               'name' => urldecode($name),
+               'city' => urldecode($city),
+               'state' => urldecode($state),
+               'country' => urldecode($country),
+               'start_date' => urldecode($startdate),
+               'end_date' => urldecode($enddate),
+               'degree_earned' => urldecode($degreeearned),
+               'degree_date' => urldecode($degreedate),
+               'overall_gpa' => urldecode($overallgpa),
+               'major_gpa' => urldecode($major_gpa),
+               'gpa_scale' => urldecode($gpa_scale)
+            );
+            
+            $this->trainee->save_updated_educational_background($data, $traineeId);
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
+    }
+    
+    public function get_trainee_test_scores_json($traineeId = 0){
+        $traineeId = (int)$traineeId; 
+        if($traineeId > 0) {
+            $data = new stdClass();
+            if($data->trainee_data = $this->trainee->get($traineeId)) {
+                if($data->trainee_test_scores = $this->test_scores->get($data->trainee_data->test_score_id)){
+                    $data->success = true;
+                }
+            }
+        }
+        if(!isset($data->success) || $data->success != true) {
+            $data->success = false;
+        }
+        
+        $this->render_json($data);
+    }
+    
+    public function save_test_scores($gmat_date, $gmat_score, $gmat_v_score, $gmat_v_perc, $gmat_q_score, 
+        $gmat_q_perc, $gmat_aw_score, $gmat_aw_perc, $gmat_ir_score, $gmat_ir_perc,
+        $gre_date, $gre_v_score, $gre_v_perc, $gre_q_score, $gre_q_perc, $gre_aw_score, $gre_aw_perc, 
+        $toefl_date, $toefl_score, $ibt_read, $ibt_write, $ibt_list, $ibt_speak, $pb_read, $pb_write, 
+        $pb_list, $pb_essay, $ielts_date, $ielts_score,  $ielts_read, $ielts_write, $ielts_list, $ielts_speak, 
+        $mat_date, $mat_score, $traineeId){
+            
+       $traineeId = (int)$traineeId;
+       
+        if($traineeId > 0) {
+            $data = array(
+               'gmat_date' => urldecode($gmat_date),
+               'gmat_score' => urldecode($gmat_score),
+               'gmat_verbal_score' => urldecode($gmat_v_score),
+               'gmat_verbal_percentile' => urldecode($gmat_v_perc),
+               'gmat_quantitative_score' => urldecode($gmat_q_score),
+               'gmat_quantitative_percentile' => urldecode($gmat_q_perc),
+               'gmat_analytical_writing_score' => urldecode($gmat_aw_score),
+               'gmat_analytical_writing_percentile' => urldecode($gmat_aw_perc),
+               'gmat_integrated_reasoningl_score' => urldecode($gmat_ir_score),
+               'gmat_integrated_reasoning_percentile' => urldecode($gmat_ir_perc),
+               'gre_date' => urldecode($gre_date),
+               'gre_verbal_score' => urldecode($gre_v_score),
+               'gre_verbal_percentile' => urldecode($gre_v_perc),
+               'gre_quantitative_score' => urldecode($gre_q_score),
+               'gre_quantitative_percentile' => urldecode($gre_q_perc),
+               'gre_analytical_writing_score' => urldecode($gre_aw_score),
+               'gre_analytical_writing_percentile' => urldecode($gre_aw_perc),
+               'toefl_date' => urldecode($toefl_date),
+               'toefl_score' => urldecode($toefl_score),
+               'ibt_reading' => urldecode($ibt_read),
+               'ibt_listening' => urldecode($ibt_list),
+               'ibt_writing' => urldecode($ibt_write),
+               'ibt_speaking' => urldecode($ibt_speak),
+               'pb_listening' => urldecode($pb_list),
+               'pb_reading' => urldecode($pb_read),
+               'pb_writing' => urldecode($pb_write),
+               'pb_essay' => urldecode($pb_essay),
+               'ielts_date' => urldecode($ielts_date),
+               'ielts_score' => urldecode($ielts_score),
+               'ielts_listening' => urldecode($ielts_list),
+               'ielts_reading' => urldecode($ielts_read),
+               'ielts_writing' => urldecode($ielts_write),
+               'ielts_speaking' => urldecode($ielts_speak),
+               'mat_date' => urldecode($mat_date),
+               'mat_score' => urldecode($mat_score)
+            );
+            
+            if($data->trainee_data = $this->trainee->get($traineeId)) {
+                $this->trainee->save_updated_test_scores($data, $data->trainee_data->test_score_id);
+            }
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
     }
     
     /*
