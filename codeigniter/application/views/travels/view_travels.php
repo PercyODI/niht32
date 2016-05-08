@@ -116,7 +116,6 @@
           $("#name_input").val(data.travel_data.name);
           $("#description_input").val(data.travel_data.description);
           $("#cost_input").val(data.travel_data.cost);
-          console.dir(data);
           $("#sharedModal").data('travel_id', data.travel_data.id).modal();
         }
       });

@@ -114,8 +114,8 @@ class Trainees extends MY_Controller {
                'address_zip' => urldecode($zipcode)
             );
             
-            if($data->trainee_data = $this->trainee->get($traineeId)) {
-                $this->trainee->save_updated_address($data, $data->trainee_data->mailing_address_id);
+            if($trainee_data = $this->trainee->get($traineeId)) {
+                $this->trainee->save_updated_address($data, $trainee_data->mailing_address_id);
             }
             
             redirect('trainees/view_trainee/' . $traineeId);
@@ -134,9 +134,40 @@ class Trainees extends MY_Controller {
                'address_zip' => urldecode($zipcode)
             );
             
-            if($data->trainee_data = $this->trainee->get($traineeId)) {
-                $this->trainee->save_updated_address($data, $data->trainee_data->permanent_address_id);
+            if($trainee_data = $this->trainee->get($traineeId)) {
+                $this->trainee->save_updated_address($data, $trainee_data->permanent_address_id);
             }
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
+    }
+    
+    public function save_gender_ethnicity($gender, $traineeId){
+       $traineeId = (int)$traineeId;
+       
+        if($traineeId > 0) {
+            $data = array(
+               'gender' => urldecode($gender)
+            );
+            
+            $this->trainee->save_updated_gender($data, $traineeId);
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
+    }
+    
+    public function save_admissions_info($program, $attendance, $assistantship, $entrance, $traineeId){
+       $traineeId = (int)$traineeId;
+       
+        if($traineeId > 0) {
+            $data = array(
+               'graduate_program' => urldecode($program),
+               'attendence_status' => urldecode($attendance),
+               'assistantship_interest' => urldecode($assistantship),
+               'expected_entrance_term' => urldecode($entrance)
+            );
+            
+            $this->trainee->save_updated_admissions_info($data, $traineeId);
             
             redirect('trainees/view_trainee/' . $traineeId);
         }
@@ -163,6 +194,35 @@ class Trainees extends MY_Controller {
             );
             
             $this->trainee->save_updated_educational_background($data, $traineeId);
+            
+            redirect('trainees/view_trainee/' . $traineeId);
+        }
+    }
+    
+    public function save_birth_citizenship($dob, $sob, $cob, $citizen, $perm_res, $mo_res, $veteran, $traineeId){
+        
+       $traineeId = (int)$traineeId;
+       
+        if($traineeId > 0) {
+            $data_trainee = array(
+               'date_of_birth' => urldecode($dob),
+               'state_of_birth' => urldecode($sob),
+               'city_of_birth' => urldecode($cob),
+               'us_citizen' => urldecode($citizen),
+               'missouri_resident' => urldecode($mo_res),
+               'us_af_veteran' => urldecode($veteran)
+            );
+            
+            $data_visa = array(
+                'us_permanent_resident' => urldecode($perm_res),
+                'visa_status' => urldecode($visa)
+            );
+               
+            $this->trainee->save_updated_birth_citizenship_trainee($data_trainee, $traineeId);
+            
+            if($trainee_data = $this->trainee->get($traineeId)) {
+                $this->trainee->save_updated_birth_citizenship_visa($data_visa, $trainee_data->resident_status_id);
+            }
             
             redirect('trainees/view_trainee/' . $traineeId);
         }
@@ -216,8 +276,8 @@ class Trainees extends MY_Controller {
                'mat_score' => urldecode($mat_score)
             );
             
-            if($data->trainee_data = $this->trainee->get($traineeId)) {
-                $this->trainee->save_updated_test_scores($data, $data->trainee_data->test_score_id);
+            if($trainee_data = $this->trainee->get($traineeId)) {
+                $this->trainee->save_updated_test_scores($data, $trainee_data->test_score_id);
             }
             
             redirect('trainees/view_trainee/' . $traineeId);

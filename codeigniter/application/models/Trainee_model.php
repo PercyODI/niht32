@@ -120,4 +120,32 @@ class Trainee_model extends MY_Model {
         $this->db->where('id', $traineeId);
         $this->db->update('institution_nodes', $data);
     }
+    
+    public function save_updated_birth_citizenship_trainee($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('trainees', $data);
+    }
+    
+    public function save_updated_birth_citizenship_visa($data, $visaId = 0){
+        $visaId = (int)$visaId;
+        
+        $this->db->where('id', $visaId);
+        $this->db->update('resident_statuses', $data);
+    }
+    
+    public function save_updated_gender($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('trainees', $data);
+    }
+    
+    public function save_updated_admissions_info($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('trainees', $data);
+    }
 }

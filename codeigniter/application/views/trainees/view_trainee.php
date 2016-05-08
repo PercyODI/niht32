@@ -95,7 +95,7 @@
             </div>
             <div class="tab-pane" id="mailing_address">
               <p class="lead">Mailing Address</p>
-            <?php if($trainee->mailing_address != null): ?>
+            <?php if($trainee->mailing_address != ''): ?>
               <p>
                 <b>Mailing Address line 1: </b><?= $trainee->mailing_address->address_line_1 ?>
               </p>
@@ -116,7 +116,7 @@
             </div>
             <div class="tab-pane" id="permanent_address">
               <p class="lead">Permanent Address</p>
-            <?php if($trainee->permanent_address != null): ?>
+            <?php if($trainee->permanent_address != ''): ?>
               <p>
                 <b>Permanent Address line 1: </b><?= $trainee->permanent_address->address_line_1 ?>
               </p>
@@ -149,13 +149,13 @@
               <p>
                 <b>U.S. Citizen </b><?= $trainee->us_citizen != '0' ? 'Yes' : 'No' ?>
               </p>
-            <?php if($trainee->us_citizen != '0' && $trainee->resident_status != null): ?>
+            <?php if($trainee->us_citizen != '0' && $trainee->resident_status != ''): ?>
               <p>
                 <b>Permanent Resident of U.S. </b><?= $trainee->resident_status->us_permanent_resident != '0' ? 'Yes' : 'No' ?>
               </p>
               <?php if($trainee->resident_status->us_permanent_resident == '0'): ?>
                 <p>
-                  <b>Visa Status: </b><?= $trainee->resident_status->visa_status != null ? $trainee->resident_status->visa_status : $trainee->resident_status->visa_status_other ?>
+                  <b>Visa Status: </b><?= $trainee->resident_status->visa_status != '' ? $trainee->resident_status->visa_status : $trainee->resident_status->visa_status_other ?>
                 </p>
               <?php endif ?>
             <?php endif ?>
@@ -174,12 +174,12 @@
             <div class="tab-pane" id="gender_and_ethnicity">
               <p class="lead">Gender and Ethnicity</p>
               <p>
-                <b>Gender: </b><?= $trainee->gender != null ? ucfirst($trainee->gender) : 'No Gender Listed' ?>
+                <b>Gender: </b><?= $trainee->gender != '' ? ucfirst($trainee->gender) : 'No Gender Listed' ?>
               </p>
               <p>
                 <b>Ethnicity: </b>
                 <?php 
-                  if($trainee->ethnicities != null && is_array($trainee->ethnicities)) {
+                  if($trainee->ethnicities != '' && is_array($trainee->ethnicities)) {
                     $firstForFlag = true;
                     foreach($trainee->ethnicities as $ethnicity) {
                       if($firstForFlag != true) {
@@ -201,7 +201,7 @@
             <div class="tab-pane" id="admissions_information">
               <p class="lead">Admissions Information</p>
               <p>
-                <b>Graduate Program: </b><?= $trainee->graduate_program != null ? $trainee->graduate_program : 'No Graduate Program Listed' ?>
+                <b>Graduate Program: </b><?= $trainee->graduate_program != '' ? $trainee->graduate_program : 'No Graduate Program Listed' ?>
               </p>
               <p>
                 <b>Attendance Status: </b>
@@ -222,7 +222,7 @@
                 <b>Interested in an Assistantship or Fellowship: </b><?= $trainee->assistantship_interest == 1 ? 'Yes' : 'No' ?>
               </p>
               <p>
-                <b>Expected Term of Entrance: </b><?= $trainee->expected_entrance_term != null ? $trainee->expected_entrance_term : 'No Expected Entrance Term Listed' ?>
+                <b>Expected Term of Entrance: </b><?= $trainee->expected_entrance_term != '' ? $trainee->expected_entrance_term : 'No Expected Entrance Term Listed' ?>
               </p>
               <p>
                 <div class="x_content">
@@ -232,7 +232,7 @@
             </div>
             <div class="tab-pane" id="test_scores">
               <p class="lead">Test Scores</p>
-              <?php if($trainee->testScore != NULL){
+              <?php if($trainee->testScore != ''){
                 echo '<p>
                   <b><u>GMAT: </u></b></br>
                   <b>Date: </b>' . $trainee->testScore->gmat_date . '</br>
@@ -303,7 +303,7 @@
               <p class="lead">Educational Background</p>
               <p>
                 <?php 
-                  if($trainee->institutions != null && is_array($trainee->institutions)) {
+                  if($trainee->institutions != '' && is_array($trainee->institutions)) {
                     foreach($trainee->institutions as $institution) {
                       echo '<b>Name: </b>' . $institution->name . '</br>';
                       echo '<b>City: </b>' . $institution->city . '</br>';
@@ -318,7 +318,7 @@
                       echo '<b>GPA Scale: </b>' . $institution->gpa_scale . '</br></br>';
                       
                       echo'<div class="x_content">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#educationalbackground" id="edit_educational_background">Edit</button>
+                        <button type="button" class="btn btn-warning disabled" data-toggle="modal" id="edit_educational_background">Edit</button>
                       </div>';
                     }
                   } else {
@@ -366,7 +366,7 @@
         <script>
           $(document).ready(function() {
             $.getJSON("<?= base_url('analytics/traineeTravelExpenseOverTime/' . $trainee->id) ?>", function(jsonData) {
-          		if(jsonData != null && jsonData.success == true) {
+          		if(jsonData != '' && jsonData.success == true) {
           		  if(jsonData.dates.length > 1) {
   	          		var ctx = $("#travelExpenseCanvas");
   			  				//draw
@@ -557,7 +557,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address_input"> Permanent Address Line 1<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="mailing_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_line_1 ?>">
+        <input type="text" id="permanent_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_line_1 ?>">
       </div>
     </div>
 </div>
@@ -565,7 +565,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address2_input"> Permanent Address Line 2<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="mailing_address2_input" name="mailing_address2" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_line_2 ?>">
+      <input type="text" id="permanent_address2_input" name="mailing_address2" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_line_2 ?>">
     </div>
   </div>
 </div>
@@ -573,7 +573,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city_input"> City<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="city_input" name="city" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_city ?>">
+      <input type="text" id="permanent_city_input" name="city" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_city ?>">
     </div>
   </div>
 </div>
@@ -581,7 +581,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state_input"> State<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="state_input" name="state" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_state ?>">
+      <input type="text" id="permanent_state_input" name="state" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_state ?>">
     </div>
   </div>
 </div>
@@ -589,7 +589,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="zipcode_input"> Zipcode<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_zip ?>">
+      <input type="text" id="permanent_zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_zip ?>">
     </div>
   </div>
 </div>
@@ -616,65 +616,57 @@
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Date of Birth<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-date_of_birth_input"> Date of Birth<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="date_of_birth" name="date_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->date_of_birth ?>">
+        <input type="text" id="date_of_birth_input" name="date_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->date_of_birth ?>">
       </div>
     </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> State of Birth<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-state_of_birth_input"> State of Birth<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="state_of_birth" name="state_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->state_of_birth ?>">
+      <input type="text" id="state_of_birth_input" name="state_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->state_of_birth ?>">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> City of Birth<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-city_of_birth_input"> City of Birth<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="city_of_birth" name="city_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->city_of_birth ?>">
+      <input type="text" id="city_of_birth_input" name="city_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->city_of_birth ?>">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> US Citizen (Yes = 1; No = 0)<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-us_citizen_input"> US Citizen (Yes = 1; No = 0)<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="us_citizen" name="us_citizen" class="form-control col-md-7 col-xs-12" value="<?= $trainee->us_citizen?>">
+      <input type="text" id="us_citizen_input" name="us_citizen" class="form-control col-md-7 col-xs-12" value="<?= $trainee->us_citizen?>">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Permanent Resident of the US (Yes = 1; No = 0)<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="permanent_resident_of_the_us_input"> Permanent Resident of the US (Yes = 1; No = 0)<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="permanent_resident_of_the_us" name="permanent_resident_of_the_us" class="form-control col-md-7 col-xs-12" value="<?= $trainee->resident_status->us_permanent_resident ?>">
+      <input type="text" id="permanent_resident_of_the_us_input" name="permanent_resident_of_the_us" class="form-control col-md-7 col-xs-12" value="<?= $trainee->resident_status->us_permanent_resident ?>">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Visa Status<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="missouri_resident_input"> Missouri Resident (Yes = 1; No = 0)<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="visa_status" name="visa_status" class="form-control col-md-7 col-xs-12" value="<?= $trainee->resident_status->visa_status ?>">
+      <input type="text" id="missouri_resident_input" name="missouri_resident" class="form-control col-md-7 col-xs-12" value="<?= $trainee->missouri_resident ?>">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Missouri Resident (Yes = 1; No = 0)<span class="required">*</span></label>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="veteran_of_the_us_armed_forces_input"> Veteran of the U.S. Armed Forces (Yes = 1; No = 0)<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="missouri_resident" name="missouri_resident" class="form-control col-md-7 col-xs-12" value="<?= $trainee->missouri_resident ?>">
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name"> Veteran of the U.S. Armed Forces (Yes = 1; No = 0)<span class="required">*</span></label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="veteran_of_the_us_armed_forces" name="veteran_of_the_us_armed_forces" class="form-control col-md-7 col-xs-12" value="<?= $trainee->us_af_veteran ?>">
+      <input type="text" id="veteran_of_the_us_armed_forces_input" name="veteran_of_the_us_armed_forces" class="form-control col-md-7 col-xs-12" value="<?= $trainee->us_af_veteran ?>">
     </div>
   </div>
 </div>
@@ -701,30 +693,11 @@
 </div>
 <div class="row">
     <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender"> Gender<span class="required">*</span></label>
+      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gender_input"> Gender<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gender" name="gender" class="form-control col-md-7 col-xs-12" value = "<?= ucfirst($trainee->gender) ?>">
+        <input type="text" id="gender_input" name="gender" class="form-control col-md-7 col-xs-12" value = "<?= ucfirst($trainee->gender) ?>">
       </div>
     </div>
-</div>
-<div class="row">
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ethnicity"> Ethnicity<span class="required">*</span></label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="ethnicity" name="ethnicity" class="form-control col-md-7 col-xs-12" value = 
-        "<?php 
-          if($trainee->ethnicities != null && is_array($trainee->ethnicities)) {
-            $firstForFlag = true;
-            foreach($trainee->ethnicities as $ethnicity) {
-              if($firstForFlag != true) {
-                echo ', ';
-              }
-              echo $ethnicity->name;
-            }
-          }
-        ?>">
-    </div>
-  </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -1218,159 +1191,116 @@
     $("#save_name").click(function(e) {
       e.preventDefault();
       window.location.href = '<?= base_url("trainees/save_name") ?>'  + '/' 
-      + encodeURIComponent($('#legal_first_name_input').val()) + '/' 
-      + encodeURIComponent($('#legal_middle_name_input').val()) + '/' 
-      + encodeURIComponent($('#legal_family_name_input').val()) + '/' 
-      + encodeURIComponent($('#email_input').val()) + '/' + trainee_id;
+      + encodeURIComponent($('#legal_first_name_input').val() != '' ? $('#legal_first_name_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#legal_middle_name_input').val() != '' ? $('#legal_middle_name_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#legal_family_name_input').val() != '' ? $('#legal_family_name_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#email_input').val() != '' ? $('#email_input').val() : 'null')+ '/' + trainee_id;
     });
     
     $("#save_perm_address").click(function(e) {
       e.preventDefault();
       window.location.href = '<?= base_url("trainees/save_perm_address") ?>'  + '/' 
-      + encodeURIComponent($('#mailing_address_input').val()) + '/' 
-      + encodeURIComponent($('#mailing_address2_input').val()) + '/' 
-      + encodeURIComponent($('#city_input').val()) + '/' 
-      + encodeURIComponent($('#state_input').val()) + '/'
-      + encodeURIComponent($('#zipcode_input').val()) + '/' + trainee_id;
+      + encodeURIComponent($('#permanent_address_input').val() != '' ? $('#permanent_address_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#permanent_address2_input').val() != '' ? $('#permanent_address2_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#permanent_city_input').val() != '' ? $('#permanent_city_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#permanent_state_input').val() != '' ? $('#permanent_state_input').val() : 'null')+ '/'
+      + encodeURIComponent($('#permanent_zipcode_input').val() != '' ? $('#permanent_zipcode_input').val() : 'null')+ '/' + trainee_id;
     });
     
     $("#save_mail_address").click(function(e) {
       e.preventDefault();
-      window.location.href = '<?= base_url("trainees/save_mail_address") ?>'  + '/' + encodeURIComponent($('#mailing_address_input').val()) 
-      + '/' + encodeURIComponent($('#mailing_address2_input').val()) + '/' 
-      + encodeURIComponent($('#city_input').val()) + '/' 
-      + encodeURIComponent($('#state_input').val()) + '/'
-      + encodeURIComponent($('#zipcode_input').val()) + '/' + trainee_id;
+      window.location.href = '<?= base_url("trainees/save_mail_address") ?>'  + '/' 
+      + encodeURIComponent($('#mailing_address_input').val() != '' ? $('#mailing_address_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#mailing_address2_input').val() != '' ? $('#mailing_address2_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#city_input').val() != '' ? $('#city_input').val() : 'null')+ '/' 
+      + encodeURIComponent($('#state_input').val() != '' ? $('#state_input').val() : 'null')+ '/'
+      + encodeURIComponent($('#zipcode_input').val() != '' ? $('#zipcode_input').val() : 'null')+ '/' + trainee_id;
+    });
+    
+    $("#save_gender_ethnicity").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_gender_ethnicity") ?>'  + '/' 
+      + encodeURIComponent($('#gender_input').val() != '' ? $('#gender_input').val() : 'null') + '/' + trainee_id;
+    });
+    
+    $("#save_admission_info").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_admissions_info") ?>'  + '/' 
+      + encodeURIComponent($('#graduateprogram_input').val() != '' ? $('#graduateprogram_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#attendencestatus_input').val() != '' ? $('#attendencestatus_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#assistantshipinterest_input').val() != '' ? $('#assistantshipinterest_input').val() : 'null') + '/'
+      + encodeURIComponent($('#expectedentranceterm_input').val() != '' ? $('#expectedentranceterm_input').val() : 'null') + '/'+ trainee_id;
     });
     
     $("#save_birth_citizenship").click(function(e) {
       e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_birth_citizenship") ?>'  + '/' 
+      + encodeURIComponent($('#data_of_birth_input').val() != '' ? $('#data_of_birth_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#state_of_birth_input').val() != '' ? $('#state_of_birth_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#city_of_birth_input').val() != '' ? $('#city_of_birth_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#us_citizen_input').val() != '' ? $('#us_citizen_input').val() : 'null') + '/'
+      + encodeURIComponent($('#permanent_resident_of_the_us_input').val() != '' ? $('#permanent_resident_of_the_us_input').val() : 'null') + '/'
+      + encodeURIComponent($('#missouri_resident_input').val() != '' ? $('#missouri_resident_input').val() : 'null') + '/'
+      + encodeURIComponent($('#veteran_of_the_us_armed_forces_input').val() != '' ? $('#veteran_of_the_us_armed_forces_input').val() : 'null') + '/' + trainee_id;
     });
-    
-   /* $("#edit_test_scores").click(function(e) {
-      e.preventDefault();
-       
-      $.getJSON("<?= base_url('trainees/get_trainee_test_scores_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
-        if(data.success == true) {
-          $("#gmatdate_input").val(data.trainee_test_scores.gmat_date);
-          $("#gmatscore_input").val(data.trainee_test_scores.gmat_score);
-          $("#gmatverbalscore_input").val(data.trainee_test_scores.gmat_verbal_score);
-          $("#gmatverbalpercentile_input").val(data.trainee_test_scores.gmat_verbal_percentile);
-          $("#gmatquantscore_input").val(data.trainee_test_scores.gmat_quantitative_score);
-          $("#gmatquantpercentile_input").val(data.trainee_test_scores.gmat_quantitative_percentile);
-          $("#gmatAWscore_input").val(data.trainee_test_scores.gmat_analytical_writing_score);
-          $("#gmatAWpercentile_input").val(data.trainee_test_scores.gmat_analytical_writing_percentile);
-          $("#gmatIRscore_input").val(data.trainee_test_scores.gmat_integrated_reasoning_score);
-          $("#gmatIRpercentile_input").val(data.trainee_test_scores.gmat_integrated_reasoning_percentile);
-          $("#gredate_input").val(data.trainee_test_scores.gre_date);
-          $("#greverbalscore_input").val(data.trainee_test_scores.gre_verbal_score);
-          $("#greverbalpercentile_input").val(data.trainee_test_scores.gre_verbal_percentile);
-          $("#grequantscore_input").val(data.trainee_test_scores.gre_quantitative_score);
-          $("#grequantpercentile_input").val(data.trainee_test_scores.gre_quantitative_percentile);
-          $("#greAWscore_input").val(data.trainee_test_scores.gre_analytical_writing_score);
-          $("#greAWpercentile_input").val(data.trainee_test_scores.gre_analytical_writing_percentile);
-          $("#toefldate_input").val(data.trainee_test_scores.toefl_date);
-          $("#toeflscore_input").val(data.trainee_test_scores.toefl_score);
-          $("#ibtreading_input").val(data.trainee_test_scores.ibt_reading);
-          $("#ibtwriting_input").val(data.trainee_test_scores.ibt_writing);
-          $("#ibtlistening_input").val(data.trainee_test_scores.ibt_listening);
-          $("#ibtspeaking_input").val(data.trainee_test_scores.ibt_speaking);
-          $("#pbreading_input").val(data.trainee_test_scores.pb_reading);
-          $("#pbwriting_input").val(data.trainee_test_scores.pb_writing);
-          $("#pblistening_input").val(data.trainee_test_scores.pb_listening);
-          $("#pbessay_input").val(data.trainee_test_scores.pb_essay);
-          $("#ieltsdate_input").val(data.trainee_test_scores.ielts_date);
-          $("#ieltsscore_input").val(data.trainee_test_scores.ielts_score);
-          $("#ieltsreading_input").val(data.trainee_test_scores.ielts_reading);
-          $("#ieltswriting_input").val(data.trainee_test_scores.ielts_writing);
-          $("#ieltslistening_input").val(data.trainee_test_scores.ielts_listening);
-          $("#ieltsspeaking_input").val(data.trainee_test_scores.ielts_speaking);
-          $("#matdate_input").val(data.trainee_test_scores.mat_date);
-          $("#matscore_input").val(data.trainee_test_scores.mat_score);
-          $("#testscores").modal();
-        }
-      });
-    });*/
     
     $("#save_test_scores").click(function(e) {
       e.preventDefault();
       window.location.href = '<?= base_url("trainees/save_test_scores") ?>'  + '/' 
-      + encodeURIComponent($('#gmatdate_input').val()) + '/' 
-      + encodeURIComponent($('#gmatscore_input').val()) + '/' 
-      + encodeURIComponent($('#gmatverbalscore_input').val()) + '/' 
-      + encodeURIComponent($('#gmatverbalpercentile_input').val()) + '/'
-      + encodeURIComponent($('#gmatquantscore_input').val()) + '/'
-      + encodeURIComponent($('#gmatquantpercentile_input').val()) + '/' 
-      + encodeURIComponent($('#gmatAWscore_input').val()) + '/' 
-      + encodeURIComponent($('#gmatAWpercentile_input').val()) + '/' 
-      + encodeURIComponent($('#gmatIRscore_input').val()) + '/'
-      + encodeURIComponent($('#gmatIRpercentile_input').val()) + '/'
-      + encodeURIComponent($('#gredate_input').val()) + '/' 
-      + encodeURIComponent($('#greverbalscore_input').val()) + '/' 
-      + encodeURIComponent($('#greverbalpercentile_input').val()) + '/' 
-      + encodeURIComponent($('#grequantscore_input').val()) + '/'
-      + encodeURIComponent($('#grequantpercentile_input').val()) + '/'
-      + encodeURIComponent($('#greAWscore_input').val()) + '/' 
-      + encodeURIComponent($('#greAWpercentile_input').val()) + '/' 
-      + encodeURIComponent($('#toefldate_input').val()) + '/' 
-      + encodeURIComponent($('#toeflscore_input').val()) + '/'
-      + encodeURIComponent($('#ibtreading_input').val()) + '/'
-      + encodeURIComponent($('#ibtwriting_input').val()) + '/'
-      + encodeURIComponent($('#ibtlistening_input').val()) + '/'
-      + encodeURIComponent($('#ibtspeaking_input').val()) + '/' 
-      + encodeURIComponent($('#pbreading_input').val()) + '/' 
-      + encodeURIComponent($('#pbwriting_input').val()) + '/' 
-      + encodeURIComponent($('#pblistening_input').val()) + '/'
-      + encodeURIComponent($('#pbessay_input').val()) + '/'
-      + encodeURIComponent($('#ieltsdate_input').val()) + '/' 
-      + encodeURIComponent($('#ieltsscore_input').val()) + '/' 
-      + encodeURIComponent($('#ieltsreading_input').val()) + '/' 
-      + encodeURIComponent($('#ieltswriting_input').val()) + '/'
-      + encodeURIComponent($('#ieltslistening_input').val()) + '/'
-      + encodeURIComponent($('#ieltsspeaking_input').val()) + '/' 
-      + encodeURIComponent($('#matdate_input').val()) + '/' 
-      + encodeURIComponent($('#matscore_input').val())
-      + '/1';
+      + encodeURIComponent($('#gmatdate_input').val() != '' ? $('#gmatdate_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#gmatscore_input').val() != '' ? $('#gmatscore_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#gmatverbalscore_input').val() != '' ? $('#gmatverbalscore_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#gmatverbalpercentile_input').val() != '' ? $('#gmatverbalpercentile_input').val() : 'null') + '/'
+      + encodeURIComponent($('#gmatquantscore_input').val() != '' ? $('#gmatquantscore_input').val() : 'null') + '/'
+      + encodeURIComponent($('#gmatquantpercentile_input').val() != '' ? $('#gmatquantpercentile_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#gmatAWscore_input').val() != '' ? $('#gmatAWscore_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#gmatAWpercentile_input').val() != '' ? $('#gmatAWpercentile_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#gmatIRscore_input').val() != '' ? $('#gmatIRscore_input').val() : 'null') + '/'
+      + encodeURIComponent($('#gmatIRpercentile_input').val() != '' ? $('#gmatIRpercentile_input').val() : 'null') + '/'
+      + encodeURIComponent($('#gredate_input').val() != '' ? $('#gredate_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#greverbalscore_input').val() != '' ? $('#greverbalscore_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#greverbalpercentile_input').val() != '' ? $('#greverbalpercentile_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#grequantscore_input').val() != '' ? $('#grequantscore_input').val() : 'null') + '/'
+      + encodeURIComponent($('#grequantpercentile_input').val() != '' ? $('#grequantpercentile_input').val() : 'null') + '/'
+      + encodeURIComponent($('#greAWscore_input').val() != '' ? $('#greAWscore_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#greAWpercentile_input').val() != '' ? $('#greAWpercentile_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#toefldate_input').val() != '' ? $('#toefldate_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#toeflscore_input').val() != '' ? $('#toeflscore_input').val() : 'null') + '/'
+      + encodeURIComponent($('#ibtreading_input').val() != '' ? $('#ibtreading_input').val() : 'null') + '/'
+      + encodeURIComponent($('#ibtwriting_input').val() != '' ? $('#ibtwriting_input').val() : 'null') + '/'
+      + encodeURIComponent($('#ibtlistening_input').val() != '' ? $('#ibtlistening_input').val() : 'null') + '/'
+      + encodeURIComponent($('#ibtspeaking_input').val() != '' ? $('#ibtspeaking_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#pbreading_input').val() != '' ? $('#pbreading_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#pbwriting_input').val() != '' ? $('#pbwriting_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#pblistening_input').val() != '' ? $('#pblistening_input').val() : 'null') + '/'
+      + encodeURIComponent($('#pbessay_input').val() != '' ? $('#pbessay_input').val() : 'null') + '/'
+      + encodeURIComponent($('#ieltsdate_input').val() != '' ? $('#ieltsdate_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#ieltsscore_input').val() != '' ? $('#ieltsscore_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#ieltsreading_input').val() != '' ? $('#ieltsreading_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#ieltswriting_input').val() != '' ? $('#ieltswriting_input').val() : 'null') + '/'
+      + encodeURIComponent($('#ieltslistening_input').val() != '' ? $('#ieltslistening_input').val() : 'null') + '/'
+      + encodeURIComponent($('#ieltsspeaking_input').val() != '' ? $('#ieltsspeaking_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#matdate_input').val() != '' ? $('#matdate_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#matscore_input').val() != '' ? $('#matscore_input').val() : 'null')
+      + '/' + trainee_id;
     });
     
-    /*
-    $("#edit_educational_background").click(function(e) {
-      e.preventDefault();
-       
-      $.getJSON("<?= base_url('trainees/get_trainee_educational_background_json') ?>" + "/" + $(this).attr("trainee_id"), function(data) {
-        if(data.success == true) {
-          $("#name_input").val(data.trainee_data.name);
-          $("#city_input").val(data.trainee_data.city);
-          $("#state_input").val(data.trainee_data.state);
-          $("#country_input").val(data.trainee_data.country);
-          $("#startdate_input").val(data.trainee_data.start_date);
-          $("#enddate_input").val(data.trainee_data.end_date);
-          $("#degreeearned_input").val(data.trainee_data.degree_earned);
-          $("#degreedate_input").val(data.trainee_data.degree_date);
-          $("#overallgpa_input").val(data.trainee_data.overall_gpa);
-          $("#majorgpa_input").val(data.trainee_data.major_gpa);
-          $("#gpascale_input").val(data.trainee_data.gpa_scale);
-          $("#educationalbackground").modal();
-        }
-      });
-    });*/
-    
-    $("#save_educational_background").click(function(e) {
-      e.preventDefault();
-      window.location.href = '<?= base_url("trainees/save_educational_background") ?>'  + '/'
-      + encodeURIComponent($('#name_input').val()) + '/'  
-      + encodeURIComponent($('#city_input').val()) + '/' 
-      + encodeURIComponent($('#state_input').val()) + '/'
-      + encodeURIComponent($('#country_input').val()) + '/'
-      + encodeURIComponent($('#startdate_input').val()) + '/' 
-      + encodeURIComponent($('#enddate_input').val()) + '/' 
-      + encodeURIComponent($('#degreeearned_input').val()) + '/' 
-      + encodeURIComponent($('#degreedate_input').val()) + '/'
-      + encodeURIComponent($('#overallgpa_input').val()) + '/'
-      + encodeURIComponent($('#majorgpa_input').val()) + '/'
-      + encodeURIComponent($('#gpascale_input').val())
-      + '/1';
-    });
+    // $("#save_educational_background").click(function(e) {
+    //   e.preventDefault();
+    //   window.location.href = '<?= base_url("trainees/save_educational_background") ?>'  + '/'
+    //   + encodeURIComponent($('#name_input').val() != '' ? $('#name_input').val() : 'null') + '/'  
+    //   + encodeURIComponent($('#city_input').val() != '' ? $('#city_input').val() : 'null') + '/' 
+    //   + encodeURIComponent($('#state_input').val() != '' ? $('#state_input').val() : 'null') + '/'
+    //   + encodeURIComponent($('#country_input').val() != '' ? $('#country_input').val() : 'null') + '/'
+    //   + encodeURIComponent($('#startdate_input').val() != '' ? $('#startdate_input').val() : 'null') + '/' 
+    //   + encodeURIComponent($('#enddate_input').val() != '' ? $('#enddate_input').val() : 'null') + '/' 
+    //   + encodeURIComponent($('#degreeearned_input').val() != '' ? $('#degreeearned_input').val() : 'null') + '/' 
+    //   + encodeURIComponent($('#degreedate_input').val() != '' ? $('#degreedate_input').val() : 'null') + '/'
+    //   + encodeURIComponent($('#overallgpa_input').val() != '' ? $('#overallgpa_input').val() : 'null') + '/'
+    //   + encodeURIComponent($('#majorgpa_input').val() != '' ? $('#majorgpa_input').val() : 'null') + '/'
+    //   + encodeURIComponent($('#gpascale_input').val() != '' ? $('#gpascale_input').val() : 'null')
+    //   + '/' + trainee_id;
+    // });
     
   });
 </script>
