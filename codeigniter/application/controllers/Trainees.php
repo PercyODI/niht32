@@ -81,21 +81,6 @@ class Trainees extends MY_Controller {
         $this->render();
     }
     
-    public function get_trainee_name_json($traineeId = 0){
-        $traineeId = (int)$traineeId; 
-        if($traineeId > 0) {
-            $data = new stdClass();
-            if($data->trainee_data = $this->trainee->get($traineeId)) {
-                $data->success = true;
-            }
-        }
-        if(!isset($data->success) || $data->success != true) {
-            $data->success = false;
-        }
-        
-        $this->render_json($data);
-    }
-    
     public function save_name($fname, $mname, $lname, $email, $traineeId){
        $traineeId = (int)$traineeId;
        $fname = (string)$fname;
@@ -115,22 +100,6 @@ class Trainees extends MY_Controller {
             
             redirect('trainees/view_trainee/' . $traineeId);
         }
-    }
-    
-    public function get_trainee_mail_address_json($traineeId = 0){
-        $traineeId = (int)$traineeId; 
-        if($traineeId > 0) {
-            $data = new stdClass();
-            if($data->trainee_data = $this->trainee->get($traineeId)) {
-                if($data->trainee_address = $this->address->get($data->trainee_data->mailing_address_id))
-                $data->success = true;
-            }
-        }
-        if(!isset($data->success) || $data->success != true) {
-            $data->success = false;
-        }
-        
-        $this->render_json($data);
     }
     
     public function save_mail_address($add1, $add2, $city, $state, $zipcode, $traineeId){
@@ -153,22 +122,6 @@ class Trainees extends MY_Controller {
         }
     }
     
-    public function get_trainee_perm_address_json($traineeId = 0){
-        $traineeId = (int)$traineeId; 
-        if($traineeId > 0) {
-            $data = new stdClass();
-            if($data->trainee_data = $this->trainee->get($traineeId)) {
-                if($data->trainee_address = $this->address->get($data->trainee_data->permanent_address_id))
-                $data->success = true;
-            }
-        }
-        if(!isset($data->success) || $data->success != true) {
-            $data->success = false;
-        }
-        
-        $this->render_json($data);
-    }
-    
     public function save_perm_address($add1, $add2, $city, $state, $zipcode, $traineeId){
        $traineeId = (int)$traineeId;
        
@@ -187,21 +140,6 @@ class Trainees extends MY_Controller {
             
             redirect('trainees/view_trainee/' . $traineeId);
         }
-    }
-    
-    public function get_trainee_educational_background_json($traineeId = 0){
-        $traineeId = (int)$traineeId; 
-        if($traineeId > 0) {
-            $data = new stdClass();
-            if($data->trainee_data = $this->institution_node->get($traineeId)) {
-                $data->success = true;
-            }
-        }
-        if(!isset($data->success) || $data->success != true) {
-            $data->success = false;
-        }
-        
-        $this->render_json($data);
     }
     
     public function save_educational_background($name, $city, $state, $country, $startdate, $enddate, $degreeearned, $degreedate, 
@@ -228,23 +166,6 @@ class Trainees extends MY_Controller {
             
             redirect('trainees/view_trainee/' . $traineeId);
         }
-    }
-    
-    public function get_trainee_test_scores_json($traineeId = 0){
-        $traineeId = (int)$traineeId; 
-        if($traineeId > 0) {
-            $data = new stdClass();
-            if($data->trainee_data = $this->trainee->get($traineeId)) {
-                if($data->trainee_test_scores = $this->test_scores->get($data->trainee_data->test_score_id)){
-                    $data->success = true;
-                }
-            }
-        }
-        if(!isset($data->success) || $data->success != true) {
-            $data->success = false;
-        }
-        
-        $this->render_json($data);
     }
     
     public function save_test_scores($gmat_date, $gmat_score, $gmat_v_score, $gmat_v_perc, $gmat_q_score, 
