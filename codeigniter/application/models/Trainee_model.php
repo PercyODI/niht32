@@ -142,6 +142,13 @@ class Trainee_model extends MY_Model {
         $this->db->update('trainees', $data);
     }
     
+    public function save_updated_institution($data, $traineeId = 0) {
+      $traineeId = (int)$traineeId;
+      
+      $this->db->where('trainee_id', $traineeId);
+      $this->db->update('institution_nodes', $data);
+    }
+    
     public function save_updated_admissions_info($data, $traineeId = 0){
         $traineeId = (int)$traineeId;
         

@@ -303,23 +303,28 @@
               <p class="lead">Educational Background</p>
               <p>
                 <?php 
-                  if($trainee->institutions != '' && is_array($trainee->institutions)) {
+                  if($trainee->institutions != '') {
                     foreach($trainee->institutions as $institution) {
-                      echo '<b>Name: </b>' . $institution->name . '</br>';
-                      echo '<b>City: </b>' . $institution->city . '</br>';
-                      echo '<b>State: </b>' . $institution->state . '</br>';
-                      echo '<b>Country: </b>' . $institution->country . '</br>';
-                      echo '<b>Start Date: </b>' . $institution->start_date . '</br>';
-                      echo '<b>End Date: </b>' . $institution->end_date . '</br>';
-                      echo '<b>Degree Earned: </b>' . $institution->degree_earned . '</br>';
-                      echo '<b>Degree Date: </b>' . $institution->degree_date . '</br>';
-                      echo '<b>Overall GPA: </b>' . $institution->overall_gpa . '</br>';
-                      echo '<b>Major GPA: </b>' . $institution->major_gpa . '</br>';
-                      echo '<b>GPA Scale: </b>' . $institution->gpa_scale . '</br></br>';
-                      
-                      echo'<div class="x_content">
-                        <button type="button" class="btn btn-warning disabled" data-toggle="modal" id="edit_educational_background">Edit</button>
-                      </div>';
+                      if($institution->name != ''){
+                        echo '<b>Name: </b>' . $institution->name . '</br>';
+                        echo '<b>City: </b>' . $institution->city . '</br>';
+                        echo '<b>State: </b>' . $institution->state . '</br>';
+                        echo '<b>Country: </b>' . $institution->country . '</br>';
+                        echo '<b>Start Date: </b>' . $institution->start_date . '</br>';
+                        echo '<b>End Date: </b>' . $institution->end_date . '</br>';
+                        echo '<b>Degree Earned: </b>' . $institution->degree_earned . '</br>';
+                        echo '<b>Degree Date: </b>' . $institution->degree_date . '</br>';
+                        echo '<b>Overall GPA: </b>' . $institution->overall_gpa . '</br>';
+                        echo '<b>Major GPA: </b>' . $institution->major_gpa . '</br>';
+                        echo '<b>GPA Scale: </b>' . $institution->gpa_scale . '</br></br>';
+                        
+                        echo'<div class="x_content">
+                          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#educationalbackground" id="edit_educational_background">Edit</button>
+                        </div>';
+                      }
+                      else{
+                        echo 'No Institutions Listed';
+                      }
                     }
                   } else {
                     echo 'No Institutions Listed';
@@ -442,7 +447,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_first_name_input"> Legal First Name<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="legal_first_name_input" name="legal_first_name" class="form-control col-md-7 col-xs-12" value="<?= $trainee->legal_first_name ?>">
+        <input type="text" id="legal_first_name_input" name="legal_first_name" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->legal_first_name) ? $trainee->legal_first_name : '' ?>">
       </div>
     </div>
 </div>
@@ -450,7 +455,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_middle_name_input"> Legal Middle Name<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="legal_middle_name_input" name="legal_middle_name" class="form-control col-md-7 col-xs-12" value="<?= $trainee->legal_middle_name ?>">
+      <input type="text" id="legal_middle_name_input" name="legal_middle_name" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->legal_middle_name) ? $trainee->legal_middle_name : '' ?>">
     </div>
   </div>
 </div>
@@ -458,7 +463,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="legal_family_name_input"> Legal Family Name<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12" value="<?= $trainee->legal_family_name ?>">
+      <input type="text" id="legal_family_name_input" name="legal_family_name" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->legal_family_name) ? $trainee->legal_family_name : '' ?>">
     </div>
   </div>
 </div>
@@ -466,7 +471,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email_input"> Email Address<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="email_input" name="email_address" class="form-control col-md-7 col-xs-12" value="<?= $trainee->email_address ?>">
+      <input type="text" id="email_input" name="email_address" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->email_address) ? $trainee->email_address : '' ?>">
     </div>
   </div>
 </div>
@@ -496,7 +501,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address_input"> Mailing Address Line 1<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="mailing_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->mailing_address->address_line_1 ?>">
+        <input type="text" id="mailing_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->mailing_address->address_line_1) ? $trainee->mailing_address->address_line_1 : '' ?>">
       </div>
     </div>
 </div>
@@ -504,7 +509,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address2_input"> Mailing Address Line 2<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="mailing_address2_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->mailing_address->address_line_2 ?>">
+      <input type="text" id="mailing_address2_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->mailing_address->address_line_2) ? $trainee->mailing_address->address_line_2 : '' ?>">
     </div>
   </div>
 </div>
@@ -512,7 +517,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city_input"> City<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="city_input" name="city" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->mailing_address->address_city ?>">
+      <input type="text" id="city_input" name="city" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->mailing_address->address_city) ? $trainee->mailing_address->address_city : '' ?>">
     </div>
   </div>
 </div>
@@ -520,7 +525,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state_input"> State<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="state_input" name="state" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->mailing_address->address_state ?>">
+      <input type="text" id="state_input" name="state" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->mailing_address->address_state) ? $trainee->mailing_address->address_state : '' ?>">
     </div>
   </div>
 </div>
@@ -528,7 +533,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="zipcode_input"> Zipcode<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->mailing_address->address_zip ?>">
+      <input type="text" id="zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->mailing_address->address_zip) ? $trainee->mailing_address->address_zip : '' ?>">
     </div>
   </div>
 </div>
@@ -557,7 +562,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address_input"> Permanent Address Line 1<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="permanent_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_line_1 ?>">
+        <input type="text" id="permanent_address_input" name="mailing_address" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->permanent_address->address_line_1) ? $trainee->permanent_address->address_line_1 : '' ?>">
       </div>
     </div>
 </div>
@@ -565,7 +570,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mailing_address2_input"> Permanent Address Line 2<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="permanent_address2_input" name="mailing_address2" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_line_2 ?>">
+      <input type="text" id="permanent_address2_input" name="mailing_address2" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->permanent_address->address_line_2) ? $trainee->permanent_address->address_line_2 : '' ?>">
     </div>
   </div>
 </div>
@@ -573,7 +578,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city_input"> City<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="permanent_city_input" name="city" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_city ?>">
+      <input type="text" id="permanent_city_input" name="city" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->permanent_address->address_city) ? $trainee->permanent_address->address_city : '' ?>">
     </div>
   </div>
 </div>
@@ -581,7 +586,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state_input"> State<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="permanent_state_input" name="state" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_state ?>">
+      <input type="text" id="permanent_state_input" name="state" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->permanent_address->address_state) ? $trainee->permanent_address->address_state : '' ?>">
     </div>
   </div>
 </div>
@@ -589,7 +594,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="zipcode_input"> Zipcode<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="permanent_zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->permanent_address->address_zip ?>">
+      <input type="text" id="permanent_zipcode_input" name="zipcode" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->permanent_address->address_zip) ? $trainee->permanent_address->address_zip : '' ?>">
     </div>
   </div>
 </div>
@@ -618,7 +623,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-date_of_birth_input"> Date of Birth<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="date_of_birth_input" name="date_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->date_of_birth ?>">
+        <input type="text" id="date_of_birth_input" name="date_of_birth" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->date_of_birth) ? $trainee->date_of_birth : '' ?>">
       </div>
     </div>
 </div>
@@ -626,7 +631,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-state_of_birth_input"> State of Birth<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="state_of_birth_input" name="state_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->state_of_birth ?>">
+      <input type="text" id="state_of_birth_input" name="state_of_birth" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->state_of_birth) ? $trainee->state_of_birth : '' ?>">
     </div>
   </div>
 </div>
@@ -634,7 +639,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-city_of_birth_input"> City of Birth<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="city_of_birth_input" name="city_of_birth" class="form-control col-md-7 col-xs-12" value="<?= $trainee->city_of_birth ?>">
+      <input type="text" id="city_of_birth_input" name="city_of_birth" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->city_of_birth) ? $trainee->city_of_birth : '' ?>">
     </div>
   </div>
 </div>
@@ -650,7 +655,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="permanent_resident_of_the_us_input"> Permanent Resident of the US (Yes = 1; No = 0)<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="permanent_resident_of_the_us_input" name="permanent_resident_of_the_us" class="form-control col-md-7 col-xs-12" value="<?= $trainee->resident_status->us_permanent_resident ?>">
+      <input type="text" id="permanent_resident_of_the_us_input" name="permanent_resident_of_the_us" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->resident_status->us_permanent_resident) ? $trainee->resident_status->us_permanent_resident : '' ?>">
     </div>
   </div>
 </div>
@@ -658,7 +663,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="missouri_resident_input"> Missouri Resident (Yes = 1; No = 0)<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="missouri_resident_input" name="missouri_resident" class="form-control col-md-7 col-xs-12" value="<?= $trainee->missouri_resident ?>">
+      <input type="text" id="missouri_resident_input" name="missouri_resident" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->missouri_resident) ? $trainee->missouri_resident : '' ?>">
     </div>
   </div>
 </div>
@@ -666,7 +671,7 @@
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="veteran_of_the_us_armed_forces_input"> Veteran of the U.S. Armed Forces (Yes = 1; No = 0)<span class="required">*</span></label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <input type="text" id="veteran_of_the_us_armed_forces_input" name="veteran_of_the_us_armed_forces" class="form-control col-md-7 col-xs-12" value="<?= $trainee->us_af_veteran ?>">
+      <input type="text" id="veteran_of_the_us_armed_forces_input" name="veteran_of_the_us_armed_forces" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->us_af_veteran) ? $trainee->us_af_veteran : '' ?>">
     </div>
   </div>
 </div>
@@ -724,7 +729,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="graduateprogram_input"> Graduate Program<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="graduateprogram_input" name="graduate_program" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->graduate_program ?>">
+        <input type="text" id="graduateprogram_input" name="graduate_program" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->graduate_program) ? $trainee->graduate_program : '' ?>">
       </div>
     </div>
 </div>
@@ -750,7 +755,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="assistantshipinterest_input"> Assistantship/Fellowship Interest (Yes = 1; No = 0)<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="assistantshipinterest_input" name="assistantship_interest" class="form-control col-md-7 col-xs-12" value = "<?= $trainee->assistantship_interest ?>">
+        <input type="text" id="assistantshipinterest_input" name="assistantship_interest" class="form-control col-md-7 col-xs-12" value = "<?= isset($trainee->assistantship_interest) ? $trainee->assistantship_interest : '' ?>">
       </div>
     </div>
 </div>
@@ -787,7 +792,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatdate"> GMAT Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatdate_input" name="gmatdate" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_date ?>">
+        <input type="text" id="gmatdate_input" name="gmatdate" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_date) ? $trainee->testScore->gmat_date : '' ?>">
       </div>
     </div>
 </div>
@@ -795,7 +800,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatscore"> GMAT Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatscore_input" name="gmatscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_score ?>">
+        <input type="text" id="gmatscore_input" name="gmatscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_score) ? $trainee->testScore->gmat_score : '' ?>">
       </div>
     </div>
 </div>
@@ -803,7 +808,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatverbalscore"> GMAT Verbal Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatverbalscore_input" name="gmatverbalscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_verbal_score ?>">
+        <input type="text" id="gmatverbalscore_input" name="gmatverbalscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_verbal_score) ? $trainee->testScore->gmat_verbal_score : '' ?>">
       </div>
     </div>
 </div>
@@ -811,7 +816,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatverbalpercentile"> GMAT Verbal Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatverbalpercentile_input" name="gmatverbalpercentile" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_verbal_percentile ?>">
+        <input type="text" id="gmatverbalpercentile_input" name="gmatverbalpercentile" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_verbal_percentile) ? $trainee->testScore->gmat_verbal_percentile : '' ?>">
       </div>
     </div>
 </div>
@@ -819,7 +824,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatquantscore"> GMAT Quantitative Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatquantscore_input" name="gmatquantscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_quantitative_score ?>">
+        <input type="text" id="gmatquantscore_input" name="gmatquantscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_quantitative_score) ? $trainee->testScore->gmat_quantitative_score : '' ?>">
       </div>
     </div>
 </div>
@@ -827,7 +832,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatquantpercentile"> GMAT Quantitative Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatquantpercentile_input" name="gmatquantpercentile" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_quantitative_percentile ?>">
+        <input type="text" id="gmatquantpercentile_input" name="gmatquantpercentile" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_quantitative_percentile) ? $trainee->testScore->gmat_quantitative_percentile : '' ?>">
       </div>
     </div>
 </div>
@@ -835,7 +840,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatAWscore"> GMAT Analytical Writing Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatAWscore_input" name="gmatAWscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_analytical_writing_score ?>">
+        <input type="text" id="gmatAWscore_input" name="gmatAWscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_analytical_writing_score) ? $trainee->testScore->gmat_analytical_writing_score : '' ?>">
       </div>
     </div>
 </div>
@@ -843,7 +848,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatAWpercentile"> GMAT Analytical Writing Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatAWpercentile_input" name="gmatAWpercentile" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_analytical_writing_percentile ?>">
+        <input type="text" id="gmatAWpercentile_input" name="gmatAWpercentile" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_analytical_writing_percentile) ? $trainee->testScore->gmat_analytical_writing_percentile : '' ?>">
       </div>
     </div>
 </div>
@@ -851,7 +856,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatIRscore"> GMAT Integrated Reasoning Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatIRscore_input" name="gmatIRscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_integrated_reasoningl_score ?>">
+        <input type="text" id="gmatIRscore_input" name="gmatIRscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_integrated_reasoningl_score) ? $trainee->testScore->gmat_integrated_reasoningl_score : '' ?>">
       </div>
     </div>
 </div>
@@ -859,7 +864,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gmatIRpercentile"> GMAT Integrated Reasoning Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gmatIRpercentile_input" name="gmatIRpercentile" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gmat_integrated_reasoning_percentile ?>">
+        <input type="text" id="gmatIRpercentile_input" name="gmatIRpercentile" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gmat_integrated_reasoning_percentile) ? $trainee->testScore->gmat_integrated_reasoning_percentile : '' ?>">
       </div>
     </div>
 </div>
@@ -867,7 +872,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gredate"> GRE Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gredate_input" name="gredate" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gre_date ?>">
+        <input type="text" id="gredate_input" name="gredate" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gre_date) ? $trainee->testScore->gre_date : '' ?>">
       </div>
     </div>
 </div>
@@ -875,7 +880,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greverbalscore"> GRE Verbal Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greverbalscore_input" name="greverbalscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gre_verbal_score ?>">
+        <input type="text" id="greverbalscore_input" name="greverbalscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gre_verbal_score) ? $trainee->testScore->gre_verbal_score : '' ?>">
       </div>
     </div>
 </div>
@@ -883,7 +888,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greverbalpercentile"> GRE Verbal Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greverbalpercentile_input" name="greverbalpercentile" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gre_verbal_percentile ?>">
+        <input type="text" id="greverbalpercentile_input" name="greverbalpercentile" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gre_verbal_percentile) ? $trainee->testScore->gre_verbal_percentile : '' ?>">
       </div>
     </div>
 </div>
@@ -891,7 +896,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grequantscore"> GRE Quantitative Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="grequantscore_input" name="grequantscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gre_quantitative_score ?>">
+        <input type="text" id="grequantscore_input" name="grequantscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gre_quantitative_score) ? $trainee->testScore->gre_quantitative_score : '' ?>">
       </div>
     </div>
 </div>
@@ -899,7 +904,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="grequantpercentile"> GRE Quantitative Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="grequantpercentile_input" name="grequantpercentile" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gre_quantitative_percentile ?>">
+        <input type="text" id="grequantpercentile_input" name="grequantpercentile" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gre_quantitative_percentile) ? $trainee->testScore->gre_quantitative_percentile : '' ?>">
       </div>
     </div>
 </div>
@@ -907,7 +912,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greAWscore"> GRE Analytical Writing Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greAWscore_input" name="greAWscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gre_analytical_writing_score ?>">
+        <input type="text" id="greAWscore_input" name="greAWscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gre_analytical_writing_score) ? $trainee->testScore->gre_analytical_writing_score : '' ?>">
       </div>
     </div>
 </div>
@@ -915,7 +920,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="greAWpercentile"> GRE Analytical Writing Percentile<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="greAWpercentile_input" name="greAWpercentile" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->gre_analytical_writing_percentile ?>">
+        <input type="text" id="greAWpercentile_input" name="greAWpercentile" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->gre_analytical_writing_percentile) ? $trainee->testScore->gre_analytical_writing_percentile : '' ?>">
       </div>
     </div>
 </div>
@@ -923,7 +928,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="toefldate"> TOEFL Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="toefldate_input" name="toefldate" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->toefl_date ?>">
+        <input type="text" id="toefldate_input" name="toefldate" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->toefl_date) ? $trainee->testScore->toefl_date : '' ?>">
       </div>
     </div>
 </div>
@@ -931,7 +936,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="toeflscore"> TOEFL Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="toeflscore_input" name="toeflscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->toefl_score ?>">
+        <input type="text" id="toeflscore_input" name="toeflscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->toefl_score) ? $trainee->testScore->toefl_score : '' ?>">
       </div>
     </div>
 </div>
@@ -939,7 +944,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtreading"> IBT Reading<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtreading_input" name="ibtreading" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ibt_reading ?>">
+        <input type="text" id="ibtreading_input" name="ibtreading" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ibt_reading) ? $trainee->testScore->ibt_reading : '' ?>">
       </div>
     </div>
 </div>
@@ -947,7 +952,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtwriting"> IBT Writing<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtwriting_input" name="ibtwriting" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ibt_writing ?>">
+        <input type="text" id="ibtwriting_input" name="ibtwriting" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ibt_writing) ? $trainee->testScore->ibt_writing : '' ?>">
       </div>
     </div>
 </div>
@@ -955,7 +960,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtspeaking"> IBT Speaking<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtspeaking_input" name="ibtspeaking" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ibt_speaking ?>">
+        <input type="text" id="ibtspeaking_input" name="ibtspeaking" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ibt_speaking) ? $trainee->testScore->ibt_speaking : '' ?>">
       </div>
     </div>
 </div>
@@ -963,7 +968,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ibtlistening"> IBT Listening<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ibtlistening_input" name="ibtlistening" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ibt_listening ?>">
+        <input type="text" id="ibtlistening_input" name="ibtlistening" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ibt_listening) ? $trainee->testScore->ibt_listening : '' ?>">
       </div>
     </div>
 </div>
@@ -971,7 +976,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbreading"> PB Reading<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pbreading_input" name="pbreading" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->pb_reading ?>">
+        <input type="text" id="pbreading_input" name="pbreading" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->pb_reading) ? $trainee->testScore->pb_reading : '' ?>">
       </div>
     </div>
 </div>
@@ -979,7 +984,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbwriting"> PB Writing<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pbwriting_input" name="pbwriting" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->pb_writing ?>">
+        <input type="text" id="pbwriting_input" name="pbwriting" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->pb_writing) ? $trainee->testScore->pb_writing : '' ?>">
       </div>
     </div>
 </div>
@@ -987,7 +992,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pblistening"> PB Listening<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pblistening_input" name="pblistening" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->pb_listening ?>">
+        <input type="text" id="pblistening_input" name="pblistening" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->pb_listening) ? $trainee->testScore->pb_listening : '' ?>">
       </div>
     </div>
 </div>
@@ -995,7 +1000,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pbessay"> PB Essay<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="pbessay_input" name="pbessay" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->pb_essay ?>">
+        <input type="text" id="pbessay_input" name="pbessay" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->pb_essay) ? $trainee->testScore->pb_essay : '' ?>">
       </div>
     </div>
 </div>
@@ -1003,7 +1008,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsdate"> IELTS Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsdate_input" name="ieltsdate" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ielts_date ?>">
+        <input type="text" id="ieltsdate_input" name="ieltsdate" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ielts_date) ? $trainee->testScore->ielts_date : '' ?>">
       </div>
     </div>
 </div>
@@ -1011,7 +1016,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsscore"> IELTS Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsscore_input" name="ieltsscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ielts_score ?>">
+        <input type="text" id="ieltsscore_input" name="ieltsscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ielts_score) ? $trainee->testScore->ielts_score : '' ?>">
       </div>
     </div>
 </div>
@@ -1019,7 +1024,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsreading"> IELTS Reading<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsreading_input" name="ieltsreading" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ielts_reading ?>">
+        <input type="text" id="ieltsreading_input" name="ieltsreading" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ielts_reading) ? $trainee->testScore->ielts_reading : '' ?>">
       </div>
     </div>
 </div>
@@ -1027,7 +1032,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltswriting"> IELTS Writing<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltswriting_input" name="ieltswriting" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ielts_writing ?>">
+        <input type="text" id="ieltswriting_input" name="ieltswriting" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ielts_writing) ? $trainee->testScore->ielts_writing : '' ?>">
       </div>
     </div>
 </div>
@@ -1035,7 +1040,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltsspeaking"> IELTS Speaking<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltsspeaking_input" name="ieltsspeaking" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ielts_speaking ?>">
+        <input type="text" id="ieltsspeaking_input" name="ieltsspeaking" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ielts_speaking) ? $trainee->testScore->ielts_speaking : '' ?>">
       </div>
     </div>
 </div>
@@ -1043,7 +1048,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ieltslistening"> IELTS Listening<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="ieltslistening_input" name="ieltslistening" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->ielts_listening ?>">
+        <input type="text" id="ieltslistening_input" name="ieltslistening" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->ielts_listening) ? $trainee->testScore->ielts_listening : '' ?>">
       </div>
     </div>
 </div>
@@ -1051,7 +1056,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matdate"> MAT Date<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="matdate_input" name="matdate" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->mat_date ?>">
+        <input type="text" id="matdate_input" name="matdate" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->mat_date) ? $trainee->testScore->mat_date : '' ?>">
       </div>
     </div>
 </div>
@@ -1059,7 +1064,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="matscore"> MAT Score<span class="required">*</span></label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="matscore_input" name="matscore" class="form-control col-md-7 col-xs-12" value="<?= $trainee->testScore->mat_score ?>">
+        <input type="text" id="matscore_input" name="matscore" class="form-control col-md-7 col-xs-12" value="<?= isset($trainee->testScore->mat_score) ? $trainee->testScore->mat_score : '' ?>">
       </div>
     </div>
 </div>
@@ -1088,7 +1093,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Name</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="name_input" name="name" class="form-control col-md-7 col-xs-12" value="<?= $institution->name ?>">
+        <input type="text" id="eb_name_input" name="name" class="form-control col-md-7 col-xs-12" value="<?= $institution->name ?>">
       </div>
     </div>
 </div>
@@ -1096,7 +1101,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city"> City</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="city_input" name="city" class="form-control col-md-7 col-xs-12" value="<?= $institution->city ?>">
+        <input type="text" id="eb_city_input" name="city" class="form-control col-md-7 col-xs-12" value="<?= $institution->city ?>">
       </div>
     </div>
 </div>
@@ -1104,7 +1109,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state"> State</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="state_input" name="state" class="form-control col-md-7 col-xs-12" value="<?= $institution->state ?>">
+        <input type="text" id="eb_state_input" name="state" class="form-control col-md-7 col-xs-12" value="<?= $institution->state ?>">
       </div>
     </div>
 </div>
@@ -1112,7 +1117,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Country</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="country_input" name="country" class="form-control col-md-7 col-xs-12" value="<?= $institution->country ?>">
+        <input type="text" id="eb_country_input" name="country" class="form-control col-md-7 col-xs-12" value="<?= $institution->country ?>">
       </div>
     </div>
 </div>
@@ -1120,7 +1125,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startdate"> Start Date</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="startdate_input" name="startdate" class="form-control col-md-7 col-xs-12" value="<?= $institution->start_date ?>">
+        <input type="text" id="eb_startdate_input" name="startdate" class="form-control col-md-7 col-xs-12" value="<?= $institution->start_date ?>">
       </div>
     </div>
 </div>
@@ -1128,7 +1133,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="enddate"> End Date</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="enddate_input" name="enddate" class="form-control col-md-7 col-xs-12" value="<?= $institution->end_date ?>">
+        <input type="text" id="eb_enddate_input" name="enddate" class="form-control col-md-7 col-xs-12" value="<?= $institution->end_date ?>">
       </div>
     </div>
 </div>
@@ -1136,7 +1141,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degreeearned"> Degree Earned</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="degreeearned_input" name="degreeearned" class="form-control col-md-7 col-xs-12" value="<?= $institution->degree_earned ?>">
+        <input type="text" id="eb_degreeearned_input" name="degreeearned" class="form-control col-md-7 col-xs-12" value="<?= $institution->degree_earned ?>">
       </div>
     </div>
 </div>
@@ -1144,7 +1149,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="degreedate"> Degree Date</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="degreedate_input" name="degreedate" class="form-control col-md-7 col-xs-12" value="<?= $institution->degree_date ?>">
+        <input type="text" id="eb_degreedate_input" name="degreedate" class="form-control col-md-7 col-xs-12" value="<?= $institution->degree_date ?>">
       </div>
     </div>
 </div>
@@ -1152,7 +1157,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="overallgpa"> Overall GPA</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="overallgpa_input" name="overallgpa" class="form-control col-md-7 col-xs-12" value="<?= $institution->overall_gpa ?>">
+        <input type="text" id="eb_overallgpa_input" name="overallgpa" class="form-control col-md-7 col-xs-12" value="<?= $institution->overall_gpa ?>">
       </div>
     </div>
 </div>
@@ -1160,7 +1165,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="majorgpa"> Major GPA</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="majorgpa_input" name="majorgpa" class="form-control col-md-7 col-xs-12" value="<?= $institution->major_gpa ?>">
+        <input type="text" id="eb_majorgpa_input" name="majorgpa" class="form-control col-md-7 col-xs-12" value="<?= $institution->major_gpa ?>">
       </div>
     </div>
 </div>
@@ -1168,7 +1173,7 @@
     <div class="form-group">
       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gpascale"> GPA Scale</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" id="gpascale_input" name="gpascale" class="form-control col-md-7 col-xs-12"value="<?= $institution->gpa_scale ?>">
+        <input type="text" id="eb_gpascale_input" name="gpascale" class="form-control col-md-7 col-xs-12"value="<?= $institution->gpa_scale ?>">
       </div>
     </div>
 </div>
@@ -1285,22 +1290,22 @@
       + '/' + trainee_id;
     });
     
-    // $("#save_educational_background").click(function(e) {
-    //   e.preventDefault();
-    //   window.location.href = '<?= base_url("trainees/save_educational_background") ?>'  + '/'
-    //   + encodeURIComponent($('#name_input').val() != '' ? $('#name_input').val() : 'null') + '/'  
-    //   + encodeURIComponent($('#city_input').val() != '' ? $('#city_input').val() : 'null') + '/' 
-    //   + encodeURIComponent($('#state_input').val() != '' ? $('#state_input').val() : 'null') + '/'
-    //   + encodeURIComponent($('#country_input').val() != '' ? $('#country_input').val() : 'null') + '/'
-    //   + encodeURIComponent($('#startdate_input').val() != '' ? $('#startdate_input').val() : 'null') + '/' 
-    //   + encodeURIComponent($('#enddate_input').val() != '' ? $('#enddate_input').val() : 'null') + '/' 
-    //   + encodeURIComponent($('#degreeearned_input').val() != '' ? $('#degreeearned_input').val() : 'null') + '/' 
-    //   + encodeURIComponent($('#degreedate_input').val() != '' ? $('#degreedate_input').val() : 'null') + '/'
-    //   + encodeURIComponent($('#overallgpa_input').val() != '' ? $('#overallgpa_input').val() : 'null') + '/'
-    //   + encodeURIComponent($('#majorgpa_input').val() != '' ? $('#majorgpa_input').val() : 'null') + '/'
-    //   + encodeURIComponent($('#gpascale_input').val() != '' ? $('#gpascale_input').val() : 'null')
-    //   + '/' + trainee_id;
-    // });
+    $("#save_educational_background").click(function(e) {
+      e.preventDefault();
+      window.location.href = '<?= base_url("trainees/save_educational_background") ?>'  + '/'
+      + encodeURIComponent($('#eb_name_input').val() != '' ? $('#eb_name_input').val() : 'null') + '/'  
+      + encodeURIComponent($('#eb_city_input').val() != '' ? $('#eb_city_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#eb_state_input').val() != '' ? $('#eb_state_input').val() : 'null') + '/'
+      + encodeURIComponent($('#eb_country_input').val() != '' ? $('#eb_country_input').val() : 'null') + '/'
+      + encodeURIComponent($('#eb_startdate_input').val() != '' ? $('#eb_startdate_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#eb_enddate_input').val() != '' ? $('#eb_enddate_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#eb_degreeearned_input').val() != '' ? $('#eb_degreeearned_input').val() : 'null') + '/' 
+      + encodeURIComponent($('#eb_degreedate_input').val() != '' ? $('#eb_degreedate_input').val() : 'null') + '/'
+      + encodeURIComponent($('#eb_overallgpa_input').val() != '' ? $('#eb_overallgpa_input').val() : 'null') + '/'
+      + encodeURIComponent($('#eb_majorgpa_input').val() != '' ? $('#eb_majorgpa_input').val() : 'null') + '/'
+      + encodeURIComponent($('#eb_gpascale_input').val() != '' ? $('#eb_gpascale_input').val() : 'null')
+      + '/' + trainee_id;
+    });
     
   });
 </script>

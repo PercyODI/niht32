@@ -142,7 +142,7 @@ class Trainees extends MY_Controller {
         }
     }
     
-    public function save_gender_ethnicity($gender, $traineeId){
+    public function save_gender_ethnicity($gender, $ethnicity, $traineeId){
        $traineeId = (int)$traineeId;
        
         if($traineeId > 0) {
@@ -193,7 +193,7 @@ class Trainees extends MY_Controller {
                'gpa_scale' => urldecode($gpa_scale)
             );
             
-            $this->trainee->save_updated_educational_background($data, $traineeId);
+            $this->trainee->save_updated_institution($data, $traineeId);
             
             redirect('trainees/view_trainee/' . $traineeId);
         }
@@ -284,177 +284,196 @@ class Trainees extends MY_Controller {
         }
     }
     
-    /*
     public function add_trainee_post() {
+        // var_dump($_POST);
         $this->load->library('form_validation');
-        $this->load->model('test_scores_model', 'test_scores');
         // Need to parse $_POST data, insert or update the appropriate tables through models
         
-        $participantId = $this->participant->insert(array(
-            'fname' => $_POST['fname'],
-            'lname' => $_POST['lname'],
-            'prefname' => $_POST['prefname']
-            )
-        );
+        $traineeId = $this->trainee->insert(array(
+            'admission_season' => isset($_POST['admission_season']) ? $_POST['admission_season'] : null,
+            'admission_year' => isset($_POST['admission_year']) ? $_POST['admission_year'] : null,
+            'student_number' => isset($_POST['student_number']) ? $_POST['student_number'] : null,
+            'legal_family_name' => isset($_POST['legal_family_name']) ? $_POST['legal_family_name'] : null,
+            'legal_first_name' => isset($_POST['legal_first_name']) ? $_POST['legal_first_name'] : null,
+            'legal_middle_name' => isset($_POST['legal_middle_name']) ? $_POST['legal_middle_name'] : null,
+            'email_address' => isset($_POST['email_address']) ? $_POST['email_address'] : null,
+            'date_of_birth' => isset($_POST['date_of_birth']) ? $_POST['date_of_birth'] : null,
+            'state_of_birth' => isset($_POST['state_of_birth']) ? $_POST['state_of_birth'] : null,
+            'city_of_birth' => isset($_POST['city_of_birth']) ? $_POST['city_of_birth'] : null,
+            'missouri_resident' => isset($_POST['missouri_resident']) ? $_POST['missouri_resident'] : null,
+            'us_af_veteran' => isset($_POST['us_af_veteran']) ? $_POST['us_af_veteran'] : null,
+            'us_citizen' => isset($_POST['us_citizen']) ? $_POST['us_citizen'] : null,
+            'country_of_citizenship' => isset($_POST['country_of_citizenship']) ? $_POST['country_of_citizenship'] : null,
+            'gender' => isset($_POST['gender']) ? $_POST['gender'] : null,
+            'graduate_program' => isset($_POST['graduate_program']) ? $_POST['graduate_program'] : null,
+            'resident_status_id' => isset($_POST['resident_status_id']) ? $_POST['resident_status_id'] : null,
+            'attendence_status' => isset($_POST['attendence_status']) ? $_POST['attendence_status'] : null,
+            'assistantship_interest' => isset($_POST['assistantship_interest']) ? $_POST['assistantship_interest'] : null,
+            'expected_entrance_term' => isset($_POST['expected_entrance_term']) ? $_POST['expected_entrance_term'] : null,
+            'attending_us_school' => isset($_POST['attending_us_school']) ? $_POST['attending_us_school'] : null,
+            'test_score_id' => isset($_POST['test_score_id']) ? $_POST['test_score_id'] : null,
+            'is_accepted' => isset($_POST['is_accepted']) ? $_POST['is_accepted'] : null
+        ));
         
+        $this->load->model('test_score_model', 'test_score');
         $test_score_id = $this->test_score->insert(array(
-            'id' => $participantId,
-            'gmat_date'  => $_POST['gmat_date'],
-            'gmat_score' => $_POST['gmat_score'],
-            'gmat_verbal_score' => $_POST['gmat_verbal_score'],
-            'gmat_verbal_percentile' => $_POST['gmat_verbal_percentile'],
-            'gmat_quantitative_score' => $_POST['gmat_quantitative_score'],
-            'gmat_quantitative_percentile' => $_POST['gmat_quantitative_percentile'],
-            'gmat_analytical_writing_score' => $_POST['gmat_analytical_writing_score'],
-            'gmat_analytical_writing_percentile' => $_POST['gmat_analytical_writing_percentile'],
-            'gmat_integrated_reasoningl_score' => $_POST['gmat_integrated_reasoningl_score'],
-            'gmat_integrated_reasoning_percentile' => $_POST['gmat_integrated_reasoning_percentile'],
-            'gre_date' => $_POST['gre_date'],
-            'gre_verbal_score' => $_POST['gre_verbal_score'],
-            'gre_verbal_percentile' => $_POST['gre_verbal_percentile'],
-            'gre_quantitative_score' => $_POST['gre_quantitative_score'],
-            'gre_quantitative_percentile' => $_POST['gre_quantitative_percentile'],
-            'gre_analytical_writing_score' => $_POST['gre_analytical_writing_score'],
-            'gre_analytical_writing_percentile' => $_POST['gre_analytical_writing_percentile'],
-            'toefl_date' => $_POST['toefl_date'],
-            'toefl_score' => $_POST['toefl_score'],
-            'ibt_reading' => $_POST['ibt_reading'],
-            'ibt_listening' => $_POST['ibt_listening'],
-            'ibt_speaking' => $_POST['ibt_speaking'],
-            'ibt_writing' => $_POST['ibt_writing'],
-            'pb_listening' => $_POST['pb_listening'],
-            'pb_writing' => $_POST['pb_writing'],
-            'pb_reading' => $_POST['pb_reading'],
-            'pb_essay' => $_POST['pb_essay'],
-            'ielts_date' => $_POST['ielts_date'],
-            'ielts_score' => $_POST['ielts_score'],
-            'ielts_listening' => $_POST['ielts_listening'],
-            'ielts_reading' => $_POST['ielts_reading'],
-            'ielts_writing' => $_POST['ielts_writing'],
-            'ielts_speaking' => $_POST['ielts_speaking'],
-            'mat_date' => $_POST['mat_date'],
-            'mat_score' => $_POST['mat_score']
+            'gmat_date'  => isset($_POST['gmat_date']) ? $_POST['gmat_date'] : null,
+            'gmat_score' => isset($_POST['gmat_score']) ? $_POST['gmat_score'] : null,
+            'gmat_verbal_score' => isset($_POST['gmat_verbal_score']) ? $_POST['gmat_verbal_score'] : null,
+            'gmat_verbal_percentile' => isset($_POST['gmat_verbal_percentile']) ? $_POST['gmat_verbal_percentile'] : null,
+            'gmat_quantitative_score' => isset($_POST['gmat_quantitative_score']) ? $_POST['gmat_quantitative_score'] : null,
+            'gmat_quantitative_percentile' => isset($_POST['gmat_quantitative_percentile']) ? $_POST['gmat_quantitative_percentile'] : null,
+            'gmat_analytical_writing_score' => isset($_POST['gmat_analytical_writing_score']) ? $_POST['gmat_analytical_writing_score'] : null,
+            'gmat_analytical_writing_percentile' => isset($_POST['gmat_analytical_writing_percentile']) ? $_POST['gmat_analytical_writing_percentile'] : null,
+            'gmat_integrated_reasoningl_score' => isset($_POST['gmat_integrated_reasoningl_score']) ? $_POST['gmat_integrated_reasoningl_score'] : null,
+            'gmat_integrated_reasoning_percentile' => isset($_POST['gmat_integrated_reasoning_percentile']) ? $_POST['gmat_integrated_reasoning_percentile'] : null,
+            'gre_date' => isset($_POST['gre_date']) ? $_POST['gre_date'] : null,
+            'gre_verbal_score' => isset($_POST['gre_verbal_score']) ? $_POST['gre_verbal_score'] : null,
+            'gre_verbal_percentile' => isset($_POST['gre_verbal_percentile']) ? $_POST['gre_verbal_percentile'] : null,
+            'gre_quantitative_score' => isset($_POST['gre_quantitative_score']) ? $_POST['gre_quantitative_score'] : null,
+            'gre_quantitative_percentile' => isset($_POST['gre_quantitative_percentile']) ? $_POST['gre_quantitative_percentile'] : null,
+            'gre_analytical_writing_score' => isset($_POST['gre_analytical_writing_score']) ? $_POST['gre_analytical_writing_score'] : null,
+            'gre_analytical_writing_percentile' => isset($_POST['gre_analytical_writing_percentile']) ? $_POST['gre_analytical_writing_percentile'] : null,
+            'toefl_date' => isset($_POST['toefl_date']) ? $_POST['toefl_date'] : null,
+            'toefl_score' => isset($_POST['toefl_score']) ? $_POST['toefl_score'] : null,
+            'ibt_reading' => isset($_POST['ibt_reading']) ? $_POST['ibt_reading'] : null,
+            'ibt_listening' => isset($_POST['ibt_listening']) ? $_POST['ibt_listening'] : null,
+            'ibt_speaking' => isset($_POST['ibt_speaking']) ? $_POST['ibt_speaking'] : null,
+            'ibt_writing' => isset($_POST['ibt_writing']) ? $_POST['ibt_writing'] : null,
+            'pb_listening' => isset($_POST['pb_listening']) ? $_POST['pb_listening'] : null,
+            'pb_writing' => isset($_POST['pb_writing']) ? $_POST['pb_writing'] : null,
+            'pb_reading' => isset($_POST['pb_reading']) ? $_POST['pb_reading'] : null,
+            'pb_essay' => isset($_POST['pb_essay']) ? $_POST['pb_essay'] : null,
+            'ielts_date' => isset($_POST['ielts_date']) ? $_POST['ielts_date'] : null,
+            'ielts_score' => isset($_POST['ielts_score']) ? $_POST['ielts_score'] : null,
+            'ielts_listening' => isset($_POST['ielts_listening']) ? $_POST['ielts_listening'] : null,
+            'ielts_reading' => isset($_POST['ielts_reading']) ? $_POST['ielts_reading'] : null,
+            'ielts_writing' => isset($_POST['ielts_writing']) ? $_POST['ielts_writing'] : null,
+            'ielts_speaking' => isset($_POST['ielts_speaking']) ? $_POST['ielts_speaking'] : null,
+            'mat_date' => isset($_POST['mat_date']) ? $_POST['mat_date'] : null,
+            'mat_score' => isset($_POST['mat_score']) ? $_POST['mat_score'] : null
             )
         );
         
+        $this->trainee->update($traineeId, array('test_score_id' => $test_score_id));
+        
+        $this->load->model('address_model', 'address');
         $mailing_address_id = $this->address->insert(array(
-            'id' => $participantId,
-            'address_line_1' => $_POST['mailing_address_line_1'],
-            'address_line_2' => $_POST['mailing_address_line_2'],
-            'address_city' => $_POST['mailing_address_city'],
-            'address_county' => $_POST['mailing_address_county'],
-            'address_state' => $_POST['mailing_address_state'],
-            'address_zip' => $_POST['mailing_address_zip'],
-            'address_country' => $_POST['mailing_address_country'],
-            'telephone_country_code' => $_POST['mailing_telephone_country_code'],
-            'telephone_area_code' => $_POST['mailing_telephone_area_code'],
-            'telephone_number' => $_POST['mailing_telephone_number'],
-            'valid_til' => $_POST['mailing_valid_til']
+            'address_line_1' => isset($_POST['mailing_address_line_1']) ? $_POST['mailing_address_line_1'] : null,
+            'address_line_2' => isset($_POST['mailing_address_line_2']) ? $_POST['mailing_address_line_2'] : null,
+            'address_city' => isset($_POST['mailing_address_city']) ? $_POST['mailing_address_city'] : null,
+            'address_county' => isset($_POST['mailing_address_county']) ? $_POST['mailing_address_county'] : null,
+            'address_state' => isset($_POST['mailing_address_state']) ? $_POST['mailing_address_state'] : null,
+            'address_zip' => isset($_POST['mailing_address_zip']) ? $_POST['mailing_address_zip'] : null,
+            'address_country' => isset($_POST['mailing_address_country']) ? $_POST['mailing_address_country'] : null,
+            'telephone_number' => isset($_POST['mailing_telephone_number']) ? $_POST['mailing_telephone_number'] : null,
+            'valid_til' => isset($_POST['mailing_valid_til']) ? $_POST['mailing_valid_til'] : null
             )
         );
         
         $permanent_address_id = $this->address->insert(array(
-            'id' => $participantId,
-            'address_line_1' => $_POST['permanent_address_line_1'],
-            'address_line_2' => $_POST['permanent_address_line_2'],
-            'address_city' => $_POST['permanent_address_city'],
-            'address_county' => $_POST['permanent_address_county'],
-            'address_state' => $_POST['permanent_address_state'],
-            'address_zip' => $_POST['permanent_address_zip'],
-            'address_country' => $_POST['permanent_address_country'],
-            'telephone_country_code' => $_POST['permanent_telephone_country_code'],
-            'telephone_area_code' => $_POST['permanent_telephone_area_code'],
-            'telephone_number' => $_POST['permanent_telephone_number'],
-            'valid_til' => $_POST['permanent_valid_til']
+            'address_line_1' => isset($_POST['permanent_address_line_1']) ? $_POST['permanent_address_line_1'] : null,
+            'address_line_2' => isset($_POST['permanent_address_line_2']) ? $_POST['permanent_address_line_2'] : null,
+            'address_city' => isset($_POST['permanent_address_city']) ? $_POST['permanent_address_city'] : null,
+            'address_county' => isset($_POST['permanent_address_county']) ? $_POST['permanent_address_county'] : null,
+            'address_state' => isset($_POST['permanent_address_state']) ? $_POST['permanent_address_state'] : null,
+            'address_zip' => isset($_POST['permanent_address_zip']) ? $_POST['permanent_address_zip'] : null,
+            'address_country' => isset($_POST['permanent_address_country']) ? $_POST['permanent_address_country'] : null,
+            'telephone_number' => isset($_POST['permanent_telephone_number']) ? $_POST['permanent_telephone_number'] : null,
+            'valid_til' => isset($_POST['permanent_valid_til']) ? $_POST['permanent_valid_til'] : null
             )
         );
         
-        $list_of_ethnicities = $this->ethnicities->get_all();
-        foreach($_POST['ethnicities'] as $ethnicity){
-            //for trainee ethnicities
-            //if($ethnicity in $list_of_ethnicities) {
-                $this->trainee_ethnicity->insert(array(
-                    //'ethnicity_id' => //id from list_of_ethnicities,
-                    'trainee_id' => $participantId
-                    )
-                );
-           // }
+        $this->trainee->update($traineeId, array('mailing_address_id' => $mailing_address_id, 'permanent_address_id' => $permanent_address_id));
+        
+        $this->load->model('ethnicity_model', 'ethnicity');
+        $this->load->model('trainee_ethnicity_model', 'trainee_ethnicity');
+        
+        if(isset($_POST['races'])) {
+            $list_of_ethnicities = $this->ethnicity->get_all();
+            foreach($_POST['races'] as $race){
+                foreach($list_of_ethnicities as $ethnicity) {
+                    if($race == $ethnicity->name) {
+                        $this->trainee_ethnicity->insert(array(
+                            'trainee_id' => $traineeId,
+                            'ethnicity_id' => $ethnicity->id
+                            )
+                        );
+                        
+                    }
+                }
+            }
         }
         
-        foreach ($_POST['institutions'] as $institution){
-            //for institution nodes
-            $institutionId = $this->institution_node->insert(array(
-                'id' => $participantId,
-                'name' => $institution['name'],
-                'city' => $institution['city'],
-                'state' => $institution['institution_state'],
-                'country' =>  $institution['institution_country'],
-                'start_date' =>  $institution['start_date'],
-                'end_date' =>  $institution['end_date'],
-                'degree_earned' =>  $institution['degree_earned'],
-                'degree_date' =>  $institution['degree_date'],
-                'overall_gpa' =>  $institution['overall_gpa'],
-                'major_gpa' =>  $institution['major_gpa'],
-                'gpa_scale' =>  $institution['gpa_scale']
-                )
-            );
+        $this->load->model('institution_node_model', 'institution_node');
+        $institutionId = $this->institution_node->insert(array(
+            'trainee_id' => $traineeId,
+            'name' => $_POST['institution_0_name'],
+            'city' => $_POST['institution_0_city'],
+            'state' => $_POST['institution_0_state'],
+            'country' =>  $_POST['institution_0_country'],
+            'start_date' =>  $_POST['institution_0_start_date'],
+            'end_date' =>  $_POST['institution_0_end_date'],
+            'degree_earned' =>  $_POST['institution_0_degree_earned'],
+            'degree_date' =>  $_POST['institution_0_degree_date'],
+            'overall_gpa' =>  $_POST['institution_0_overall_gpa'],
+            'major_gpa' =>  $_POST['institution_0_major_gpa'],
+            'gpa_scale' =>  $_POST['institution_0_gpa_scale']
+            )
+        );
   
-            //for trainee institutions
-            $this->trainee_institution->insert(array(
-                'former_institution_id' => $institutionId,
-                'trainee_id' => $participantId
-                )
-            );
-        }
+        
       
-        $this->trainee->insert(array(
-            'id' => $participantId,
-            'admission_year' => $_POST['admission_year'],
-            'admission_season' => $_POST['admission_season'],
-            'student_number' => $_POST['student_number'],
-            'legal_family_name' => $_POST['legal_family_name'],
-            'legal_first_name' => $_POST['legal_first_name'],
-            'legal_middle_name' => $_POST['legal_middle_name'],
-            'email_address' => $_POST['email_address'],
-            'mailing_address_id' => $mailing_address_id,
-            'permanent_address_id' => $permanent_address_id,
-            'date_of_birth' => $_POST['date_of_birth'],
-            'state_of_birth' => $_POST['state_of_birth'],
-            'city_of_birth' => $_POST['city_of_birth'],
-            'missouri_resident' => $_POST['missouri_resident'],
-            'us_af_veteran' => $_POST['us_af_veteran'],
-            'us_citizen' => $_POST['us_citizen'],
-            'country_of_citizenship' => $_POST['country_of_citizenship'],
-            'graduate_program' => $_POST['graduate_program'],
-            'resident_status_id' => $_POST['resident_status_id'], 
-            'attendance_status' => $_POST['attendance_status'],
-            'assistantship_interest' => $_POST['assistantship_interest'],
-            'expected_entrance_term' => $_POST['expected_entrance_term'],
-            'attending_us_school' => $_POST['attending_us_school'],
-            'test_score_id' => $test_score_id
-            )
-        );
+        // $this->trainee->insert(array(
+        //     'id' => $participantId,
+        //     'admission_year' => $_POST['admission_year'],
+        //     'admission_season' => $_POST['admission_season'],
+        //     'student_number' => $_POST['student_number'],
+        //     'legal_family_name' => $_POST['legal_family_name'],
+        //     'legal_first_name' => $_POST['legal_first_name'],
+        //     'legal_middle_name' => $_POST['legal_middle_name'],
+        //     'email_address' => $_POST['email_address'],
+        //     'mailing_address_id' => $mailing_address_id,
+        //     'permanent_address_id' => $permanent_address_id,
+        //     'date_of_birth' => $_POST['date_of_birth'],
+        //     'state_of_birth' => $_POST['state_of_birth'],
+        //     'city_of_birth' => $_POST['city_of_birth'],
+        //     'missouri_resident' => $_POST['missouri_resident'],
+        //     'us_af_veteran' => $_POST['us_af_veteran'],
+        //     'us_citizen' => $_POST['us_citizen'],
+        //     'country_of_citizenship' => $_POST['country_of_citizenship'],
+        //     'graduate_program' => $_POST['graduate_program'],
+        //     'resident_status_id' => $_POST['resident_status_id'], 
+        //     'attendance_status' => $_POST['attendance_status'],
+        //     'assistantship_interest' => $_POST['assistantship_interest'],
+        //     'expected_entrance_term' => $_POST['expected_entrance_term'],
+        //     'attending_us_school' => $_POST['attending_us_school'],
+        //     'test_score_id' => $test_score_id
+        //     )
+        // );
             
         //parse other names string
         
-        $this->other_name->insert(array(
-            'id' => $participantId
-            //'name' => 
-            )
-        );
+        // $this->other_name->insert(array(
+        //     'id' => $participantId
+        //     //'name' => 
+        //     )
+        // );
         
-        $this->trainee_other_name->insert(array(
-            'trainee_id' => $participantId
-            //'other_name_id' => //will insert after insert into other names table
-            )
-        );
+        // $this->trainee_other_name->insert(array(
+        //     'trainee_id' => $participantId
+        //     //'other_name_id' => //will insert after insert into other names table
+        //     )
+        // );
         
-        if(!isset($data['add_success']) || $data['add_success'] != true) {
-            $data['add_success'] = false;
-            $data['errors'] = $this->form_validation->error_array();
+        if(!empty($traineeId) && $traineeId > 0) {
+            $response['success'] = true;
+            $response['traineeId'] = $traineeId;
+        } else {
+            $response['success'] = false;
         }
         
-        $this->render_json($data);
-    }*/
+        $this->render_json($response);
+    }
     
 }

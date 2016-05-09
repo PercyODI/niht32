@@ -90,7 +90,7 @@
               </a>
             </li>
           </ul>
-          <form class="form-horizontal form-label-left" action="POST" id="add_trainee_form" >
+          <form class="form-horizontal form-label-left" action="POST" id="add_trainee_form">
             <!--Step 1-->
             <div id="step-1">
               <h2 class="StepTitle text-center">Legal Name</h2>
@@ -427,42 +427,42 @@
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Asian (Other)"> Asian (Other)
+                          <input type="checkbox" class="flat"  name="races[]" value="Asian (Other)"> Asian (Other)
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="White"> White / Caucasian
+                          <input type="checkbox" class="flat"  name="races[]" value="White"> White / Caucasian
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Hawaiian"> Hawaiian / Pacific Islander
+                          <input type="checkbox" class="flat"  name="races[]" value="Hawaiian"> Hawaiian / Pacific Islander
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="American Indian"> American Indian or Native Alaskan
+                          <input type="checkbox" class="flat"  name="races[]" value="American Indian"> American Indian or Native Alaskan
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Black"> Black or African-American
+                          <input type="checkbox" class="flat"  name="races[]" value="Black"> Black or African-American
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Asian"> Asian (included Chineese, Filipino, Japanese, Korean, Thai, and Asian Indian)
+                          <input type="checkbox" class="flat"  name="races[]" value="Asian"> Asian (included Chineese, Filipino, Japanese, Korean, Thai, and Asian Indian)
                         </label>
                       </div>
                     </div>
@@ -978,12 +978,19 @@
 
   $(document).ready(function() {
     // Smart Wizard
-    $('#wizard').smartWizard({keyNavigation: false, enableAllSteps: true});
+    $('#wizard').smartWizard({keyNavigation: false, enableAllSteps: true, onFinish: function() {
+      $.post("<?= base_url('trainees/add_trainee_post') ?>", $('#add_trainee_form').serialize(), function(json_data) {
+        if(json_data.success == true) {
+          window.location.href = "<?= base_url('trainees/view_trainee') ?>" + '/' + json_data.traineeId
+          // console.log("Success. TraineeId = " + json_data.traineeId);
+        } else {
+          console.log("Failed Submit");
+        }
+      })
+    }});
     // $('#wizard').smartWizard({onShowStep: onShowStepCallback});
   
     $(".date-mask").inputmask();
-    
-    //Educational Background add college
     
   });
 </script>
