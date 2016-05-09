@@ -159,20 +159,6 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li> 
-                                  <a><i class="fa fa-edit"></i> Test <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li>
-                                          <a href="empty.html">Meny1.1s</a>
-                                        </li>
-                                        <li class="current-page">
-                                          <a href="<?= base_url('test/menu_test') ?>">Menu Test</a>
-                                        </li>
-                                        <li>
-                                          <a href="empty.html">Meny2.2s</a>
-                                        </li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                     </div>

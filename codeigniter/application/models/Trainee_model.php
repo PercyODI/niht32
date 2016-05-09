@@ -92,4 +92,67 @@ class Trainee_model extends MY_Model {
                                 
         return $data;
     }
+    
+    public function save_updated_name($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('trainees', $data);
+    }
+    
+    public function save_updated_address($data, $addId = 0){
+        $addId = (int)$addId;
+        
+        $this->db->where('id', $addId);
+        $this->db->update('addresses', $data);
+    }
+    
+    public function save_updated_test_scores($data, $testId = 0){
+        $testId = (int)$testId;
+        
+        $this->db->where('id', $testId);
+        $this->db->update('test_scores', $data);
+    }
+    
+    public function save_updated_educational_background($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('institution_nodes', $data);
+    }
+    
+    public function save_updated_birth_citizenship_trainee($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('trainees', $data);
+    }
+    
+    public function save_updated_birth_citizenship_visa($data, $visaId = 0){
+        $visaId = (int)$visaId;
+        
+        $this->db->where('id', $visaId);
+        $this->db->update('resident_statuses', $data);
+    }
+    
+    public function save_updated_gender($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('trainees', $data);
+    }
+    
+    public function save_updated_institution($data, $traineeId = 0) {
+      $traineeId = (int)$traineeId;
+      
+      $this->db->where('trainee_id', $traineeId);
+      $this->db->update('institution_nodes', $data);
+    }
+    
+    public function save_updated_admissions_info($data, $traineeId = 0){
+        $traineeId = (int)$traineeId;
+        
+        $this->db->where('id', $traineeId);
+        $this->db->update('trainees', $data);
+    }
 }

@@ -277,8 +277,8 @@
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">U.S. Citizen</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <div id="us_citizen" class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="us_citizen" value="1" checked> &nbsp; Yes &nbsp;
+                      <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input type="radio" name="us_citizen" value="1"> &nbsp; Yes &nbsp;
                       </label>
                       <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                         <input type="radio" name="us_citizen" value="0">&nbsp; No &nbsp;&nbsp;
@@ -294,7 +294,7 @@
                         <input type="radio" name="us_permanent_resident" value="1"> &nbsp; Yes &nbsp;
                       </label>
                       <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="us_permanent_resident" value="0" checked="">&nbsp; No &nbsp;&nbsp;
+                        <input type="radio" name="us_permanent_resident" value="0">&nbsp; No &nbsp;&nbsp;
                       </label>
                     </div>
                   </div>
@@ -339,7 +339,7 @@
                         <input type="radio" name="missouri_resident" value="1"> &nbsp; Yes &nbsp;
                       </label>
                       <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="missouri_resident" value="0" checked="">&nbsp; No &nbsp;&nbsp;
+                        <input type="radio" name="missouri_resident" value="0" >&nbsp; No &nbsp;&nbsp;
                       </label>
                     </div>
                   </div>
@@ -352,7 +352,7 @@
                         <input type="radio" name="us_af_veteran" value="1"> &nbsp; Yes &nbsp;
                       </label>
                       <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input type="radio" name="us_af_veteran" value="0" checked="">&nbsp; No &nbsp;&nbsp;
+                        <input type="radio" name="us_af_veteran" value="0" >&nbsp; No &nbsp;&nbsp;
                       </label>
                     </div>
                   </div>
@@ -398,7 +398,7 @@
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" class="flat"  name="gender" value="Female" checked> Female
+                          <input type="radio" class="flat"  name="gender" value="Female"> Female
                         </label>
                       </div>
                     </div>
@@ -415,7 +415,7 @@
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" class="flat"  name="ethnicity" value="Non-Hispanic" checked> Non-Hispanic or Non-Latino
+                          <input type="radio" class="flat"  name="ethnicity" value="Non-Hispanic"> Non-Hispanic or Latino
                         </label>
                       </div>
                     </div>
@@ -427,42 +427,42 @@
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Asian (Other)"> Asian (Other)
+                          <input type="checkbox" class="flat"  name="races[]" value="Asian (Other)"> Asian (Other)
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="White"> White / Caucasian
+                          <input type="checkbox" class="flat"  name="races[]" value="White"> White / Caucasian
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Hawaiian"> Hawaiian / Pacific Islander
+                          <input type="checkbox" class="flat"  name="races[]" value="Hawaiian"> Hawaiian / Pacific Islander
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="American Indian"> American Indian or Native Alaskan
+                          <input type="checkbox" class="flat"  name="races[]" value="American Indian"> American Indian or Native Alaskan
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Black"> Black or African-American
+                          <input type="checkbox" class="flat"  name="races[]" value="Black"> Black or African-American
                         </label>
                       </div>
                     </div>
                     <div id="ethnicity" class="btn-group" data-toggle="buttons">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="flat"  name="race" value="Asian"> Asian (included Chineese, Filipino, Japanese, Korean, Thai, and Asian Indian)
+                          <input type="checkbox" class="flat"  name="races[]" value="Asian"> Asian (included Chineese, Filipino, Japanese, Korean, Thai, and Asian Indian)
                         </label>
                       </div>
                     </div>
@@ -485,15 +485,15 @@
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Attendance Status</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div id="attendance_status" class="btn-group" data-toggle="buttons">
+                    <div id="attendence_status" class="btn-group" data-toggle="buttons">
                       <div class="radio">
                         <label>
-                          <input type="radio" class="flat"  name="attendance_status" value="Hispanic"> Full-time
+                          <input type="radio" class="flat"  name="attendence_status" value="full-time"> Full-time
                         </label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" class="flat"  name="attendance_status" value="Non-Hispanic" checked> Part-time
+                          <input type="radio" class="flat"  name="attendence_status" value="part-Time"> Part-time
                         </label>
                       </div>
                     </div>
@@ -510,7 +510,7 @@
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" class="flat"  name="assistantship_interest" value="0" checked> No
+                          <input type="radio" class="flat"  name="assistantship_interest" value="0"> No
                         </label>
                       </div>
                     </div>
@@ -520,7 +520,7 @@
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Expected Term of Entrance</span>
                   </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" id="permanent_address_county" name="permanent_address_county" class="form-control">
+                    <input type="text" id="expected_entrance_term" name="expected_entrance_term" class="form-control">
                   </div>
                 </div>
               </div>
@@ -974,16 +974,23 @@
 -->
 
 <script type="text/javascript">
+/*global $ */
+
   $(document).ready(function() {
     // Smart Wizard
-    $('#wizard').smartWizard({keyNavigation: false, enableAllSteps: true});
+    $('#wizard').smartWizard({keyNavigation: false, enableAllSteps: true, onFinish: function() {
+      $.post("<?= base_url('trainees/add_trainee_post') ?>", $('#add_trainee_form').serialize(), function(json_data) {
+        if(json_data.success == true) {
+          window.location.href = "<?= base_url('trainees/view_trainee') ?>" + '/' + json_data.traineeId
+          // console.log("Success. TraineeId = " + json_data.traineeId);
+        } else {
+          console.log("Failed Submit");
+        }
+      })
+    }});
     // $('#wizard').smartWizard({onShowStep: onShowStepCallback});
-    
-    
   
     $(".date-mask").inputmask();
-    
-    //Educational Background add college
     
   });
 </script>

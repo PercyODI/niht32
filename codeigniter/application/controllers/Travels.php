@@ -54,4 +54,22 @@ class Travels extends MY_Controller {
         $this->render_json($data);
     }
     
+    public function save_travel($name, $desc, $cost, $travelId){
+       $travelId = (int)$travelId;
+       $name = (string)$name;
+       $desc = (string)$desc;
+       $cost = (float)$cost;
+       
+        if($travelId > 0) {
+            $data = array(
+               'name' => urldecode($name),
+               'description' => urldecode($desc),
+               'cost' => $cost
+            );
+        
+            $this->travel->save_travel_entry($data, $travelId);
+            
+            redirect('travels/view_travels/');
+        }
+    }
 }
