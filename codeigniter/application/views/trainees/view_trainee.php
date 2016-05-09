@@ -207,10 +207,10 @@
                 <b>Attendance Status: </b>
                 <?php 
                   if($trainee->attendence_status) {
-                    if($trainee->attendence_status == "full-time"){
+                    if($trainee->attendence_status == "full-time" || $trainee->attendence_status == "Full-time"){
                       echo "Full-Time";
                     }
-                    else if($trainee->attendence_status == "part-time"){
+                    else if($trainee->attendence_status == "part-time" || $trainee->attendence_status == "Part-time"){
                       echo "Part-Time";
                     }
                   } else {
@@ -232,7 +232,9 @@
             </div>
             <div class="tab-pane" id="test_scores">
               <p class="lead">Test Scores</p>
-              <?php if($trainee->testScore != ''){
+              <?php if($trainee->testScore->gmat_score != '' ||
+              $trainee->testScore->toefl_score != '' || $trainee->testScore->ielts_score != '' || $trainee->testScore->mat_score != ''
+              || $trainee->testScore->ibt_reading != '' || pb_reading){
                 echo '<p>
                   <b><u>GMAT: </u></b></br>
                   <b>Date: </b>' . $trainee->testScore->gmat_date . '</br>

@@ -358,31 +358,36 @@ class Trainees extends MY_Controller {
         $this->trainee->update($traineeId, array('test_score_id' => $test_score_id));
         
         $this->load->model('address_model', 'address');
-        $mailing_address_id = $this->address->insert(array(
-            'address_line_1' => isset($_POST['mailing_address_line_1']) ? $_POST['mailing_address_line_1'] : null,
-            'address_line_2' => isset($_POST['mailing_address_line_2']) ? $_POST['mailing_address_line_2'] : null,
-            'address_city' => isset($_POST['mailing_address_city']) ? $_POST['mailing_address_city'] : null,
-            'address_county' => isset($_POST['mailing_address_county']) ? $_POST['mailing_address_county'] : null,
-            'address_state' => isset($_POST['mailing_address_state']) ? $_POST['mailing_address_state'] : null,
-            'address_zip' => isset($_POST['mailing_address_zip']) ? $_POST['mailing_address_zip'] : null,
-            'address_country' => isset($_POST['mailing_address_country']) ? $_POST['mailing_address_country'] : null,
-            'telephone_number' => isset($_POST['mailing_telephone_number']) ? $_POST['mailing_telephone_number'] : null,
-            'valid_til' => isset($_POST['mailing_valid_til']) ? $_POST['mailing_valid_til'] : null
-            )
-        );
         
-        $permanent_address_id = $this->address->insert(array(
-            'address_line_1' => isset($_POST['permanent_address_line_1']) ? $_POST['permanent_address_line_1'] : null,
-            'address_line_2' => isset($_POST['permanent_address_line_2']) ? $_POST['permanent_address_line_2'] : null,
-            'address_city' => isset($_POST['permanent_address_city']) ? $_POST['permanent_address_city'] : null,
-            'address_county' => isset($_POST['permanent_address_county']) ? $_POST['permanent_address_county'] : null,
-            'address_state' => isset($_POST['permanent_address_state']) ? $_POST['permanent_address_state'] : null,
-            'address_zip' => isset($_POST['permanent_address_zip']) ? $_POST['permanent_address_zip'] : null,
-            'address_country' => isset($_POST['permanent_address_country']) ? $_POST['permanent_address_country'] : null,
-            'telephone_number' => isset($_POST['permanent_telephone_number']) ? $_POST['permanent_telephone_number'] : null,
-            'valid_til' => isset($_POST['permanent_valid_til']) ? $_POST['permanent_valid_til'] : null
-            )
-        );
+        if(isset($_POST['mailing_address_line_1'])) {
+            $mailing_address_id = $this->address->insert(array(
+                'address_line_1' => isset($_POST['mailing_address_line_1']) ? $_POST['mailing_address_line_1'] : null,
+                'address_line_2' => isset($_POST['mailing_address_line_2']) ? $_POST['mailing_address_line_2'] : null,
+                'address_city' => isset($_POST['mailing_address_city']) ? $_POST['mailing_address_city'] : null,
+                'address_county' => isset($_POST['mailing_address_county']) ? $_POST['mailing_address_county'] : null,
+                'address_state' => isset($_POST['mailing_address_state']) ? $_POST['mailing_address_state'] : null,
+                'address_zip' => isset($_POST['mailing_address_zip']) ? $_POST['mailing_address_zip'] : null,
+                'address_country' => isset($_POST['mailing_address_country']) ? $_POST['mailing_address_country'] : null,
+                'telephone_number' => isset($_POST['mailing_telephone_number']) ? $_POST['mailing_telephone_number'] : null,
+                'valid_til' => isset($_POST['mailing_valid_til']) ? $_POST['mailing_valid_til'] : null
+                )
+            );
+        }
+        
+        if(isset($_POST['permanent_address_line_1'])) {
+            $permanent_address_id = $this->address->insert(array(
+                'address_line_1' => isset($_POST['permanent_address_line_1']) ? $_POST['permanent_address_line_1'] : null,
+                'address_line_2' => isset($_POST['permanent_address_line_2']) ? $_POST['permanent_address_line_2'] : null,
+                'address_city' => isset($_POST['permanent_address_city']) ? $_POST['permanent_address_city'] : null,
+                'address_county' => isset($_POST['permanent_address_county']) ? $_POST['permanent_address_county'] : null,
+                'address_state' => isset($_POST['permanent_address_state']) ? $_POST['permanent_address_state'] : null,
+                'address_zip' => isset($_POST['permanent_address_zip']) ? $_POST['permanent_address_zip'] : null,
+                'address_country' => isset($_POST['permanent_address_country']) ? $_POST['permanent_address_country'] : null,
+                'telephone_number' => isset($_POST['permanent_telephone_number']) ? $_POST['permanent_telephone_number'] : null,
+                'valid_til' => isset($_POST['permanent_valid_til']) ? $_POST['permanent_valid_til'] : null
+                )
+            );
+        }
         
         $this->trainee->update($traineeId, array('mailing_address_id' => $mailing_address_id, 'permanent_address_id' => $permanent_address_id));
         
